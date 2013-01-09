@@ -1,0 +1,12 @@
+ofxNetwork
+ofxOpenCv
+ofxSvg
+ofxThreadedImageLoader
+ofxVectorGraphics
+ofxXmlSettings
+ofxAppUtils
+ofxPachube
+ofxSimpleSerial
+ofxTextSuite
+ofxTimer
+ofxTiming
