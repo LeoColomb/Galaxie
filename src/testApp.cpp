@@ -2,11 +2,10 @@
 
 //--------------------------------------------------------------
 void testApp::setup(){
-	ofColor black(0);
     ofSetVerticalSync(true);
     ofEnableSmoothing();
     ofFill();
-    ofBackground(black);
+    ofBackground(ofColor::black);
 }
 
 //--------------------------------------------------------------

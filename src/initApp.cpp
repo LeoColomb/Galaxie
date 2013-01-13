@@ -12,12 +12,15 @@ void initAppZone::update(int xM, int yM) {
 }
 
 void initAppZone::draw() {
-        ofSetColor(255,0,0);
+        if (isFixed) {
+            ofSetColor(ofColor::green);
+        } else {
+            ofSetColor(ofColor::red);
+        }
         ofFill();
         ofEllipse(x,y,200,200);
 }
 
 void initAppZone::fixed(int xM, int yM) {
-        ofSetColor(0);
         isFixed = true;
 }
