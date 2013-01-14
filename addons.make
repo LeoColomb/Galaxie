@@ -4,8 +4,7 @@ ofxSvg
 ofxThreadedImageLoader
 ofxVectorGraphics
 ofxXmlSettings
-ofxAppUtils
-ofxPachube
+ofxCosm
 ofxSimpleSerial
 ofxTextSuite
 ofxTimer
