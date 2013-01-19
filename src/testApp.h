@@ -1,12 +1,19 @@
 #pragma once
 
 #include "ofMain.h"
+
+#include "ofxSimpleSerial.h"
+#include "ofxTimer.h"
+
 #include "initApp.h"
+#include "transitions.h"
+#include "planets.h"
 
 class testApp : public ofBaseApp{
 
 	public:
 		void setup();
+		void setupI();
 		void update();
 		void draw();
 
@@ -20,5 +27,18 @@ class testApp : public ofBaseApp{
 		void dragEvent(ofDragInfo dragInfo);
 		void gotMessage(ofMessage msg);
 
+        int galaxieState;
+
 		initAppZone myZone;
+		galaxieTransitions showTransition;
+		planets planet;
+
+        ofxSimpleSerial arduino;
+   		void onNewMessage(string & byteReceived);
+
+		string byteReceived;
+		int sendedByte;
+
+		ofxTimer userActivity;
+
 };

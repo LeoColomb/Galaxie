@@ -5,7 +5,7 @@
 
 class initAppZone {
 
-public:
+    public:
 
         initAppZone();
 
