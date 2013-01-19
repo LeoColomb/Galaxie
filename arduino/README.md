@@ -14,12 +14,13 @@ __Released under the Creative Commons Share-Alike License 10/2011__
 
 [SRF08 Ultra Sonic Range Finder](http://playground.arduino.cc/Main/SonarSrf08 "Arduino Playground")
 --------------------------------
-Interfacing with Sonar Sensor SRF08library uses Wire.h 
- _-- SDA - Analog Pin 4 / SCL - Analog Pin 5 --_
+Interfacing with Sonar Sensor SRF08library uses Wire.h     
+ _- SDA - Analog Pin 4 / SCL - Analog Pin 5 -_
 
 ##### Authors
 * Zach Foresta - Foureza87@yahoo.com (April 2009)
-* Leo Colomb - [@LeoColomb](https://github.com/LeoColomb) (May 2012)
+* Leo Colomb - [@LeoColomb](https://github.com/LeoColomb) (May 2012)    
+Maintained on [GitHub](https://github.com/LeoColomb/Arduino-SRF08)
 
 __Released under the Creative Commons Share-Alike License 05/2012__
 
@@ -27,7 +28,7 @@ __Released under the Creative Commons Share-Alike License 05/2012__
 ----------------
 MIDI Library for Arduino (and other AVR platforms)
 
-Documentation for the latest stable release is available on [SourceForge](http://arduinomidilib.sourceforge.net/)
-Maintained on GitHub](https://github.com/FortySevenEffects/arduino_midi_library)
+Documentation for the latest stable release is available on [SourceForge](http://arduinomidilib.sourceforge.net/)    
+Maintained on [GitHub](https://github.com/FortySevenEffects/arduino_midi_library)
 
 __Released under the GNU General Public License version 3.0 (GPLv3)__
