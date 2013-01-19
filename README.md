@@ -12,7 +12,7 @@ Compilation
 ### Environnement
 * Code::Blocks - 10.05
 * openFrameworks - 0.7.3
-* Arduino - 1.0.2
+* Arduino - 1.0.3
 
 ### How To
 1. Install Code::Blocks and setup it like [this guide](http://www.openframeworks.cc/setup/codeblocks/) explain
