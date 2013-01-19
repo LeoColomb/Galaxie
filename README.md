@@ -21,6 +21,8 @@ Compilation
 4. Donwload and extract this repository in `apps/YOUR_FOLDER_NAME/`
 5. Start developping after open `Galaxie.workspace`
 
+_To set up Arduino Board, see the specifique [README](arduino/)._
+
 Contributions
 -------------
 
