@@ -1,5 +1,5 @@
 Galaxie
 =======
 
-Project is working progress.
-Find source in dev in `init-dev` branch.
+Project work in progress.
+Find sources in dev on `init-dev` branch.
