@@ -15,6 +15,9 @@ class planets {
         void draw();
         void select(int selection, int rang);
         void interaction(int variationD);
+        void drawShadow(float x, float y, int z);
+
+        ofImage * shadow;
 
 };
 

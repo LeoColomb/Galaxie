@@ -1,9 +1,11 @@
 #pragma once
 
 #include "ofMain.h"
+#include "constants.h"
 
 #include "ofxSimpleSerial.h"
 #include "ofxTimer.h"
+#include "ofxCosm.h"
 
 #include "initApp.h"
 #include "transitions.h"

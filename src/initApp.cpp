@@ -21,7 +21,7 @@ void initAppZone::draw() {
         ofSetColor(ofColor::red);
     }
     ofFill();
-    ofEllipse(x,y,200,200);
+    ofCircle(x,y,100);
 }
 
 //--------------------------------------------------------------

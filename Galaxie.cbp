@@ -6,7 +6,7 @@
 		<Option makefile="makefile" />
 		<Option pch_mode="2" />
 		<Option compiler="gcc" />
-		<Option virtualFolders="addons\;src\;addons\ofxNetwork\src\;addons\ofxOpenCv\libs\opencv\include\opencv2\calib3d\;addons\ofxOpenCv\libs\opencv\include\opencv2\contrib\;addons\ofxOpenCv\libs\opencv\include\opencv2\core\;addons\ofxOpenCv\libs\opencv\include\opencv2\features2d\;addons\ofxOpenCv\libs\opencv\include\opencv2\flann\;addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\;addons\ofxOpenCv\libs\opencv\include\opencv2\highgui\;addons\ofxOpenCv\libs\opencv\include\opencv2\imgproc\;addons\ofxOpenCv\libs\opencv\include\opencv2\legacy\;addons\ofxOpenCv\libs\opencv\include\opencv2\ml\;addons\ofxOpenCv\libs\opencv\include\opencv2\objdetect\;addons\ofxOpenCv\libs\opencv\include\opencv2\;addons\ofxOpenCv\libs\opencv\include\opencv2\ts\;addons\ofxOpenCv\libs\opencv\include\opencv2\video\;addons\ofxOpenCv\libs\opencv\include\opencv\;addons\ofxOpenCv\src\;addons\ofxSimpleSerial\src\;addons\ofxSvg\libs\svgTiny\src\;addons\ofxSvg\src\;addons\ofxTextSuite\src\;addons\ofxThreadedImageLoader\src\;addons\ofxTimer\src\;addons\ofxTiming\src\;addons\ofxVectorGraphics\libs\;addons\ofxVectorGraphics\src\;addons\ofxXmlSettings\libs\;addons\ofxXmlSettings\src\;" />
+		<Option virtualFolders="addons\;src\;addons\ofxNetwork\src\;addons\ofxOpenCv\libs\opencv\include\opencv2\calib3d\;addons\ofxOpenCv\libs\opencv\include\opencv2\contrib\;addons\ofxOpenCv\libs\opencv\include\opencv2\core\;addons\ofxOpenCv\libs\opencv\include\opencv2\features2d\;addons\ofxOpenCv\libs\opencv\include\opencv2\flann\;addons\ofxOpenCv\libs\opencv\include\opencv2\gpu\;addons\ofxOpenCv\libs\opencv\include\opencv2\highgui\;addons\ofxOpenCv\libs\opencv\include\opencv2\imgproc\;addons\ofxOpenCv\libs\opencv\include\opencv2\legacy\;addons\ofxOpenCv\libs\opencv\include\opencv2\ml\;addons\ofxOpenCv\libs\opencv\include\opencv2\objdetect\;addons\ofxOpenCv\libs\opencv\include\opencv2\;addons\ofxOpenCv\libs\opencv\include\opencv2\ts\;addons\ofxOpenCv\libs\opencv\include\opencv2\video\;addons\ofxOpenCv\libs\opencv\include\opencv\;addons\ofxOpenCv\src\;addons\ofxSimpleSerial\src\;addons\ofxSvg\libs\svgTiny\src\;addons\ofxSvg\src\;addons\ofxTextSuite\src\;addons\ofxThreadedImageLoader\src\;addons\ofxTimer\src\;addons\ofxTiming\src\;addons\ofxVectorGraphics\libs\;addons\ofxVectorGraphics\src\;addons\ofxXmlSettings\libs\;addons\ofxXmlSettings\src\;addons\ofxCosm\;addons\ofxCosm\src\;" />
 		<Build>
 			<Target title="release">
 				<Option output="bin\$(PROJECT_NAME)" prefix_auto="1" extension_auto="1" />
@@ -112,6 +112,7 @@
 			<Add directory="..\..\..\addons\ofxTimer\src" />
 			<Add directory="..\..\..\addons\ofxTiming\libs" />
 			<Add directory="..\..\..\addons\ofxTiming\src" />
+			<Add directory="..\..\..\addons\ofxCosm\src" />
 		</Compiler>
 		<Linker>
 			<Add library="..\..\..\libs\FreeImage\lib\win_cb\FreeImage.lib" />
@@ -169,6 +170,27 @@
 			<Add after='cmd /c if not exist &quot;$(PROJECT_DIR)bin/data&quot; mkdir &quot;$(PROJECT_DIR)bin/data&quot;' />
 			<Mode after="always" />
 		</ExtraCommands>
+		<Unit filename="..\..\..\addons\ofxCosm\src\ofxCosm.h">
+			<Option virtualFolder="addons\ofxCosm\src\" />
+		</Unit>
+		<Unit filename="..\..\..\addons\ofxCosm\src\ofxCosmFeed.cpp">
+			<Option virtualFolder="addons\ofxCosm\src\" />
+		</Unit>
+		<Unit filename="..\..\..\addons\ofxCosm\src\ofxCosmFeed.h">
+			<Option virtualFolder="addons\ofxCosm\src\" />
+		</Unit>
+		<Unit filename="..\..\..\addons\ofxCosm\src\ofxCosmInput.cpp">
+			<Option virtualFolder="addons\ofxCosm\src\" />
+		</Unit>
+		<Unit filename="..\..\..\addons\ofxCosm\src\ofxCosmInput.h">
+			<Option virtualFolder="addons\ofxCosm\src\" />
+		</Unit>
+		<Unit filename="..\..\..\addons\ofxCosm\src\ofxCosmOutput.cpp">
+			<Option virtualFolder="addons\ofxCosm\src\" />
+		</Unit>
+		<Unit filename="..\..\..\addons\ofxCosm\src\ofxCosmOutput.h">
+			<Option virtualFolder="addons\ofxCosm\src\" />
+		</Unit>
 		<Unit filename="..\..\..\addons\ofxNetwork\src\ofxNetwork.h">
 			<Option virtualFolder="addons\ofxNetwork\src" />
 		</Unit>
@@ -609,6 +631,9 @@
 		</Unit>
 		<Unit filename="..\..\..\addons\ofxXmlSettings\src\ofxXmlSettings.h">
 			<Option virtualFolder="addons\ofxXmlSettings\src" />
+		</Unit>
+		<Unit filename="src\constants.h">
+			<Option virtualFolder="src\" />
 		</Unit>
 		<Unit filename="src\initApp.cpp">
 			<Option virtualFolder="src\" />

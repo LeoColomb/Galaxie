@@ -6,6 +6,7 @@ void testApp::setup(){
     ofEnableSmoothing();
     ofFill();
     ofBackground(ofColor::black);
+    ofEnableAlphaBlending();
 }
 
 //--------------------------------------------------------------
@@ -14,7 +15,7 @@ void testApp::setupI(){
 
     //--
     arduino.enumerateDevices();
-    arduino.setup("COM5", 31250);
+    arduino.setup(SERIAL_PORT, 31250);
     ofSleepMillis(2000);
     arduino.startContinuesRead();
     ofAddListener(arduino.NEW_MESSAGE, this, &testApp::onNewMessage);
