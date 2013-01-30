@@ -85,6 +85,8 @@ void testApp::mousePressed(int x, int y, int button){
     if(!myZone.isFixed)  {
         testApp::setupI();
         myZone.fixed(x, y);
+        CENTER_X = x;
+        CENTER_Y = y;
     }
 }
 

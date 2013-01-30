@@ -2,6 +2,7 @@
 #define INITAPP_H_INCLUDED
 
 #include "ofMain.h"
+#include "constants.h"
 
 class initAppZone {
 
