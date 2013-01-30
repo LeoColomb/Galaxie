@@ -42,45 +42,66 @@
         <section>
             <h1 style="display: none;">Projet Galaxie</h1>
 
-                <em>Projet en cours de développement. - Project work in progress. Find source in dev on <code>init-dev</code> branch on <a href="https://github.com/LeoColomb/Galaxie/tree/init-dev">GitHub.</a></em>
-                <hr />
-                <h2>Combiner art et numérique</h2>
-                    <p><strong>Partez en exploration d'une Galaxie hors norme nouvellement découverte !</strong><br />Choisissez votre étoile et approchez-vous d’elle pour comprendre ses mécanismes et ses mystères. Avec de la chance, vous trouverez surement l’unique étoile qui illumine tout l’Univers…</p>
-                    <p>L'utilisation de l’outil informatique se démocratise dans tous les domaines. <strong>Pourquoi pas l’art ?</strong> A l’aide d’un socle de polystyrène taillé, d’une surface de projection, et du matériel informatique disposé à cette expérience, nous avons ainsi conçu un portail numérique et interactif d’animations représentant les différentes planètes de cette galaxie lointaine.</p>
-                    <p><small>Vimeo</small></p>
-                <ul>
-                    <li>La collection <small>— Sujet</small></li>
-                    <li>Art numérique <small>— Catégorie</small></li>
-                    <li>Interaction, Animation visuelle, Sonorité, Contribution, Open Source <small>— Mots Clés</small></li>
-                </ul>
-                <h2>Collaboration</h2>
-                    <p>Le développement avec le service internet GitHub, et l’aide de gestion de version sur dépôts <a href="http://fr.wikipedia.org/wiki/Git">Git</a>, permettent un travail compréhensible, collaboratif et librement partageable. Ces avantages sont considérables dans la mesure où d’une part le code source du projet peut être amélioré, et d’autre part les bogues sont plus simplement corrigeables.<br />
-                        La mutualisation de la source permet à tous les acteurs du projet de suivre en temps réel la progression du code, ainsi qu’un partage de contenu, valeur première d’Internet.</p>
+            <p><em>Projet en cours de développement. - Project work in progress. Find source in dev on <code>init-dev</code> branch on <a href="https://github.com/LeoColomb/Galaxie/tree/init-dev">GitHub.</a></em></p>
+            <hr />
+            <h2>Combiner art et numérique</h2>
+            <h3>Comprendre le projet</h3>
+            <p>Ce projet est une approche pour tenter d’<strong>unir l’informatique et l’art numérique</strong>.<br />
+            Ces domaines d’innovations où les règles sont mouvantes et les limites chaque jour repoussées, offre <strong>un champ d’action des plus stimulant</strong>. Sous le thème de la collection, cette ébauche laisse l’imagination du spectateur naviguer dans une galaxie, c’est-à-dire un choix de planètes imaginaires, avec lesquelles le public pourra interagir. L’<strong>interaction induit le ludique</strong> qui permet une appropriation plus immédiate d’un large public.</p>
+            <h3>Partir en exploration dans une Galaxie</h3>
+            <p>Choisissez votre étoile et approchez-vous d’elle pour comprendre ses mécanismes et ses mystères. Avec de la chance, vous trouverez surement l’unique étoile qui illumine tout l’Univers…</p>
+            <p>À l’aide d’un socle de polystyrène taillé, d’une surface de projection, et du matériel informatique disposé à cette expérience, nous avons ainsi conçu un portail numérique et interactif d’animations représentant les différentes planètes de cette galaxie lointaine.</p>
+            <p><small>Vimeo</small></p>
+            <ul>
+                <li>La collection <small>— Sujet</small></li>
+                <li>Art numérique <small>— Catégorie</small></li>
+                <li>Interaction, Animation visuelle, Sonorité, Contribution, Open Source <small>— Mots Clés</small></li>
+            </ul>
+            <h2>Collaboration</h2>
+            <p>Le développement avec le service internet GitHub, et l’aide de gestion de version sur dépôts <a href="http://fr.wikipedia.org/wiki/Git">Git</a>, permettent un travail compréhensible, collaboratif et librement partageable. Ces avantages sont considérables dans la mesure où d’une part le code source du projet peut être amélioré, et d’autre part les bogues sont plus simplement corrigeables.<br />
+            La mutualisation de la source permet à tous les acteurs du projet de suivre en temps réel la progression du code, ainsi qu’un partage de contenu, valeur première d’Internet.</p>
             <hr />
             <h1>Développement</h1>
-                <h2>Environnement</h2>
-                        <p>Pour débuter le développement du projet, commençons par décrire la méthode à suivre. Préparez en premier l'environnement numérique de travail.</p>
-                    <h3>openFrameworks</h3>
-                        <h4>Logiciels requis</h4>
-                            <ul>
-                                <li>IDE - Code::Blocks</li>
-                                <li>Librairie openFrameworks</li>
-                                <li>Modules openFrameworks</li>
-                            </ul>
-                    <h3>Arduino</h3>
-                        <h4>Matériel requis</h4>
-                            <ul>
-                                <li>Carte Arduino</li>
-                                <li>Module SRF08 - Capteur Sonic</li>
-                                <li>Connectique MIDI</li>
-                            </ul>
-                         <h4>Croquis</h4>
+            <h2>Environnement</h2>
+            <p>Pour débuter le développement du projet, commençons par décrire la méthode à suivre. Préparez en premier l'environnement numérique de travail.</p>
+            <h3>openFrameworks</h3>
+            <h4>Logiciels requis</h4>
+            <ul>
+                <li>IDE - Code::Blocks</li>
+                <li>Librairie openFrameworks</li>
+                <li>Modules openFrameworks</li>
+            </ul>
+            <h4>Installation</h4>
+            <p>Il existe déjà un tutorial illustré sur l’installation d’openFrameworks <a href="http://www.openframeworks.cc/setup/codeblocks_setup_guide">le site officiel</a>. Il est en anglais, mais relativement facile à suivre grâce à ses nombreuses captures d’écran.</p>
+            <ol>
+                <li>Aller sur <a href="http://www.codeblocks.org/downloads/binaries">CodeBlocks</a> et téléchargez la version de CodeBlocks qui inclût le compilateur GCC et «&nbsp;debugger&nbsp;» GDB du projet Mingw. Installez ce logiciel.</li>
+                <li>Retournez au «&nbsp;<a href="http://www.openframeworks.cc/setup/codeblocks_setup_guide" class="spip_out" rel="external">CodeBlocks Setup Guide</a>&nbsp;» du site d’OpenFrameworks et téléchargez sous l’étape (e) les «&nbsp;<a href="http://www.openframeworks.cc/content/files/codeblocks_additions.zip">CodeBlocks addons</a>&nbsp;» (#1) que vous aller ajouter à votre copie de CodeBlocks que vous venez d’installer (#2 &amp; #3).</li>
+                <li>Décompressez ce dossier «&nbsp;codeblocks_addons&nbsp;» que vous venez de télécharger à l’aide de votre programme Zip préféré.</li>
+                <li>Copiez tous les fichiers dans le sous-dossier nommé «&nbsp;add_to_codeblocks_mingw_include&nbsp;» et comme indiqué, copiez-les dans le dossier <i>Program Files &gt; Code Blocks &gt; MinGW &gt; include</i>. Attention de copier les fichiers dans ce dossier et de ne pas juste déplacer le dossier lui-même.</li>
+                <li>Retournez au dossier «&nbsp;codeblocks addons&nbsp;», et sélectionnez tous les fichiers dans le sous-dossier nommé «&nbsp;add_to_codeblocks_mingw_libs&nbsp;» que vous aller copiez dans le dossier <i>Program Files &gt; Code Blocks &gt; MinGW &gt; libs</i></li>
+            </ol>
+            <p>Vous avez terminé de configurer CodeBlocks. Il faut maintenant installer les bibliothèques et exemples d’OpenFrameworks.</p>
+            <ol>
+                <li>Allez dans l’espace «&nbsp;download&nbsp;» d’OpenFrameworks&nbsp;: <a href="http://www.openframeworks.cc/download">http://www.openframeworks.cc/download</a> et téléchargez le fichier «&nbsp;code blocks&nbsp;» pour Windows.</li>
+                <li>Décompressez ce dossier et placez-le quelque part dans «&nbsp;Mes Documents&nbsp;» ou n’importe quel autre endroit où vous stockez vos documents.</li>
+            </ol>
+            <h3>Arduino</h3>
+            <h4>Matériel requis</h4>
+            <ul>
+                <li>Carte Arduino</li>
+                <li>Arduino IDE</li>
+                <li>Module SRF08 - Capteur Sonic</li>
+                <li>Connectique MIDI</li>
+            </ul>
+            <h4>Croquis</h4>
 
             <h2>Construction</h2>
 
             <hr />
             <h1>À propos</h1>
-                <h3>Licences</h3>
+            <h3>Ressources</h3>
+            <p><strong>Initialisation openFrameworks</strong> - <a href="http://www.ecole-art-aix.fr/rubrique906.html">École Supérieure d’Art d'Aix-en-Provence</a></p>
+            <h3>Licences</h3>
 
             <hr />
             <h1>Notes de Version</h1>
@@ -91,6 +112,18 @@
         </footer>
     </div>
     <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    <script type="text/javascript">
+        var _gaq = _gaq || [];
+        _gaq.push(['_setAccount', 'UA-27779657-1']);
+        _gaq.push(['_setDomainName', 'colombaro.fr']);
+        _gaq.push(['_trackPageview']);
+
+        (function () {
+            var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+            ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+            var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+        })();
+    </script>
 
 </body>
 </html>
