@@ -1,7 +1,7 @@
 [Galaxie](http://code.colombaro.fr/Galaxie/)
 =========
 
-Interactive Collection of Planets, with [Arduino](http://www.arduino.cc/) & [openFrameworks](http://www.openframeworks.cc/).
+Interactive Collection of Planets, made with [Arduino](http://www.arduino.cc/) & [openFrameworks](http://www.openframeworks.cc/).
 
 Project
 -------
@@ -10,8 +10,8 @@ This is the source of an Interactive Collection of Planets, create for show how 
 Compilation
 -----------
 ### Environnement
-* Code::Blocks - 10.05
-* openFrameworks - 0.7.3
+* Code::Blocks - 12.11
+* openFrameworks - 0.7.4
 * Arduino - 1.0.3
 
 ### How To
@@ -25,5 +25,4 @@ _To set up Arduino Board, see the specifique [README](arduino/)._
 
 Contributions
 -------------
-
 &copy; L&eacute;o Colombaro - Open Source Project 2013
