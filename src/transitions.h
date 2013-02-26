@@ -3,6 +3,18 @@
 
 #include "ofMain.h"
 
+class particules {
+
+    public:
+
+        particules();
+
+        void update();
+        void draw();
+        float x,y;
+
+};
+
 class galaxieTransitions {
 
     public:
@@ -11,6 +23,8 @@ class galaxieTransitions {
 
         void update(int step);
         void draw();
+
+        vector<particules> allParticules;
 
 };
 

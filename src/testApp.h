@@ -40,6 +40,7 @@ class testApp : public ofBaseApp{
 
         ofxSimpleSerial arduino;
    		void onNewMessage(string & byteReceived);
+   		bool withArduino = true;
 
 		string byteReceived;
 		int sendedByte;
