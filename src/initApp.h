@@ -5,19 +5,17 @@
 #include "constants.h"
 
 class initAppZone {
+public:
 
-    public:
+	initAppZone();
 
-        initAppZone();
+	void update(int xM, int yM);
+	void draw();
+	void fixed(int xM, int yM);
 
-        void update(int xM, int yM);
-        void draw();
-        void fixed(int xM, int yM);
+	float x,y;
 
-        float x,y;
-
-        bool isFixed;
-
+	bool isFixed;
 };
 
 #endif // INITAPP_H_INCLUDED

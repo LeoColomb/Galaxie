@@ -4,21 +4,19 @@
 #include "ofMain.h"
 
 class planets {
+private:
+	int proximity;
 
-    private:
-        int proximity;
+public:
+	planets();
 
-    public:
-        planets();
+	void update(int step);
+	void draw();
+	void select(int selection, int rang);
+	void interaction(int variationD);
+	void drawShadow(float x, float y, int z);
 
-        void update(int step);
-        void draw();
-        void select(int selection, int rang);
-        void interaction(int variationD);
-        void drawShadow(float x, float y, int z);
-
-        ofImage * shadow;
-
+	ofImage * shadow;
 };
 
 #endif // PLANETS_H_INCLUDED

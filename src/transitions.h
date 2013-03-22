@@ -4,28 +4,24 @@
 #include "ofMain.h"
 
 class particules {
+public:
 
-    public:
+	particules();
 
-        particules();
-
-        void update();
-        void draw();
-        float x,y;
-
+	void update();
+	void draw();
+	float x,y;
 };
 
 class galaxieTransitions {
+public:
 
-    public:
+	galaxieTransitions();
 
-        galaxieTransitions();
+	void update(int step);
+	void draw();
 
-        void update(int step);
-        void draw();
-
-        vector<particules> allParticules;
-
+	vector<particules> allParticules;
 };
 
 #endif // TRANSITIONS_H_INCLUDED
