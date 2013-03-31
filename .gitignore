@@ -61,6 +61,9 @@ local.properties
 .builds
 *.dotCover
 
+[Bb]in/*
+![Bb]in/data/
+
 ## TODO: If you have NuGet Package Restore enabled, uncomment this
 #packages/
 
