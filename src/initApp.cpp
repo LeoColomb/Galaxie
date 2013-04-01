@@ -16,15 +16,18 @@ void initAppZone::update(int xM, int yM) {
 //--------------------------------------------------------------
 void initAppZone::draw() {
 	if (isFixed) {
-		ofSetColor(ofColor::green);
+		ofSetColor(ofColor::gray);
 	} else {
 		ofSetColor(ofColor::red);
 	}
 	ofFill();
+	ofSetCircleResolution(50);
 	ofCircle(x,y,100);
 }
 
 //--------------------------------------------------------------
-void initAppZone::fixed(int xM, int yM) {
+void initAppZone::fixed() {
 	isFixed = true;
+	x = 0;
+	y = 0;
 }

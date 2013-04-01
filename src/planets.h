@@ -2,6 +2,7 @@
 #define PLANETS_H_INCLUDED
 
 #include "ofMain.h"
+#include "transitions.h"
 
 class planets {
 private:
@@ -10,6 +11,7 @@ private:
 public:
 	planets();
 
+	void init();
 	void update(int step);
 	void draw();
 	void select(int selection, int rang);
@@ -17,6 +19,8 @@ public:
 	void drawShadow(float x, float y, int z);
 
 	ofImage * shadow;
+	particules allParticules[100];
+	ofPolyline rotor;
 };
 
 #endif // PLANETS_H_INCLUDED

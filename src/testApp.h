@@ -28,18 +28,16 @@ public:
 	void dragEvent(ofDragInfo dragInfo);
 	void gotMessage(ofMessage msg);
 
-	int CENTER_X;
-	int CENTER_Y;
+	float CENTER_X;
+	float CENTER_Y;
 
 	int galaxieState;
 
 	initAppZone myZone;
-	galaxieTransitions showTransition;
 	planets planet;
 
 	ofxSimpleSerial arduino;
 	void onNewMessage(string & byteReceived);
-	bool withArduino;
 
 	string byteReceived;
 	int sendedByte;

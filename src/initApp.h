@@ -2,7 +2,6 @@
 #define INITAPP_H_INCLUDED
 
 #include "ofMain.h"
-#include "constants.h"
 
 class initAppZone {
 public:
@@ -11,7 +10,7 @@ public:
 
 	void update(int xM, int yM);
 	void draw();
-	void fixed(int xM, int yM);
+	void fixed();
 
 	float x,y;
 

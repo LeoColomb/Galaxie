@@ -8,20 +8,19 @@ public:
 
 	particules();
 
-	void update();
-	void draw();
-	float x,y;
-};
-
-class galaxieTransitions {
-public:
-
-	galaxieTransitions();
-
+	void init();
+	void reset();
 	void update(int step);
 	void draw();
+	float x,y;
 
-	vector<particules> allParticules;
+	int colored;
+	int randomNeg;
+	float randomShX;
+	float randomShY;
+	int timeNow;
+	bool bDirection;
+	bool bMouv;
 };
 
 #endif // TRANSITIONS_H_INCLUDED

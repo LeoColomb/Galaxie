@@ -2,35 +2,70 @@
 
 //--------------------------------------------------------------
 particules::particules() {
-	x = ofRandom(0, ofGetWidth());
-	y = ofRandom(0, ofGetHeight());
+}
+
+void particules::init() {
+	ofSetColor(0,255,0);
+	timeNow = ofGetElapsedTimef();
+	randomShX = ofRandomf();
+	randomShY = ofRandomf();
+	bDirection = true;
+	bMouv = true;
+}
+
+void particules::reset() {
+	x = (randomShX * (ofGetElapsedTimef() - timeNow) * 50);
+	y = (randomShY * (ofGetElapsedTimef() - timeNow) * 50);
+	timeNow = ofGetElapsedTimef();
 }
 
 //--------------------------------------------------------------
-void particules::update() {
+void particules::update(int step) {
+	colored = ofRandom(4-step);
+	if (step == 3)
+	{
+		reset();
+		bMouv = false;
+		bDirection = false;
+	}
 }
 
 //--------------------------------------------------------------
 void particules::draw() {
-	ofSetColor(255,0,0);
+	if (ofDist(0, 0, x, y) >= 200)
+	{
+		reset();
+		bDirection = false;
+	}
+	if (x == 0 || y == 0)
+	{
+		reset();
+		if (bMouv)
+			bDirection = true;
+		else
+		{
+			x = 0;
+			y = 0;
+		}
+	}
+
+	if (bDirection)
+	{
+		x = (randomShX * (ofGetElapsedTimef() - timeNow) * 50);
+		y = (randomShY * (ofGetElapsedTimef() - timeNow) * 50);
+	}
+	else if (bMouv)
+	{
+		x -= (randomShX * (ofGetElapsedTimef() - timeNow) * (50));
+		y -= (randomShY * (ofGetElapsedTimef() - timeNow) * (50));
+	}
 	ofFill();
-	ofEllipse(x,y,25,25);
-}
-
-//--------------------------------------------------------------
-galaxieTransitions::galaxieTransitions() {
-}
-
-//--------------------------------------------------------------
-void galaxieTransitions::update(int step) {
-	for(int i = 0; i < allParticules.size(); i++) {
-		allParticules[i].update();
+	if (colored <= 0)
+	{
+		ofSetColor(0,255,0);
+	} else
+	{
+		ofSetColor(255,0,0);
 	}
-}
-
-//--------------------------------------------------------------
-void galaxieTransitions::draw() {
-	for(int i = 0; i < allParticules.size(); i++) {
-		allParticules[i].draw();
-	}
+	ofCircle(x,y,3);
 }

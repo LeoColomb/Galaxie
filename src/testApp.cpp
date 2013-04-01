@@ -4,28 +4,27 @@
 void testApp::setup(){
 	ofSetVerticalSync(true);
 	ofEnableSmoothing();
-	ofBackgroundGradient(ofColor::white, ofColor::black, OF_GRADIENT_CIRCULAR);
+	ofBackground(ofColor::black);
 	ofFill();
 	ofEnableAlphaBlending();
-	withArduino = true;
 }
 
 //--------------------------------------------------------------
 void testApp::setupI(){
+	planet.init();
 	galaxieState = 1;
 
-	//--
-	arduino.enumerateDevices();
-	int i = 0;
-	while (!arduino.setup(SERIAL_PORT, 31250)){
-		i++;
-		if (i == 5){
-			withArduino = false;
-			break;
+	if (WITH_ARDUINO){
+		arduino.enumerateDevices();
+		int i = 0;
+		while (!arduino.setup(SERIAL_PORT, 31250)){
+			i++;
+			if (i == 5){
+				cout << "Are you sure you have Arduino connected?\n";
+				break;
+			}
+			ofSleepMillis(400);
 		}
-		ofSleepMillis(400);
-	}
-	if (withArduino){
 		arduino.startContinuesRead();
 		ofAddListener(arduino.NEW_MESSAGE, this, &testApp::onNewMessage);
 	} else {
@@ -37,9 +36,8 @@ void testApp::setupI(){
 
 //--------------------------------------------------------------
 void testApp::update(){
-	showTransition.update(galaxieState);
 	//if (userActivity.alarm() == true){
-	if (withArduino){
+	if (WITH_ARDUINO){
 		arduino.writeByte(galaxieState);
 	}
 	//userActivity.resetAlarm();
@@ -49,14 +47,16 @@ void testApp::update(){
 //--------------------------------------------------------------
 void testApp::draw(){
 	//--
-
+	if (!myZone.isFixed)
+	{
+		myZone.draw();
+		return;
+	}
 	//--
-	showTransition.draw();
-
+	ofTranslate(CENTER_X, CENTER_Y);
+	planet.draw();
 	//--
 	myZone.draw();
-
-	//--
 }
 
 //--------------------------------------------------------------
@@ -94,11 +94,13 @@ void testApp::mouseDragged(int x, int y, int button){
 void testApp::mousePressed(int x, int y, int button){
 	if(!myZone.isFixed){
 		testApp::setupI();
-		myZone.fixed(x, y);
+		myZone.fixed();
 		CENTER_X = x;
 		CENTER_Y = y;
 	}
-	if (!withArduino){
+	if (!WITH_ARDUINO){
+		planet.update(galaxieState);
+		galaxieState += 1;
 		planet.interaction(x);
 	}
 }
