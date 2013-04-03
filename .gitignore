@@ -60,6 +60,8 @@ local.properties
 *.vspscc
 .builds
 *.dotCover
+*.exp
+*.lib
 
 [Bb]in/*
 ![Bb]in/data/
