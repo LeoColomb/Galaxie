@@ -1,0 +1,26 @@
+<planet id="0">
+  <name></name>
+  <structure>
+    <triangle>
+      <r>0</r>
+      <g>100</g>
+      <b>255</b>
+    </triangle>
+    <rotor>
+      <r>0</r>
+      <g>100</g>
+      <b>255</b>
+    </rotor>
+    <curvor>
+      <r>0</r>
+      <g>100</g>
+      <b>255</b>
+    </curvor>
+  </structure>
+  <song>
+    <part1>test</part1>
+    <part2>test</part2>
+    <part3>test</part3>
+    <part4>test</part4>
+  </song>
+</planet>

@@ -1,0 +1,138 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="src\testApp.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\main.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\main.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\testApp.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\initApp.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\planets.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\transitions.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxCosm\src\ofxCosmFeed.cpp">
+      <Filter>addons\ofxCosm</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxCosm\src\ofxCosmInput.cpp">
+      <Filter>addons\ofxCosm</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxCosm\src\ofxCosmOutput.cpp">
+      <Filter>addons\ofxCosm</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxSimpleSerial\src\ofxSimpleSerial.cpp">
+      <Filter>addons\ofxSimpleSerial</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxTimer\src\ofxTimer.cpp">
+      <Filter>addons\ofxTimer</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxXmlSettings\src\ofxXmlSettings.cpp">
+      <Filter>addons\ofxXmlSettings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxXmlSettings\libs\tinyxml.cpp">
+      <Filter>addons\ofxXmlSettings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxXmlSettings\libs\tinyxmlerror.cpp">
+      <Filter>addons\ofxXmlSettings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxXmlSettings\libs\tinyxmlparser.cpp">
+      <Filter>addons\ofxXmlSettings</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="src">
+      <UniqueIdentifier>{d8376475-7454-4a24-b08a-aac121d3ad6f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons">
+      <UniqueIdentifier>{9205b989-fe71-420a-bdd5-21d099d5e5f6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxCosm">
+      <UniqueIdentifier>{38224298-4fd4-40ab-851d-0b8e74b1e818}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxSimpleSerial">
+      <UniqueIdentifier>{7583e9f2-e60d-4f0b-987f-9c0cc29aa581}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxTimer">
+      <UniqueIdentifier>{f05edc25-c329-4c6b-bd3a-37ac5ecd1383}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxTiming">
+      <UniqueIdentifier>{92c4298c-882e-4f52-9e0b-f637ce22c41c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxXmlSettings">
+      <UniqueIdentifier>{67242e03-ede1-4deb-9815-116ab6447439}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\testApp.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\testApp.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\constants.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\initApp.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\planets.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\transitions.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxCosm\src\ofxCosm.h">
+      <Filter>addons\ofxCosm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxCosm\src\ofxCosmFeed.h">
+      <Filter>addons\ofxCosm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxCosm\src\ofxCosmInput.h">
+      <Filter>addons\ofxCosm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxCosm\src\ofxCosmOutput.h">
+      <Filter>addons\ofxCosm</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxSimpleSerial\src\ofxSimpleSerial.h">
+      <Filter>addons\ofxSimpleSerial</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxTimer\src\ofxTimer.h">
+      <Filter>addons\ofxTimer</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxTiming\src\ofxTiming.h">
+      <Filter>addons\ofxTiming</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxTiming\src\RateTimer.h">
+      <Filter>addons\ofxTiming</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxTiming\src\Hysteresis.h">
+      <Filter>addons\ofxTiming</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxTiming\src\DelayTimer.h">
+      <Filter>addons\ofxTiming</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxTiming\src\FadeTimer.h">
+      <Filter>addons\ofxTiming</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxXmlSettings\src\ofxXmlSettings.h">
+      <Filter>addons\ofxXmlSettings</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxXmlSettings\libs\tinyxml.h">
+      <Filter>addons\ofxXmlSettings</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="icon.rc" />
+  </ItemGroup>
+</Project>
