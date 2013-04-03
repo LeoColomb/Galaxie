@@ -21,13 +21,15 @@ void particules::reset() {
 
 //--------------------------------------------------------------
 void particules::update(int step) {
-	colored = ofRandom(4-step);
-	if (step == 3)
+	if (step == 4)
 	{
 		reset();
 		bMouv = false;
 		bDirection = false;
 	}
+	else
+		bMouv = true;
+	colored = ofRandom(step, 5)-step;
 }
 
 //--------------------------------------------------------------
@@ -62,10 +64,14 @@ void particules::draw() {
 	ofFill();
 	if (colored <= 0)
 	{
-		ofSetColor(0,255,0);
+		ofSetColor(ofColor::greenYellow);
 	} else
 	{
-		ofSetColor(255,0,0);
+		ofSetColor(ofColor::mediumVioletRed);
+	}
+	if (!bMouv)
+	{
+		ofSetColor(ofColor::greenYellow,1);
 	}
 	ofCircle(x,y,3);
 }

@@ -101,6 +101,10 @@
     <ClCompile Include="..\..\..\addons\ofxCosm\src\ofxCosmOutput.cpp" />
     <ClCompile Include="..\..\..\addons\ofxSimpleSerial\src\ofxSimpleSerial.cpp" />
     <ClCompile Include="..\..\..\addons\ofxTimer\src\ofxTimer.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxXmlSettings\libs\tinyxml.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxXmlSettings\libs\tinyxmlerror.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxXmlSettings\libs\tinyxmlparser.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxXmlSettings\src\ofxXmlSettings.cpp" />
     <ClCompile Include="src\initApp.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\planets.cpp" />
@@ -119,6 +123,8 @@
     <ClInclude Include="..\..\..\addons\ofxTiming\src\Hysteresis.h" />
     <ClInclude Include="..\..\..\addons\ofxTiming\src\ofxTiming.h" />
     <ClInclude Include="..\..\..\addons\ofxTiming\src\RateTimer.h" />
+    <ClInclude Include="..\..\..\addons\ofxXmlSettings\libs\tinyxml.h" />
+    <ClInclude Include="..\..\..\addons\ofxXmlSettings\src\ofxXmlSettings.h" />
     <ClInclude Include="src\constants.h" />
     <ClInclude Include="src\initApp.h" />
     <ClInclude Include="src\planets.h" />

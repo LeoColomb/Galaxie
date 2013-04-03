@@ -2,7 +2,9 @@
 #define PLANETS_H_INCLUDED
 
 #include "ofMain.h"
+#include "../../addons/ofxXmlSettings/src/ofxXmlSettings.h"
 #include "transitions.h"
+
 
 class planets {
 private:
@@ -21,6 +23,10 @@ public:
 	ofImage * shadow;
 	particules allParticules[100];
 	ofPolyline rotor;
+	ofPolyline curvor;
+
+	ofxXmlSettings galaxieConf;
+	ofSoundPlayer soundPlay;
 };
 
 #endif // PLANETS_H_INCLUDED

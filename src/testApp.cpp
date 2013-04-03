@@ -100,7 +100,10 @@ void testApp::mousePressed(int x, int y, int button){
 	}
 	if (!WITH_ARDUINO){
 		planet.update(galaxieState);
-		galaxieState += 1;
+		if (galaxieState <= 4)
+			galaxieState++;
+		else
+			galaxieState = 1;
 		planet.interaction(x);
 	}
 }

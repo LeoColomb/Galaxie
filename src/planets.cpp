@@ -9,6 +9,7 @@ void planets::init() {
 	for(int i = 0; i < 100; i++) {
 		allParticules[i].init();
 	}
+	galaxieConf.loadFile("planets.xml");
 }
 
 //--------------------------------------------------------------
@@ -24,6 +25,17 @@ void planets::update(int step) {
 		angle += TWO_PI / 15;
 	}
 	rotor.close();
+	angle = 0;
+	while (angle < TWO_PI ) {
+		curvor.curveTo(200*cos(angle), 200*sin(angle));
+		curvor.curveTo(150*cos(angle+(TWO_PI / 30)), 150*sin(angle+(TWO_PI / 30)));
+		angle += TWO_PI / 15;
+	}
+	curvor.close();
+	soundPlay.loadSound("sounds/" + galaxieConf.getValue("planet:song:part" + ofToString(step), "") + ".mp3");
+	soundPlay.setLoop(true);
+	//soundPlay.play();
+	soundPlay.setPosition(0.5f); //Back to center
 }
 
 //--------------------------------------------------------------
@@ -31,17 +43,32 @@ void planets::draw() {
 	for(int i = 0; i < 100; i++) {
 		allParticules[i].draw();
 	}
-	//	if (addTriangle){
-	ofPushMatrix();
-	ofRotate(sin(ofGetElapsedTimef())*180);
-	ofNoFill();
-	ofTriangle(0,-400,-(600/sin(PI/3))*cos(PI/3),200,(600/sin(PI/3)*cos(PI/3)),200);
-	ofPopMatrix();
-	//	if (addRotor){
-	ofPushMatrix();
-	ofRotate(ofGetElapsedTimef()*90);
-	rotor.draw();
-	ofPopMatrix();
+	galaxieConf.pushTag("planet");
+	galaxieConf.pushTag("structure");
+	if (galaxieConf.tagExists("triangle")){
+		ofPushMatrix();
+		ofSetColor(galaxieConf.getValue("triangle:r", 0),galaxieConf.getValue("triangle:g", 0),galaxieConf.getValue("triangle:b", 0));
+		ofRotate(sin(ofGetElapsedTimef())*180);
+		ofNoFill();
+		ofTriangle(0,-400,-(600/sin(PI/3))*cos(PI/3),200,(600/sin(PI/3)*cos(PI/3)),200);
+		ofPopMatrix();
+	}
+	if (galaxieConf.tagExists("rotor")){
+		ofPushMatrix();
+		ofSetColor(galaxieConf.getValue("rotor:r", 0),galaxieConf.getValue("rotor:g", 0),galaxieConf.getValue("rotor:b", 0));
+		ofRotate(ofGetElapsedTimef()*90);
+		rotor.draw();
+		ofPopMatrix();
+	}
+	if (galaxieConf.tagExists("curvor")){
+		ofPushMatrix();
+		ofSetColor(galaxieConf.getValue("curvor:r", 0),galaxieConf.getValue("curvor:g", 0),galaxieConf.getValue("curvor:b", 0));
+		ofRotate(ofGetElapsedTimef()*20);
+		curvor.draw();
+		ofPopMatrix();
+	}
+	galaxieConf.popTag();
+	galaxieConf.popTag();
 }
 
 //--------------------------------------------------------------
