@@ -32,7 +32,7 @@ void planets::update(int step) {
 		angle += TWO_PI / 15;
 	}
 	curvor.close();
-	soundPlay.loadSound("sounds/" + galaxieConf.getValue("planet:song:part" + ofToString(step), "") + ".mp3");
+	soundPlay.loadSound("sounds/" + galaxieConf.getValue("planet:sound:part" + ofToString(step), "") + ".mp3");
 	soundPlay.setLoop(true);
 	//soundPlay.play();
 	soundPlay.setPosition(0.5f); //Back to center
