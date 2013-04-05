@@ -15,6 +15,8 @@ public:
 	float x,y;
 
 	bool isFixed;
+
+	ofPath planetCore;
 };
 
 #endif // INITAPP_H_INCLUDED
