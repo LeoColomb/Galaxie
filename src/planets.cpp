@@ -2,22 +2,10 @@
 
 //--------------------------------------------------------------
 planets::planets() {
-}
-
-//--------------------------------------------------------------
-void planets::init() {
 	for(int i = 0; i < 100; i++) {
 		allParticules[i].init();
 	}
 	galaxieConf.loadFile("planets.xml");
-}
-
-//--------------------------------------------------------------
-void planets::update(int step) {
-	for(int i = 0; i < 100; i++) {
-		allParticules[i].update(step);
-	}
-	// make a pentagon
 	float angle = 0;
 	while (angle < TWO_PI ) {
 		rotor.lineTo(200*cos(angle), 200*sin(angle));
@@ -26,12 +14,23 @@ void planets::update(int step) {
 	}
 	rotor.close();
 	angle = 0;
-	while (angle < TWO_PI ) {
+	while (angle <= TWO_PI+(TWO_PI / 12) ) {
 		curvor.curveTo(200*cos(angle), 200*sin(angle));
-		curvor.curveTo(150*cos(angle+(TWO_PI / 30)), 150*sin(angle+(TWO_PI / 30)));
-		angle += TWO_PI / 15;
+		curvor.curveTo(150*cos(angle+(TWO_PI / 28)), 150*sin(angle+(TWO_PI / 28)));
+		angle += TWO_PI / 14;
 	}
-	curvor.close();
+}
+
+//--------------------------------------------------------------
+void planets::init() {
+}
+
+//--------------------------------------------------------------
+void planets::update(int step) {
+	for(int i = 0; i < 100; i++) {
+		allParticules[i].update(step);
+	}
+	// make a pentagon
 	soundPlay.loadSound("sounds/" + galaxieConf.getValue("planet:sound:part" + ofToString(step), "") + ".mp3");
 	soundPlay.setLoop(true);
 	//soundPlay.play();

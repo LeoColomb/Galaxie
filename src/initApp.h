@@ -16,7 +16,7 @@ public:
 
 	bool isFixed;
 
-	ofPath planetCore;
+	ofPath planetCore1, planetCore2;
 };
 
 #endif // INITAPP_H_INCLUDED
