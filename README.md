@@ -15,11 +15,11 @@ Compilation
 * Arduino - 1.0.3
 
 ### How To
-1. Install Code::Blocks and setup it like [this guide](http://www.openframeworks.cc/setup/codeblocks/) explain
+1. Install Visual Studio 2012 - see [this guide](http://www.openframeworks.cc/setup/vs/)
 2. Create an openFrameworks folder with the library
 3. Get all addons listed in `addons.make`
 4. Donwload and extract this repository in `apps/YOUR_FOLDER_NAME/`
-5. Start developping after open `Galaxie.workspace`
+5. Start developping after open `Galaxie.sln`
 
 _To set up Arduino Board, see the specifique [README](arduino/)._
 
