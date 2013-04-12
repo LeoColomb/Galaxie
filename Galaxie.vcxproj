@@ -108,7 +108,7 @@
     <ClCompile Include="src\gInitialisation.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\gPlanet.cpp" />
-    <ClCompile Include="src\galaxieApp.cpp" />
+    <ClCompile Include="src\gApp.cpp" />
     <ClCompile Include="src\gTransition.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -130,7 +130,7 @@
     <ClInclude Include="src\gConstants.h" />
     <ClInclude Include="src\gInitialisation.h" />
     <ClInclude Include="src\gPlanet.h" />
-    <ClInclude Include="src\galaxieApp.h" />
+    <ClInclude Include="src\gApp.h" />
     <ClInclude Include="src\gTransition.h" />
   </ItemGroup>
   <ItemGroup>

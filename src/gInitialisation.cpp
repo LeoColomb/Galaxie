@@ -1,3 +1,11 @@
+/****
+* GALAXIE
+* Interactive Collection of Planets
+*
+* Leo Colombaro - 2013
+* MIT License
+*****/
+
 #include "gInitialisation.h"
 
 //--------------------------------------------------------------

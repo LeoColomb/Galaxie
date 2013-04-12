@@ -1,15 +1,15 @@
 /****
- * GALAXIE
- * Interactive Collection of Planets
- *
- * Leo Colombaro - 2013
- * MIT License
- ****
- *
- * gTransition - 
- * 
- *
- */
+* GALAXIE
+* Interactive Collection of Planets
+*
+* Leo Colombaro - 2013
+* MIT License
+*****
+*
+* gTransition -
+*
+*
+*/
 
 #ifndef TRANSITIONS_H_INCLUDED
 #define TRANSITIONS_H_INCLUDED
@@ -42,11 +42,14 @@ class gTransition : public itg::ofxState<dataGalaxie>{
 public:
 	gTransition();
 
-	void update(int step);
+	void update();
 	void draw();
 	void mousePressed(int x, int y, int button);
 	string getName();
 
+	int configStep;
+
+	ofPath planetCore1, planetCore2, planetCore3, planetCore4;
 	particules allParticules[100];
 };
 

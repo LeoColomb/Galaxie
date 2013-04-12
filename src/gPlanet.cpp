@@ -1,3 +1,11 @@
+/****
+* GALAXIE
+* Interactive Collection of Planets
+*
+* Leo Colombaro - 2013
+* MIT License
+*****/
+
 #include "gPlanet.h"
 
 //--------------------------------------------------------------
@@ -127,5 +135,5 @@ string gPlanet::getName(){
 
 //--------------------------------------------------------------
 void gPlanet::mousePressed(int x, int y, int button){
-	changeState("transitions");
+	changeState("transi");
 }

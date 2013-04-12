@@ -1,4 +1,12 @@
-#include "galaxieApp.h"
+/****
+* GALAXIE
+* Interactive Collection of Planets
+*
+* Leo Colombaro - 2013
+* MIT License
+*****/
+
+#include "gApp.h"
 
 //--------------------------------------------------------------
 void galaxieApp::setup(){
@@ -49,8 +57,6 @@ void galaxieApp::draw(){
 		return;
 	}
 	ofTranslate(CENTER_X, CENTER_Y);
-	planet.draw();
-	myZone.draw();
 }
 
 //--------------------------------------------------------------
@@ -95,11 +101,11 @@ void galaxieApp::mousePressed(int x, int y, int button){
 	}
 	if (!WITH_ARDUINO){
 		planet.update(planetState);
-	//	if (galaxieState <= 4)
-	//		galaxieState++;
-	//	else
-	//		galaxieState = 1;
-	//	planet.interaction(x);
+		//	if (galaxieState <= 4)
+		//		galaxieState++;
+		//	else
+		//		galaxieState = 1;
+		//	planet.interaction(x);
 	}
 }
 

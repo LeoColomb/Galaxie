@@ -1,15 +1,15 @@
 /****
- * GALAXIE
- * Interactive Collection of Planets
- *
- * Leo Colombaro - 2013
- * MIT License
- ****
- *
- * gConstants - Configuration data
- * 
- *
- */
+* GALAXIE
+* Interactive Collection of Planets
+*
+* Leo Colombaro - 2013
+* MIT License
+*****
+*
+* gConstants - Configuration data
+*
+*
+*/
 
 #ifndef CONSTANTS_H_INCLUDED
 #define CONSTANTS_H_INCLUDED

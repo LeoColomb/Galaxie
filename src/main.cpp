@@ -1,19 +1,19 @@
 /****
- * GALAXIE
- * Interactive Collection of Planets
- *
- * Leo Colombaro - 2013
- * MIT License
- ****
- *
- * main - oF function
- * Here is where Galaxie born.
- * Initial creation.
- *
- */
+* GALAXIE
+* Interactive Collection of Planets
+*
+* Leo Colombaro - 2013
+* MIT License
+*****
+*
+* main - oF function
+* Here is where Galaxie born.
+* Initial creation.
+*
+*/
 
 #include "ofMain.h"
-#include "galaxieApp.h"
+#include "gApp.h"
 #include "ofAppGlutWindow.h"
 
 //========================================================================

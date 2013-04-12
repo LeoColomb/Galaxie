@@ -7,9 +7,6 @@
     <ClCompile Include="src\main.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="src\testApp.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\addons\ofxCosm\src\ofxCosmFeed.cpp">
       <Filter>addons\ofxCosm</Filter>
     </ClCompile>
@@ -37,9 +34,6 @@
     <ClCompile Include="..\..\..\addons\ofxXmlSettings\libs\tinyxmlparser.cpp">
       <Filter>addons\ofxXmlSettings</Filter>
     </ClCompile>
-    <ClCompile Include="src\galaxieApp.cpp">
-      <Filter>src</Filter>
-    </ClCompile>
     <ClCompile Include="src\gInitialisation.cpp">
       <Filter>src</Filter>
     </ClCompile>
@@ -47,6 +41,9 @@
       <Filter>src</Filter>
     </ClCompile>
     <ClCompile Include="src\gTransition.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gApp.cpp">
       <Filter>src</Filter>
     </ClCompile>
   </ItemGroup>
@@ -77,9 +74,6 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\testApp.h">
-      <Filter>src</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\addons\ofxCosm\src\ofxCosm.h">
       <Filter>addons\ofxCosm</Filter>
     </ClInclude>
@@ -125,9 +119,6 @@
     <ClInclude Include="..\..\..\addons\ofxStateMachine\src\ofxStateMachine.h">
       <Filter>addons\ofxStateMachine</Filter>
     </ClInclude>
-    <ClInclude Include="src\galaxieApp.h">
-      <Filter>src</Filter>
-    </ClInclude>
     <ClInclude Include="src\gInitialisation.h">
       <Filter>src</Filter>
     </ClInclude>
@@ -138,6 +129,9 @@
       <Filter>src</Filter>
     </ClInclude>
     <ClInclude Include="src\gTransition.h">
+      <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gApp.h">
       <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>

@@ -1,15 +1,15 @@
 /****
- * GALAXIE
- * Interactive Collection of Planets
- *
- * Leo Colombaro - 2013
- * MIT License
- ****
- *
- * galaxieApp - Main Creation of the Galaxie
- * 
- *
- */
+* GALAXIE
+* Interactive Collection of Planets
+*
+* Leo Colombaro - 2013
+* MIT License
+*****
+*
+* galaxieApp - Main Creation of the Galaxie
+*
+*
+*/
 
 #pragma once
 
