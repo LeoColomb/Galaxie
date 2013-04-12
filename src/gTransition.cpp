@@ -1,10 +1,7 @@
-#include "transitions.h"
+#include "gTransition.h"
 
 //--------------------------------------------------------------
 particules::particules() {
-}
-
-void particules::init() {
 	ofSetColor(0,255,0);
 	timeNow = ofGetElapsedTimef();
 	randomShX = ofRandomf();
@@ -26,7 +23,6 @@ void particules::update(int step) {
 		reset();
 		bMouv = false;
 		bDirection = false;
-		changeState("planet");
 	}
 	else
 		bMouv = true;
@@ -78,11 +74,29 @@ void particules::draw() {
 }
 
 //--------------------------------------------------------------
-string particules::getName(){
-	return "transitions";
+//--------------------------------------------------------------
+gTransition::gTransition() {
 }
 
 //--------------------------------------------------------------
-void particules::mousePressed(int x, int y, int button){
-	changeState("planet");
+void gTransition::update(int step) {
+	for(int i = 0; i < 100; i++) {
+		allParticules[i].update(step);
+	}
+}
+
+//--------------------------------------------------------------
+void gTransition::draw() {
+	for(int i = 0; i < 100; i++) {
+		allParticules[i].draw();
+	}
+}
+
+//--------------------------------------------------------------
+void gTransition::mousePressed(int x, int y, int button) {
+}
+
+//--------------------------------------------------------------
+string gTransition::getName(){
+	return "transi";
 }

@@ -105,11 +105,11 @@
     <ClCompile Include="..\..\..\addons\ofxXmlSettings\libs\tinyxmlerror.cpp" />
     <ClCompile Include="..\..\..\addons\ofxXmlSettings\libs\tinyxmlparser.cpp" />
     <ClCompile Include="..\..\..\addons\ofxXmlSettings\src\ofxXmlSettings.cpp" />
-    <ClCompile Include="src\initApp.cpp" />
+    <ClCompile Include="src\gInitialisation.cpp" />
     <ClCompile Include="src\main.cpp" />
-    <ClCompile Include="src\planets.cpp" />
-    <ClCompile Include="src\testApp.cpp" />
-    <ClCompile Include="src\transitions.cpp" />
+    <ClCompile Include="src\gPlanet.cpp" />
+    <ClCompile Include="src\galaxieApp.cpp" />
+    <ClCompile Include="src\gTransition.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\..\addons\ofxCosm\src\ofxCosm.h" />
@@ -127,11 +127,11 @@
     <ClInclude Include="..\..\..\addons\ofxTiming\src\RateTimer.h" />
     <ClInclude Include="..\..\..\addons\ofxXmlSettings\libs\tinyxml.h" />
     <ClInclude Include="..\..\..\addons\ofxXmlSettings\src\ofxXmlSettings.h" />
-    <ClInclude Include="src\constants.h" />
-    <ClInclude Include="src\initApp.h" />
-    <ClInclude Include="src\planets.h" />
-    <ClInclude Include="src\testApp.h" />
-    <ClInclude Include="src\transitions.h" />
+    <ClInclude Include="src\gConstants.h" />
+    <ClInclude Include="src\gInitialisation.h" />
+    <ClInclude Include="src\gPlanet.h" />
+    <ClInclude Include="src\galaxieApp.h" />
+    <ClInclude Include="src\gTransition.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\libs\openFrameworksCompiled\project\vs\openframeworksLib.vcxproj">

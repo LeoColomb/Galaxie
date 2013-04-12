@@ -1,130 +1,120 @@
-#include "testApp.h"
+#include "galaxieApp.h"
 
 //--------------------------------------------------------------
-void testApp::setup(){
+void galaxieApp::setup(){
 	ofSetVerticalSync(true);
 	ofEnableSmoothing();
 	ofBackground(ofColor::black);
 	ofFill();
 	ofEnableAlphaBlending();
-	stateGalaxie.addState<initAppZone>();
-	stateGalaxie.addState<particules>();
-	stateGalaxie.addState<planets>();
+	stateGalaxie.addState<gInitZone>();
+	stateGalaxie.addState<gTransition>();
+	stateGalaxie.addState<gPlanet>();
 	stateGalaxie.changeState("init");
 }
 
 //--------------------------------------------------------------
-void testApp::setupI(){
-	planet.init();
-	galaxieState = 1;
-
+void galaxieApp::setupI(){
 	if (WITH_ARDUINO){
 		arduino.enumerateDevices();
 		int i = 0;
 		while (!arduino.setup(SERIAL_PORT, 31250)){
 			i++;
 			if (i == 5){
-				cout << "Are you sure you have Arduino connected?\n";
+				printf("Are you sure you have an Arduino connected?");
 				break;
 			}
 			ofSleepMillis(400);
 		}
 		arduino.startContinuesRead();
-		ofAddListener(arduino.NEW_MESSAGE, this, &testApp::onNewMessage);
-	} else {
+		ofAddListener(arduino.NEW_MESSAGE, this, &galaxieApp::onNewMessage);
 	}
-
-	//--
 	userActivity.setup(20000, false);
 }
 
 //--------------------------------------------------------------
-void testApp::update(){
+void galaxieApp::update(){
 	//if (userActivity.alarm() == true){
 	if (WITH_ARDUINO){
-		arduino.writeByte(galaxieState);
+		arduino.writeByte(planetState);
 	}
 	//userActivity.resetAlarm();
 	//}
 }
 
 //--------------------------------------------------------------
-void testApp::draw(){
-	//--
-	if (!myZone.isFixed)
-	{
+void galaxieApp::draw(){
+	if (!myZone.isFixed){
 		myZone.draw();
 		return;
 	}
-	//--
 	ofTranslate(CENTER_X, CENTER_Y);
 	planet.draw();
-	//--
 	myZone.draw();
 }
 
 //--------------------------------------------------------------
-void testApp::onNewMessage(string &byteReceived)
+void galaxieApp::onNewMessage(string &byteReceived)
 {
 	sendedByte = ofToInt(byteReceived);
 	cout << sendedByte << "\n";
-	if (galaxieState == 1 || galaxieState == 2 || galaxieState == 3){
-		planet.select(sendedByte, galaxieState);
-	} else if (galaxieState == 4){
-		planet.interaction(sendedByte);
-	}
+	//if (planetState == 1 || planetState == 2 || planetState == 3){
+	//	planet.select(sendedByte, galaxieState);
+	//} else if (planetState == 4){
+	//	planet.interaction(sendedByte);
+	//}
 }
 
 //--------------------------------------------------------------
-void testApp::keyPressed(int key){
+void galaxieApp::keyPressed(int key){
 }
 
 //--------------------------------------------------------------
-void testApp::keyReleased(int key){
+void galaxieApp::keyReleased(int key){
 }
 
 //--------------------------------------------------------------
-void testApp::mouseMoved(int x, int y ){
+void galaxieApp::mouseMoved(int x, int y ){
 	if (!myZone.isFixed){
 		myZone.update(x, y);
 	}
 }
 
 //--------------------------------------------------------------
-void testApp::mouseDragged(int x, int y, int button){
+void galaxieApp::mouseDragged(int x, int y, int button){
 }
 
 //--------------------------------------------------------------
-void testApp::mousePressed(int x, int y, int button){
+void galaxieApp::mousePressed(int x, int y, int button){
 	if(!myZone.isFixed){
-		testApp::setupI();
+		galaxieApp::setupI();
 		myZone.fixed();
 		CENTER_X = x;
 		CENTER_Y = y;
-		stateGalaxie.changeState("transitions");
+		stateGalaxie.changeState("transi");
 	}
 	if (!WITH_ARDUINO){
-		planet.update(galaxieState);
-		if (galaxieState <= 4)
-			galaxieState++;
-		else
-			galaxieState = 1;
-		planet.interaction(x);
+		planet.update(planetState);
+	//	if (galaxieState <= 4)
+	//		galaxieState++;
+	//	else
+	//		galaxieState = 1;
+	//	planet.interaction(x);
 	}
 }
 
 //--------------------------------------------------------------
-void testApp::mouseReleased(int x, int y, int button){
+void galaxieApp::mouseReleased(int x, int y, int button){
 }
 
 //--------------------------------------------------------------
-void testApp::windowResized(int w, int h){
+void galaxieApp::windowResized(int w, int h){
 }
 
 //--------------------------------------------------------------
-void testApp::gotMessage(ofMessage msg){
+void galaxieApp::gotMessage(ofMessage msg){
 }
 
 //--------------------------------------------------------------
-void testApp::dragEvent(ofDragInfo dragInfo){
+void galaxieApp::dragEvent(ofDragInfo dragInfo){
 }

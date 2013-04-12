@@ -1,18 +1,34 @@
+/****
+ * GALAXIE
+ * Interactive Collection of Planets
+ *
+ * Leo Colombaro - 2013
+ * MIT License
+ ****
+ *
+ * galaxieApp - Main Creation of the Galaxie
+ * 
+ *
+ */
+
 #pragma once
 
+// Include all necessery configs and core
 #include "ofMain.h"
-#include "constants.h"
+#include "gConstants.h"
 
+// Include usefull addons to improve Galaxie
 #include "../../addons/ofxStateMachine/src/ofxStateMachine.h"
 #include "../../addons/ofxSimpleSerial/src/ofxSimpleSerial.h"
-#include "../../addons/ofxTimer/src/ofxTimer.h"
 #include "../../addons/ofxCosm/src/ofxCosm.h"
+#include "../../addons/ofxTimer/src/ofxTimer.h"
 
-#include "initApp.h"
-#include "transitions.h"
-#include "planets.h"
+// Load all parts of Galaxie
+#include "gInitialisation.h"
+#include "gTransition.h"
+#include "gPlanet.h"
 
-class testApp : public ofBaseApp{
+class galaxieApp : public ofBaseApp{
 public:
 	void setup();
 	void setupI();
@@ -31,19 +47,16 @@ public:
 
 	float CENTER_X;
 	float CENTER_Y;
-
-	int galaxieState;
-
-	initAppZone myZone;
-	planets planet;
+	int planetState;
 
 	ofxSimpleSerial arduino;
 	void onNewMessage(string & byteReceived);
-
 	string byteReceived;
 	int sendedByte;
 
 	ofxTimer userActivity;
+	gInitZone myZone;
+	gPlanet planet;
 
 private:
 	itg::ofxStateMachine<dataGalaxie> stateGalaxie;
