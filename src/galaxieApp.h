@@ -28,6 +28,7 @@
 #include "gTransition.h"
 #include "gPlanet.h"
 
+//========================================================================
 class galaxieApp : public ofBaseApp{
 public:
 	void setup();

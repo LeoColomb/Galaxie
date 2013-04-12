@@ -1,3 +1,16 @@
+/****
+ * GALAXIE
+ * Interactive Collection of Planets
+ *
+ * Leo Colombaro - 2013
+ * MIT License
+ ****
+ *
+ * gTransition - 
+ * 
+ *
+ */
+
 #ifndef TRANSITIONS_H_INCLUDED
 #define TRANSITIONS_H_INCLUDED
 

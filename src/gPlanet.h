@@ -1,3 +1,17 @@
+/****
+ * GALAXIE
+ * Interactive Collection of Planets
+ *
+ * Leo Colombaro - 2013
+ * MIT License
+ ****
+ *
+ * gPlanet - Show a selected planet
+ * After selection, choose a planet and load respective config
+ * and draw it on the screen.
+ *
+ */
+
 #ifndef PLANET_H_INCLUDED
 #define PLANET_H_INCLUDED
 
