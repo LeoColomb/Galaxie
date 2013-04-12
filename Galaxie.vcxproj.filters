@@ -72,6 +72,9 @@
     <Filter Include="addons\ofxXmlSettings">
       <UniqueIdentifier>{67242e03-ede1-4deb-9815-116ab6447439}</UniqueIdentifier>
     </Filter>
+    <Filter Include="addons\ofxStateMachine">
+      <UniqueIdentifier>{6a494cc2-26a4-4161-8c27-6937beb53114}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\testApp.h">
@@ -130,6 +133,12 @@
     </ClInclude>
     <ClInclude Include="..\..\..\addons\ofxXmlSettings\libs\tinyxml.h">
       <Filter>addons\ofxXmlSettings</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxStateMachine\src\ofxState.h">
+      <Filter>addons\ofxStateMachine</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxStateMachine\src\ofxStateMachine.h">
+      <Filter>addons\ofxStateMachine</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

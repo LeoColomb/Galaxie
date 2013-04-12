@@ -3,10 +3,12 @@
 
 #include "ofMain.h"
 #include "../../addons/ofxXmlSettings/src/ofxXmlSettings.h"
-#include "transitions.h"
+#include "../../addons/ofxStateMachine/src/ofxStateMachine.h"
+
+#include "constants.h"
 
 
-class planets {
+class planets : public itg::ofxState<dataGalaxie>{
 private:
 	int proximity;
 
@@ -19,9 +21,10 @@ public:
 	void select(int selection, int rang);
 	void interaction(int variationD);
 	void drawShadow(float x, float y, int z);
+	string getName();
+	void mousePressed(int x, int y, int button);
 
 	ofImage * shadow;
-	particules allParticules[100];
 	ofPolyline rotor;
 	ofPolyline curvor;
 

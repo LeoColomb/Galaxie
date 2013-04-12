@@ -7,4 +7,11 @@
 #define COSM_API_KEY
 #define COSM_FEED
 
+class dataGalaxie{
+public:
+	int counter;
+	int lastUpdate;
+	ofTrueTypeFont font;
+};
+
 #endif // CONSTANTS_H_INCLUDED

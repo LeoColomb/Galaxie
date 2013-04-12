@@ -3,6 +3,7 @@
 #include "ofMain.h"
 #include "constants.h"
 
+#include "../../addons/ofxStateMachine/src/ofxStateMachine.h"
 #include "../../addons/ofxSimpleSerial/src/ofxSimpleSerial.h"
 #include "../../addons/ofxTimer/src/ofxTimer.h"
 #include "../../addons/ofxCosm/src/ofxCosm.h"
@@ -43,4 +44,7 @@ public:
 	int sendedByte;
 
 	ofxTimer userActivity;
+
+private:
+	itg::ofxStateMachine<dataGalaxie> stateGalaxie;
 };

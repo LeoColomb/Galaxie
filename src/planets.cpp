@@ -2,9 +2,9 @@
 
 //--------------------------------------------------------------
 planets::planets() {
-	for(int i = 0; i < 100; i++) {
-		allParticules[i].init();
-	}
+	//for(int i = 0; i < 100; i++) {
+	//	allParticules[i].init();
+	//}
 	galaxieConf.loadFile("planets.xml");
 	float angle = 0;
 	while (angle < TWO_PI ) {
@@ -27,9 +27,9 @@ void planets::init() {
 
 //--------------------------------------------------------------
 void planets::update(int step) {
-	for(int i = 0; i < 100; i++) {
-		allParticules[i].update(step);
-	}
+	//for(int i = 0; i < 100; i++) {
+	//	allParticules[i].update(step);
+	//}
 	// make a pentagon
 	soundPlay.loadSound("sounds/" + galaxieConf.getValue("planet:sound:part" + ofToString(step), "") + ".mp3");
 	soundPlay.setLoop(true);
@@ -39,9 +39,9 @@ void planets::update(int step) {
 
 //--------------------------------------------------------------
 void planets::draw() {
-	for(int i = 0; i < 100; i++) {
-		allParticules[i].draw();
-	}
+	//for(int i = 0; i < 100; i++) {
+	//	allParticules[i].draw();
+	//}
 	galaxieConf.pushTag("planet");
 	galaxieConf.pushTag("structure");
 	if (galaxieConf.tagExists("triangle")){
@@ -92,4 +92,14 @@ void planets::drawShadow(float x, float y, int z)
 	ofScale(1, 3, 1);
 	shadow->draw(-z / 2., - z / 2., z, z);
 	ofPopMatrix();
+}
+
+//--------------------------------------------------------------
+string planets::getName(){
+	return "planet";
+}
+
+//--------------------------------------------------------------
+void planets::mousePressed(int x, int y, int button){
+	changeState("transitions");
 }

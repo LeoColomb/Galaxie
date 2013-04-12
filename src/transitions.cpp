@@ -26,6 +26,7 @@ void particules::update(int step) {
 		reset();
 		bMouv = false;
 		bDirection = false;
+		changeState("planet");
 	}
 	else
 		bMouv = true;
@@ -74,4 +75,14 @@ void particules::draw() {
 		ofSetColor(ofColor::greenYellow,1);
 	}
 	ofCircle(x,y,3);
+}
+
+//--------------------------------------------------------------
+string particules::getName(){
+	return "transitions";
+}
+
+//--------------------------------------------------------------
+void particules::mousePressed(int x, int y, int button){
+	changeState("planet");
 }

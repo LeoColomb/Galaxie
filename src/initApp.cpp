@@ -69,3 +69,8 @@ void initAppZone::fixed() {
 	x = 0;
 	y = 0;
 }
+
+//--------------------------------------------------------------
+string initAppZone::getName() {
+	return "init";
+}

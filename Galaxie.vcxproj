@@ -26,7 +26,7 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
     <ConfigurationType>Application</ConfigurationType>
     <UseDebugLibraries>true</UseDebugLibraries>
-    <CharacterSet>Unicode</CharacterSet>
+    <CharacterSet>MultiByte</CharacterSet>
     <PlatformToolset>v110</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
@@ -117,6 +117,8 @@
     <ClInclude Include="..\..\..\addons\ofxCosm\src\ofxCosmInput.h" />
     <ClInclude Include="..\..\..\addons\ofxCosm\src\ofxCosmOutput.h" />
     <ClInclude Include="..\..\..\addons\ofxSimpleSerial\src\ofxSimpleSerial.h" />
+    <ClInclude Include="..\..\..\addons\ofxStateMachine\src\ofxState.h" />
+    <ClInclude Include="..\..\..\addons\ofxStateMachine\src\ofxStateMachine.h" />
     <ClInclude Include="..\..\..\addons\ofxTimer\src\ofxTimer.h" />
     <ClInclude Include="..\..\..\addons\ofxTiming\src\DelayTimer.h" />
     <ClInclude Include="..\..\..\addons\ofxTiming\src\FadeTimer.h" />

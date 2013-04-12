@@ -7,6 +7,10 @@ void testApp::setup(){
 	ofBackground(ofColor::black);
 	ofFill();
 	ofEnableAlphaBlending();
+	stateGalaxie.addState<initAppZone>();
+	stateGalaxie.addState<particules>();
+	stateGalaxie.addState<planets>();
+	stateGalaxie.changeState("init");
 }
 
 //--------------------------------------------------------------
@@ -97,6 +101,7 @@ void testApp::mousePressed(int x, int y, int button){
 		myZone.fixed();
 		CENTER_X = x;
 		CENTER_Y = y;
+		stateGalaxie.changeState("transitions");
 	}
 	if (!WITH_ARDUINO){
 		planet.update(galaxieState);
