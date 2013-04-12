@@ -15,6 +15,8 @@ void galaxieApp::setup(){
 	ofBackground(ofColor::black);
 	ofFill();
 	ofEnableAlphaBlending();
+	ofSetCircleResolution(100);
+
 	stateGalaxie.addState<gInitZone>();
 	stateGalaxie.addState<gTransition>();
 	stateGalaxie.addState<gPlanet>();
@@ -53,7 +55,6 @@ void galaxieApp::update(){
 //--------------------------------------------------------------
 void galaxieApp::draw(){
 	if (!myZone.isFixed){
-		myZone.draw();
 		return;
 	}
 	ofTranslate(CENTER_X, CENTER_Y);
@@ -81,9 +82,6 @@ void galaxieApp::keyReleased(int key){
 
 //--------------------------------------------------------------
 void galaxieApp::mouseMoved(int x, int y ){
-	if (!myZone.isFixed){
-		myZone.update(x, y);
-	}
 }
 
 //--------------------------------------------------------------
@@ -97,7 +95,7 @@ void galaxieApp::mousePressed(int x, int y, int button){
 		myZone.fixed();
 		CENTER_X = x;
 		CENTER_Y = y;
-		stateGalaxie.changeState("transi");
+		stateGalaxie.changeState("transition");
 	}
 	if (!WITH_ARDUINO){
 		planet.update(planetState);

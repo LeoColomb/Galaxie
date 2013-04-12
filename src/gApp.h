@@ -38,7 +38,7 @@ public:
 
 	void keyPressed(int key);
 	void keyReleased(int key);
-	void mouseMoved(int x, int y );
+	void mouseMoved(int x, int y);
 	void mouseDragged(int x, int y, int button);
 	void mousePressed(int x, int y, int button);
 	void mouseReleased(int x, int y, int button);
@@ -46,8 +46,7 @@ public:
 	void dragEvent(ofDragInfo dragInfo);
 	void gotMessage(ofMessage msg);
 
-	float CENTER_X;
-	float CENTER_Y;
+	float CENTER_X, CENTER_Y;
 	int planetState;
 
 	ofxSimpleSerial arduino;

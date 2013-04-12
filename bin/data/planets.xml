@@ -1,5 +1,12 @@
 <planet id="0">
   <name></name>
+  <colors>
+    <fondamentale></fondamentale>
+    <part1></part1>
+    <part2></part2>
+    <part3></part3>
+    <part4></part4>
+  </colors>
   <structure>
     <triangle>
       <r>0</r>
@@ -8,7 +15,7 @@
     </triangle>
     <rotor>
       <r>0</r>
-      <g>100</g>
+      <g>20</g>
       <b>255</b>
     </rotor>
     <curvor>

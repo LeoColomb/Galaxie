@@ -15,7 +15,7 @@
 #define CONSTANTS_H_INCLUDED
 
 // Arduino Configuration
-#define WITH_ARDUINO	false
+#define WITH_ARDUINO	true
 #define SERIAL_PORT     "COM5"
 
 // Cosm Parameters

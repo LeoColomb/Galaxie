@@ -34,14 +34,14 @@ public:
 	void mousePressed(int x, int y, int button);
 	string getName();
 
-	ofImage * shadow;
-	ofPolyline rotor, curvor;
-	ofxXmlSettings galaxieConf;
-	ofSoundPlayer soundPlay;
-	ofPath planetCore1, planetCore2, planetCore3, planetCore4;
+	ofImage * shadow;				// Special Planet shadow
+	ofPolyline rotor, curvor;		// Basic & geometric form for interaction
+	ofxXmlSettings galaxieConf;		// Load XML settings for planet conf
+	ofSoundPlayer soundPlay;		// Loadable sound: music
+	ofPath planetCore1, planetCore2, planetCore3, planetCore4; // Each planetCore represent one part/arc
 
 private:
-	int proximity;
+	int proximity; // Captor sensor interpretation
 };
 
 #endif // PLANET_H_INCLUDED

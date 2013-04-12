@@ -28,11 +28,11 @@ public:
 	void update(int step);
 	void draw();
 
-	float x,y;
-	int colored;
-	int randomNeg;
+	float x, y;
 	float randomShX;
 	float randomShY;
+	int coloration;
+	int randomNeg;
 	int timeNow;
 	bool bDirection;
 	bool bMouv;

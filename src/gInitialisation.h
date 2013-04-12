@@ -26,9 +26,10 @@ public:
 	void update(int xM, int yM);
 	void draw();
 	void fixed();
+	void mouseMoved(int x, int y);
 	string getName();
 
-	float x,y;
+	float x, y;
 	bool isFixed;
 };
 
