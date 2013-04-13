@@ -22,9 +22,9 @@
 #define SERIAL_PORT     "COM5"
 
 // Cosm Parameters
-#define WITH_COSM		false
+#define WITH_COSM	false
 #define COSM_API_KEY	"XXXX-YYYY"
-#define COSM_FEED		"ZZZZ"
+#define COSM_FEED	"ZZZZ"
 
 // Data shared between states
 class dataGalaxie{
