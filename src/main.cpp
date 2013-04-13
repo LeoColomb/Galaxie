@@ -1,6 +1,9 @@
 /****
-* GALAXIE
-* Interactive Collection of Planets
+*   ___   __   __     __   _  _ ____ ____ 
+*  / __) /__\ (  )   /__\ ( \/ (_  _( ___)
+* ( (_-./(__)\ )(__ /(__)\ )  ( _)(_ )__)
+*  \___(__)(__(____(__)(__(_/\_(____(____)
+* -- Interactive Collection of Planets --
 *
 * Leo Colombaro - 2013
 * MIT License
