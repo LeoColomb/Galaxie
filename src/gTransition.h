@@ -52,7 +52,7 @@ public:
 
 	int configStep;
 
-	ofPath planetCore1, planetCore2, planetCore3, planetCore4;
+	ofPath planetCore[4];
 	particules allParticules[100];
 };
 

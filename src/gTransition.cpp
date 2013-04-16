@@ -38,13 +38,11 @@ void particules::draw(){
 		bDirection = false;
 	}
 	if (x == 0 || y == 0){
+		randomShX = ofRandomf();		// Get a random number between 0-1
+		randomShY = ofRandomf();		// Get a random number between 0-1
 		reset();
 		if (bMouv)
 			bDirection = true;
-		else {
-			x = 0;
-			y = 0;
-		}
 	}
 
 	if (bDirection){
@@ -53,6 +51,9 @@ void particules::draw(){
 	} else if (bMouv){
 		x -= (randomShX * (ofGetElapsedTimef() - timeNow) * (50));
 		y -= (randomShY * (ofGetElapsedTimef() - timeNow) * (50));
+	} else {
+		x = 1;
+		y = 1;
 	}
 	ofFill();
 	if (coloration <= 0){
@@ -71,29 +72,20 @@ void particules::draw(){
 gTransition::gTransition(){
 	configStep = 0;
 
-	planetCore1.setArcResolution(100);
-	planetCore1.setFilled(true);
-	planetCore1.moveTo(0,0);
-	planetCore1.arc(0,0,100,100,180,225);
-	planetCore1.close();
+	for (int i = 0; i < 4; i++){
+		planetCore[i].setArcResolution(100);
+		planetCore[i].setFilled(true);
+		planetCore[i].moveTo(0,0);
+	}
 
-	planetCore2.setArcResolution(100);
-	planetCore2.setFilled(true);
-	planetCore2.moveTo(0,0);
-	planetCore2.arc(0,0,100,100,225,270);
-	planetCore2.close();
+	planetCore[0].arc(0,0,100,100,180,225);
+	planetCore[1].arc(0,0,100,100,225,270);
+	planetCore[2].arc(0,0,100,100,340,0);
+	planetCore[3].arc(0,0,100,100,0,20);
+	for (int i = 0; i < 4; i++){
+		planetCore[i].close();
+	}
 
-	planetCore3.setArcResolution(100);
-	planetCore3.setFilled(true);
-	planetCore3.moveTo(0,0);
-	planetCore3.arc(0,0,100,100,340,0);
-	planetCore3.close();
-
-	planetCore4.setArcResolution(100);
-	planetCore4.setFilled(true);
-	planetCore4.moveTo(0,0);
-	planetCore4.arc(0,0,100,100,0,20);
-	planetCore4.close();
 }
 
 //--------------------------------------------------------------
@@ -114,23 +106,22 @@ void gTransition::draw(){
 	ofColor alternColor(ofColor::fromHsb(sinf(ofGetElapsedTimef()/8) * 128 + 128, 255, 255));
 	ofColor alternBaW(ofColor::fromHsb(0, 0, sinf(ofGetElapsedTimef()/2) * 128 + 128));
 
-	planetCore1.setColor(alternBaW);
-	planetCore1.draw();
+	planetCore[0].setColor(alternBaW);
+	planetCore[1].setColor(alternColor);
+	planetCore[2].setColor(alternBaW);
+	planetCore[3].setColor(alternColor);
 
-	planetCore2.setColor(alternColor);
-	planetCore2.draw();
-
-	planetCore3.setColor(alternBaW);
-	planetCore3.draw();
-
-	planetCore4.setColor(alternColor);
-	planetCore4.draw();
+	for (int i = 0; i < 4; i++){
+		planetCore[i].draw();
+	}
+	
 }
 
 //--------------------------------------------------------------
 void gTransition::mousePressed(int x, int y, int button){
 	configStep++;
 	if (configStep == 3){
+		getSharedData().selectionPlanet = ofRandom(1);
 		configStep = 0;
 		changeState("planet");
 	}
