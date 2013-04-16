@@ -18,7 +18,7 @@
 #define CONSTANTS_H_INCLUDED
 
 // Arduino Configuration
-#define WITH_ARDUINO	true
+#define WITH_ARDUINO	false
 #define SERIAL_PORT     "COM5"
 
 // Cosm Parameters
@@ -29,7 +29,7 @@
 // Data shared between states
 class dataGalaxie{
 public:
-	int planetState;
+	int selectionPlanet;
 	int lastUpdate;
 };
 

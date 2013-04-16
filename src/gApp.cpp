@@ -16,7 +16,13 @@ void galaxieApp::setup(){
 	ofFill();
 	ofEnableAlphaBlending();
 	ofSetCircleResolution(100);
+	glLineWidth(3);
 
+	// setup shared data
+	stateGalaxie.getSharedData().selectionPlanet = 0;
+	stateGalaxie.getSharedData().lastUpdate = ofGetElapsedTimeMillis();
+	
+	// initialise state machine
 	stateGalaxie.addState<gInitZone>();
 	stateGalaxie.addState<gTransition>();
 	stateGalaxie.addState<gPlanet>();
@@ -96,14 +102,6 @@ void galaxieApp::mousePressed(int x, int y, int button){
 		CENTER_X = x;
 		CENTER_Y = y;
 		stateGalaxie.changeState("transition");
-	}
-	if (!WITH_ARDUINO){
-		planet.update(planetState);
-		//	if (galaxieState <= 4)
-		//		galaxieState++;
-		//	else
-		//		galaxieState = 1;
-		//	planet.interaction(x);
 	}
 }
 
