@@ -10,7 +10,10 @@
 
 //--------------------------------------------------------------
 gPlanet::gPlanet(){
+	step = 0;
 	galaxieConf.loadFile("planets.xml");
+
+	// Init
 
 	// Init all forms available
 	float angle = 0; // Angle from 0 to 360
@@ -28,51 +31,55 @@ gPlanet::gPlanet(){
 	}
 
 	// Init parts of central zone: planet core
-	planetCore1.setArcResolution(100);
-	planetCore1.setFilled(true);
-	planetCore1.moveTo(0,0);
-	planetCore1.arc(0,0,100,100,180,225);
-	planetCore1.close();
+	for (int i = 0; i < 4; i++){
+		planetCore[i].setArcResolution(100);
+		planetCore[i].setFilled(true);
+		planetCore[i].moveTo(0,0);
+	}
 
-	planetCore2.setArcResolution(100);
-	planetCore2.setFilled(true);
-	planetCore2.moveTo(0,0);
-	planetCore2.arc(0,0,100,100,225,270);
-	planetCore2.close();
-
-	planetCore3.setArcResolution(100);
-	planetCore3.setFilled(true);
-	planetCore3.moveTo(0,0);
-	planetCore3.arc(0,0,100,100,340,0);
-	planetCore3.close();
-
-	planetCore4.setArcResolution(100);
-	planetCore4.setFilled(true);
-	planetCore4.moveTo(0,0);
-	planetCore4.arc(0,0,100,100,0,20);
-	planetCore4.close();
+	planetCore[0].arc(0,0,100,100,180,225);
+	planetCore[1].arc(0,0,100,100,225,270);
+	planetCore[2].arc(0,0,100,100,340,0);
+	planetCore[3].arc(0,0,100,100,0,20);
+	for (int i = 0; i < 4; i++){
+		planetCore[i].close();
+	}
+	select(0,0);
 }
 
 //--------------------------------------------------------------
-void gPlanet::update(int step){
-	// make a pentagon
-	soundPlay.loadSound("sounds/" + galaxieConf.getValue("planet:sound:part" + ofToString(step), "") + ".mp3");
-	soundPlay.setLoop(true);
-	//soundPlay.play();
-	soundPlay.setPosition(0.5f); //Back to center
+void gPlanet::update(int newStep){
+	float playTime = soundPlay[step].getPosition();
+	soundPlay[step].stop();
+	soundPlay[newStep].play();
+	soundPlay[newStep].setPosition(playTime);
+	step = newStep;
 }
 
 //--------------------------------------------------------------
 void gPlanet::draw(){
-	galaxieConf.pushTag("planet");
+	galaxieConf.pushTag("galaxie");
+	galaxieConf.pushTag("planet", getSharedData().selectionPlanet);
 	galaxieConf.pushTag("structure");
-	if (galaxieConf.tagExists("triangle")){
-		ofPushMatrix();
-		ofSetColor(galaxieConf.getValue("triangle:r", 0),galaxieConf.getValue("triangle:g", 0),galaxieConf.getValue("triangle:b", 0));
-		ofRotate(sin(ofGetElapsedTimef())*180);
-		ofNoFill();
-		ofTriangle(0,-400,-(600/sin(PI/3))*cos(PI/3),200,(600/sin(PI/3)*cos(PI/3)),200);
-		ofPopMatrix();
+	if (galaxieConf.tagExists("triangles")){
+		galaxieConf.pushTag("triangles");
+		for (int i = 0; i < galaxieConf.getNumTags("triangle"); i++)
+		{
+			galaxieConf.pushTag("triangle", i);
+			ofPushMatrix();
+			ofSetColor(galaxieConf.getValue("r", 0),galaxieConf.getValue("g", 0),galaxieConf.getValue("b", 0));
+			if (galaxieConf.tagExists("rotative"))
+				ofRotate(sinf(ofGetElapsedTimef())*180);
+			ofNoFill();
+			if (galaxieConf.tagExists("alternative")){
+				ofTriangle(0, - (400 + 12*timeTrigo("cos", 2)), - ((600/sinf(PI/3))*cosf(PI/3) + 10 * timeTrigo("cos", 2)), 200 + 10*timeTrigo("cos", 2), (600/sinf(PI/3)*cosf(PI/3)) + 10*timeTrigo("cos", 2), 200 + 10*timeTrigo("cos", 2));
+				ofTriangle(0, - (400 - 12*timeTrigo("cos", 2)), - ((600/sinf(PI/3))*cosf(PI/3) - 10 * timeTrigo("cos", 2)), 200 - 10*timeTrigo("cos", 2), (600/sinf(PI/3)*cosf(PI/3)) - 10*timeTrigo("cos", 2), 200 - 10*timeTrigo("cos", 2));
+			} else
+				ofTriangle(0,-400,-(600/sinf(PI/3))*cosf(PI/3),200,(600/sinf(PI/3)*cosf(PI/3)),200);
+			ofPopMatrix();
+			galaxieConf.popTag();
+		}
+		galaxieConf.popTag();
 	}
 	if (galaxieConf.tagExists("rotor")){
 		ofPushMatrix();
@@ -90,52 +97,69 @@ void gPlanet::draw(){
 	}
 	galaxieConf.popTag();
 	galaxieConf.popTag();
+	galaxieConf.popTag();
 
-	ofColor alternColor(ofColor::fromHsb(sinf(ofGetElapsedTimef()/8) * 128 + 128, 255, 255));
-	ofColor alternBaW(ofColor::fromHsb(0, 0, sinf(ofGetElapsedTimef()/2) * 128 + 128));
+	ofColor alternColor(ofColor::fromHsb((timeTrigo("sin")/8) * 128 + 128, 255, 255));
+	ofColor alternBaW(ofColor::fromHsb(0, 0, (timeTrigo("sin")/2) * 128 + 128));
 
-	planetCore1.setColor(alternBaW);
-	planetCore1.draw();
+	planetCore[0].setColor(alternBaW);
+	planetCore[1].setColor(alternColor);
+	planetCore[2].setColor(alternBaW);
+	planetCore[3].setColor(alternColor);
 
-	planetCore2.setColor(alternColor);
-	planetCore2.draw();
-
-	planetCore3.setColor(alternBaW);
-	planetCore3.draw();
-
-	planetCore4.setColor(alternColor);
-	planetCore4.draw();
+	for (int i = 0; i < 4; i++){
+		planetCore[i].draw();
+	}
 }
 
 //--------------------------------------------------------------
 void gPlanet::select(int selection, int rang){
+	galaxieConf.pushTag("galaxie");
+//	int testddd = getSharedData().selectionPlanet;
+	galaxieConf.pushTag("planet"/*, testddd*/);
+	for (int i = 0; i < 4; i++){
+		soundPlay[i].loadSound("sounds/" + galaxieConf.getValue("sound:part" + ofToString(i), "") + ".mp3");
+		soundPlay[i].setLoop(true);
+	}
+	galaxieConf.popTag();
+	galaxieConf.popTag();
+}
+
+//--------------------------------------------------------------
+float gPlanet::timeTrigo(string function, float multi){
+	if (function == "cos")
+		return cosf(ofGetElapsedTimef() * multi);
+	else if (function == "sin")
+		return sinf(ofGetElapsedTimef() * multi);
+	else
+		return 0;
 }
 
 //--------------------------------------------------------------
 void gPlanet::interaction(int varianceD){
-	proximity = (int)(varianceD / 5);
+	if (WITH_ARDUINO)
+		proximity = (int)((varianceD * 4));
+	else
+		proximity = (int)((varianceD * 4) / ofGetWidth());
+	if (step != proximity){
+		update(proximity);
+	}
 }
 
 //--------------------------------------------------------------
-void gPlanet::drawShadow(float x, float y, int z){
-	ofSetColor(255, 255, 255, 200);
-	ofCircle(x, y, 150);
-	float xV = x + z / 2.;
-	float yV = y + z / 2.;
+void gPlanet::mouseMoved(int x, int y){
+	interaction(x);
+}
 
-	ofPushMatrix();
-	ofTranslate(x + 0, y + 0, 0);
-	ofScale(1, 3, 1);
-	shadow->draw(-z / 2., - z / 2., z, z);
-	ofPopMatrix();
+//--------------------------------------------------------------
+void gPlanet::mousePressed(int x, int y, int button){
+	for (int i = 0; i < 4; i++){
+		soundPlay[i].unloadSound();
+	}
+	changeState("transition");
 }
 
 //--------------------------------------------------------------
 string gPlanet::getName(){
 	return "planet";
-}
-
-//--------------------------------------------------------------
-void gPlanet::mousePressed(int x, int y, int button){
-	changeState("transition");
 }

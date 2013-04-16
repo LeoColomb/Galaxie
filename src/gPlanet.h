@@ -29,22 +29,23 @@ class gPlanet : public itg::ofxState<dataGalaxie>{
 public:
 	gPlanet();
 
-	void update(int step);
+	void update(int newStep);
 	void draw();
 	void select(int selection, int rang);
 	void interaction(int variationD);
-	void drawShadow(float x, float y, int z);
+	void mouseMoved(int x, int y);
 	void mousePressed(int x, int y, int button);
+	float timeTrigo(string function, float multi = 1);
 	string getName();
 
-	ofImage * shadow;				// Special Planet shadow
 	ofPolyline rotor, curvor;		// Basic & geometric form for interaction
 	ofxXmlSettings galaxieConf;		// Load XML settings for planet conf
-	ofSoundPlayer soundPlay;		// Loadable sound: music
-	ofPath planetCore1, planetCore2, planetCore3, planetCore4; // Each planetCore represent one part/arc
+	ofSoundPlayer soundPlay[4];		// Loadable sound: music
+	ofPath planetCore[4];			// Each planetCore represent one part/arc
 
 private:
 	int proximity; // Captor sensor interpretation
+	int step;
 };
 
 #endif // PLANET_H_INCLUDED
