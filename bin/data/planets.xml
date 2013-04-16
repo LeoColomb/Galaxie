@@ -1,33 +1,81 @@
-<planet id="0">
-  <name></name>
-  <colors>
-    <fondamentale></fondamentale>
-    <part1></part1>
-    <part2></part2>
-    <part3></part3>
-    <part4></part4>
-  </colors>
-  <structure>
-    <triangle>
-      <r>0</r>
-      <g>100</g>
-      <b>255</b>
-    </triangle>
-    <rotor>
-      <r>0</r>
-      <g>20</g>
-      <b>255</b>
-    </rotor>
-    <curvor>
-      <r>0</r>
-      <g>100</g>
-      <b>255</b>
-    </curvor>
-  </structure>
-  <sound>
-    <part1>test</part1>
-    <part2>test</part2>
-    <part3>test</part3>
-    <part4>test</part4>
-  </sound>
-</planet>
+<galaxie>
+  <planet>
+    <name></name>
+    <colors>
+      <fondamentale></fondamentale>
+      <part1></part1>
+      <part2></part2>
+      <part3></part3>
+      <part4></part4>
+    </colors>
+    <structure>
+      <triangles>
+        <triangle>
+          <r>0</r>
+          <g>100</g>
+          <b>255</b>
+          <rotative />
+        </triangle>
+        <triangle>
+          <r>255</r>
+          <g>55</g>
+          <b>125</b>
+          <alternative />
+        </triangle>
+      </triangles>
+      <rotor>
+        <r>0</r>
+        <g>20</g>
+        <b>255</b>
+      </rotor>
+      <curvor>
+        <r>0</r>
+        <g>100</g>
+        <b>255</b>
+      </curvor>
+    </structure>
+    <sound>
+      <part0>Loqux Past-1</part0>
+      <part1>Loqux Past-2</part1>
+      <part2>Loqux Past-3</part2>
+      <part3>Loqux Past-4</part3>
+    </sound>
+  </planet>
+  <planet>
+    <name></name>
+    <colors>
+      <fondamentale></fondamentale>
+      <part1></part1>
+      <part2></part2>
+      <part3></part3>
+      <part4></part4>
+    </colors>
+    <structure>
+      <triangles>
+        <triangle>
+          <r>0</r>
+          <g>100</g>
+          <b>255</b>
+          <rotative />
+        </triangle>
+        <triangle>
+          <r>255</r>
+          <g>55</g>
+          <b>125</b>
+          <alternative />
+        </triangle>
+      </triangles>
+      <curvor>
+        <r>20</r>
+        <g>100</g>
+        <b>255</b>
+      </curvor>
+    </structure>
+    <sound>
+      <part0>Loqux Past-1</part0>
+      <part1>Loqux Past-2</part1>
+      <part2>Loqux Past-3</part2>
+      <part3>Loqux Past-4</part3>
+    </sound>
+  </planet>
+</galaxie>
