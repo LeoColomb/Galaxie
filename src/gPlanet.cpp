@@ -1,10 +1,10 @@
-/****
-* GALAXIE
-* Interactive Collection of Planets
-*
-* Leo Colombaro - 2013
-* MIT License
-*****/
+//
+// GALAXIE
+// Interactive Collection of Planets
+//
+// Leo Colombaro - 2013
+// MIT License
+//
 
 #include "gPlanet.h"
 
@@ -44,13 +44,16 @@ gPlanet::gPlanet(){
 	for (int i = 0; i < 4; i++){
 		planetCore[i].close();
 	}
-	select(0,0);
 }
 
 //--------------------------------------------------------------
 void gPlanet::update(int newStep){
-	float playTime = soundPlay[step].getPosition();
-	soundPlay[step].stop();
+	float playTime;
+	if (step >= 0){
+		playTime = soundPlay[step].getPosition();
+		soundPlay[step].stop();
+	} else
+		playTime = 0.0;
 	soundPlay[newStep].play();
 	soundPlay[newStep].setPosition(playTime);
 	step = newStep;
@@ -59,7 +62,7 @@ void gPlanet::update(int newStep){
 //--------------------------------------------------------------
 void gPlanet::draw(){
 	galaxieConf.pushTag("galaxie");
-	galaxieConf.pushTag("planet", getSharedData().selectionPlanet);
+	galaxieConf.pushTag("planet"/*, getSharedData().selectionPlanet*/);
 	galaxieConf.pushTag("structure");
 	if (galaxieConf.tagExists("triangles")){
 		galaxieConf.pushTag("triangles");
@@ -89,11 +92,13 @@ void gPlanet::draw(){
 		ofPopMatrix();
 	}
 	if (galaxieConf.tagExists("curvor")){
-		ofPushMatrix();
-		ofSetColor(galaxieConf.getValue("curvor:r", 0),galaxieConf.getValue("curvor:g", 0),galaxieConf.getValue("curvor:b", 0));
-		ofRotate(ofGetElapsedTimef()*20);
-		curvor.draw();
-		ofPopMatrix();
+		if (galaxieConf.getAttribute("curvor", "step", 0)-1 == step){
+			ofPushMatrix();
+			ofSetColor(galaxieConf.getValue("curvor:r", 0),galaxieConf.getValue("curvor:g", 0),galaxieConf.getValue("curvor:b", 0));
+			ofRotate(ofGetElapsedTimef()*20);
+			curvor.draw();
+			ofPopMatrix();
+		}
 	}
 	galaxieConf.popTag();
 	galaxieConf.popTag();
@@ -113,12 +118,13 @@ void gPlanet::draw(){
 }
 
 //--------------------------------------------------------------
-void gPlanet::select(int selection, int rang){
+void gPlanet::sceneWillAppear(ofxScene * fromScreen){
+	step = -1;
 	galaxieConf.pushTag("galaxie");
 //	int testddd = getSharedData().selectionPlanet;
 	galaxieConf.pushTag("planet"/*, testddd*/);
 	for (int i = 0; i < 4; i++){
-		soundPlay[i].loadSound("sounds/" + galaxieConf.getValue("sound:part" + ofToString(i), "") + ".mp3");
+		soundPlay[i].loadSound("sounds/" + galaxieConf.getValue("sound", "") + "-" + ofToString(i + 1) + ".wav");
 		soundPlay[i].setLoop(true);
 	}
 	galaxieConf.popTag();
@@ -153,13 +159,11 @@ void gPlanet::mouseMoved(int x, int y){
 
 //--------------------------------------------------------------
 void gPlanet::mousePressed(int x, int y, int button){
-	for (int i = 0; i < 4; i++){
-		soundPlay[i].unloadSound();
-	}
-	changeState("transition");
 }
 
 //--------------------------------------------------------------
-string gPlanet::getName(){
-	return "planet";
+void gPlanet::sceneDidDisappear(ofxScene * toScreen){
+	for (int i = 0; i < 4; i++){
+		soundPlay[i].unloadSound();
+	}
 }

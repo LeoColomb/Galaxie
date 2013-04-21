@@ -46,6 +46,24 @@
     <ClCompile Include="src\gApp.cpp">
       <Filter>src</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxAnimatable\src\ofxAnimatable.cpp">
+      <Filter>addons\ofxAnimatable</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxAnimatable\src\ofxAnimatableFloat.cpp">
+      <Filter>addons\ofxAnimatable</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxAnimatable\src\ofxAnimatableOfColor.cpp">
+      <Filter>addons\ofxAnimatable</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxAnimatable\src\ofxAnimatableOfPoint.cpp">
+      <Filter>addons\ofxAnimatable</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxScreenCurtain\src\ofxScreenCurtain.cpp">
+      <Filter>addons\ofxScreenCurtain</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxSceneManager\src\ofxSceneManager.cpp">
+      <Filter>addons\ofxSceneManager</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -71,6 +89,15 @@
     </Filter>
     <Filter Include="addons\ofxStateMachine">
       <UniqueIdentifier>{6a494cc2-26a4-4161-8c27-6937beb53114}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxAnimatable">
+      <UniqueIdentifier>{35f95266-807b-4b7b-9665-eaf084948714}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxScreenCurtain">
+      <UniqueIdentifier>{61884355-2c32-49aa-a154-187288652afc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="addons\ofxSceneManager">
+      <UniqueIdentifier>{faf6c3e9-bfa1-4467-920e-57cbd1d79e3d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -133,6 +160,27 @@
     </ClInclude>
     <ClInclude Include="src\gApp.h">
       <Filter>src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxAnimatable\src\ofxAnimatable.h">
+      <Filter>addons\ofxAnimatable</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxAnimatable\src\ofxAnimatableFloat.h">
+      <Filter>addons\ofxAnimatable</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxAnimatable\src\ofxAnimatableOfColor.h">
+      <Filter>addons\ofxAnimatable</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxAnimatable\src\ofxAnimatableOfPoint.h">
+      <Filter>addons\ofxAnimatable</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxScreenCurtain\src\ofxScreenCurtain.h">
+      <Filter>addons\ofxScreenCurtain</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxSceneManager\src\ofxScene.h">
+      <Filter>addons\ofxSceneManager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxSceneManager\src\ofxSceneManager.h">
+      <Filter>addons\ofxSceneManager</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

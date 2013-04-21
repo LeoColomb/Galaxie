@@ -1,10 +1,10 @@
-/****
-* GALAXIE
-* Interactive Collection of Planets
-*
-* Leo Colombaro - 2013
-* MIT License
-*****/
+//
+// GALAXIE
+// Interactive Collection of Planets
+//
+// Leo Colombaro - 2013
+// MIT License
+//
 
 #include "gInitialisation.h"
 
@@ -16,36 +16,24 @@ gInitZone::gInitZone(){
 }
 
 //--------------------------------------------------------------
-void gInitZone::update(int xM, int yM){
-	x = xM;
-	y = yM;
-}
-
-//--------------------------------------------------------------
 void gInitZone::draw(){
 	ofFill();
 	if (!isFixed){
 		ofSetColor(ofColor::red);
 		ofCircle(x,y,100);
-		return;
+	} else {
+		ofSetColor(ofColor::green);
+		ofCircle(0,0,100);
 	}
-	ofSetColor(ofColor::red);
-	ofCircle(x,y,100);
 }
 
 //--------------------------------------------------------------
-void gInitZone::fixed(){
+void gInitZone::mousePressed(int x, int y, int button){
 	isFixed = true;
-	x = 0;
-	y = 0;
 }
 
 //--------------------------------------------------------------
-void gInitZone::mouseMoved(int x, int y){
-	update(x, y);
-}
-
-//--------------------------------------------------------------
-string gInitZone::getName(){
-	return "init";
+void gInitZone::mouseMoved(int xM, int yM){
+	x = xM;
+	y = yM;
 }

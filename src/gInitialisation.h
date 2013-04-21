@@ -1,5 +1,5 @@
 /****
-*   ___   __   __     __   _  _ ____ ____ 
+*   ___   __   __     __   _  _ ____ ____
 *  / __) /__\ (  )   /__\ ( \/ (_  _( ___)
 * ( (_-./(__)\ )(__ /(__)\ )  ( _)(_ )__)
 *  \___(__)(__(____(__)(__(_/\_(____(____)
@@ -20,17 +20,16 @@
 #include "ofMain.h"
 #include "gConstants.h"
 
-#include "../../addons/ofxStateMachine/src/ofxStateMachine.h"
+#include "../../addons/ofxSceneManager/src/ofxScene.h"
 
-class gInitZone : public itg::ofxState<dataGalaxie>{
+class gInitZone : public ofxScene{
 public:
 	gInitZone();
 
 	void update(int xM, int yM);
 	void draw();
-	void fixed();
 	void mouseMoved(int x, int y);
-	string getName();
+	void mousePressed(int x, int y, int button);
 
 	float x, y;
 	bool isFixed;

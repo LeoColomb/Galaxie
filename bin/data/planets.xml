@@ -10,36 +10,32 @@
     </colors>
     <structure>
       <triangles>
-        <triangle>
+        <triangle step="2">
+          <distance></distance>
           <r>0</r>
           <g>100</g>
           <b>255</b>
           <rotative />
         </triangle>
-        <triangle>
+        <triangle step="1">
           <r>255</r>
           <g>55</g>
           <b>125</b>
           <alternative />
         </triangle>
       </triangles>
-      <rotor>
+      <rotor step="3">
         <r>0</r>
         <g>20</g>
         <b>255</b>
       </rotor>
-      <curvor>
+      <curvor step="4">
         <r>0</r>
         <g>100</g>
         <b>255</b>
       </curvor>
     </structure>
-    <sound>
-      <part0>Loqux Past-1</part0>
-      <part1>Loqux Past-2</part1>
-      <part2>Loqux Past-3</part2>
-      <part3>Loqux Past-4</part3>
-    </sound>
+    <sound>Day of the Weird Beginning</sound>
   </planet>
   <planet>
     <name></name>
@@ -71,11 +67,6 @@
         <b>255</b>
       </curvor>
     </structure>
-    <sound>
-      <part0>Loqux Past-1</part0>
-      <part1>Loqux Past-2</part1>
-      <part2>Loqux Past-3</part2>
-      <part3>Loqux Past-4</part3>
-    </sound>
+    <sound>Loqux Past</sound>
   </planet>
 </galaxie>

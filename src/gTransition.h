@@ -1,5 +1,5 @@
 /****
-*   ___   __   __     __   _  _ ____ ____ 
+*   ___   __   __     __   _  _ ____ ____
 *  / __) /__\ (  )   /__\ ( \/ (_  _( ___)
 * ( (_-./(__)\ )(__ /(__)\ )  ( _)(_ )__)
 *  \___(__)(__(____(__)(__(_/\_(____(____)
@@ -20,7 +20,7 @@
 #include "ofMain.h"
 #include "gConstants.h"
 
-#include "../../addons/ofxStateMachine/src/ofxStateMachine.h"
+#include "../../addons/ofxSceneManager/src/ofxScene.h"
 
 //========================================================================
 class particules{
@@ -41,19 +41,22 @@ public:
 	bool bMouv;
 };
 
-class gTransition : public itg::ofxState<dataGalaxie>{
+class gTransition : public ofxScene{
 public:
 	gTransition();
 
 	void update();
 	void draw();
 	void mousePressed(int x, int y, int button);
-	string getName();
+	void sceneWillAppear(ofxScene * fromScreen);
 
 	int configStep;
 
 	ofPath planetCore[4];
 	particules allParticules[100];
+
+private:
+	int selection[3];
 };
 
 #endif // TRANSITIONS_H_INCLUDED

@@ -1,5 +1,5 @@
 /****
-*   ___   __   __     __   _  _ ____ ____ 
+*   ___   __   __     __   _  _ ____ ____
 *  / __) /__\ (  )   /__\ ( \/ (_  _( ___)
 * ( (_-./(__)\ )(__ /(__)\ )  ( _)(_ )__)
 *  \___(__)(__(____(__)(__(_/\_(____(____)
@@ -26,11 +26,12 @@
 #define COSM_API_KEY	"XXXX-YYYY"
 #define COSM_FEED	"ZZZZ"
 
-// Data shared between states
-class dataGalaxie{
-public:
-	int selectionPlanet;
-	int lastUpdate;
+enum gStates{ 
+	INIT = 1,
+	INTERACTION,
+	PLANET
 };
+
+int thisSelection = 0;
 
 #endif // CONSTANTS_H_INCLUDED

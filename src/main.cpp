@@ -1,5 +1,5 @@
 /****
-*   ___   __   __     __   _  _ ____ ____ 
+*   ___   __   __     __   _  _ ____ ____
 *  / __) /__\ (  )   /__\ ( \/ (_  _( ___)
 * ( (_-./(__)\ )(__ /(__)\ )  ( _)(_ )__)
 *  \___(__)(__(____(__)(__(_/\_(____(____)
@@ -23,5 +23,5 @@
 int main(){
 	ofAppGlutWindow window;
 	ofSetupOpenGL(&window, 1280, 1024, OF_WINDOW); // can be OF_WINDOW or OF_FULLSCREEN
-	ofRunApp( new galaxieApp());
+	ofRunApp(new galaxieApp());
 }

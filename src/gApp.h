@@ -1,5 +1,5 @@
 /****
-*   ___   __   __     __   _  _ ____ ____ 
+*   ___   __   __     __   _  _ ____ ____
 *  / __) /__\ (  )   /__\ ( \/ (_  _( ___)
 * ( (_-./(__)\ )(__ /(__)\ )  ( _)(_ )__)
 *  \___(__)(__(____(__)(__(_/\_(____(____)
@@ -21,10 +21,11 @@
 #include "gConstants.h"
 
 // Include usefull addons to improve Galaxie
-#include "../../addons/ofxStateMachine/src/ofxStateMachine.h"
+#include "../../addons/ofxAnimatable/src/ofxAnimatableFloat.h"
+#include "../../addons/ofxSceneManager/src/ofxSceneManager.h"
 #include "../../addons/ofxSimpleSerial/src/ofxSimpleSerial.h"
-#include "../../addons/ofxCosm/src/ofxCosm.h"
 #include "../../addons/ofxTimer/src/ofxTimer.h"
+#include "../../addons/ofxCosm/src/ofxCosm.h"
 
 // Load all parts of Galaxie
 #include "gInitialisation.h"
@@ -51,6 +52,9 @@ public:
 
 	float CENTER_X, CENTER_Y;
 	int planetState;
+	bool gInitialized;
+
+	ofxSceneManager * stateGalaxie;
 
 	ofxSimpleSerial arduino;
 	void onNewMessage(string & byteReceived);
@@ -58,9 +62,4 @@ public:
 	int sendedByte;
 
 	ofxTimer userActivity;
-	gInitZone myZone;
-	gPlanet planet;
-
-private:
-	itg::ofxStateMachine<dataGalaxie> stateGalaxie;
 };

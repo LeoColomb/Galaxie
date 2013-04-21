@@ -1,36 +1,39 @@
-/****
-* GALAXIE
-* Interactive Collection of Planets
-*
-* Leo Colombaro - 2013
-* MIT License
-*****/
+//
+// GALAXIE
+// Interactive Collection of Planets
+//
+// Leo Colombaro - 2013
+// MIT License
+//
 
 #include "gApp.h"
 
 //--------------------------------------------------------------
 void galaxieApp::setup(){
+	ofSetFrameRate(60);
+	ofEnableAlphaBlending();
 	ofSetVerticalSync(true);
 	ofEnableSmoothing();
-	ofBackground(ofColor::black);
-	ofFill();
-	ofEnableAlphaBlending();
-	ofSetCircleResolution(100);
 	glLineWidth(3);
+	ofBackground(ofColor::black);
+	ofSetCircleResolution(100);
+	ofFill();
 
-	// setup shared data
-	stateGalaxie.getSharedData().selectionPlanet = 0;
-	stateGalaxie.getSharedData().lastUpdate = ofGetElapsedTimeMillis();
+	gInitialized = false;
+
+	stateGalaxie = ofxSceneManager::instance();
+	stateGalaxie->addScene(new gInitZone(), INIT);
+	stateGalaxie->addScene(new gTransition(), INTERACTION);
+	stateGalaxie->addScene(new gPlanet(), PLANET);
 	
-	// initialise state machine
-	stateGalaxie.addState<gInitZone>();
-	stateGalaxie.addState<gTransition>();
-	stateGalaxie.addState<gPlanet>();
-	stateGalaxie.changeState("init");
+	stateGalaxie->setCurtainDropTime(1.0);
+	stateGalaxie->setCurtainStayTime(0.0);
+	stateGalaxie->setCurtainRiseTime(1.0);
 }
 
 //--------------------------------------------------------------
 void galaxieApp::setupI(){
+	gInitialized = true;
 	if (WITH_ARDUINO){
 		arduino.enumerateDevices();
 		int i = 0;
@@ -50,6 +53,7 @@ void galaxieApp::setupI(){
 
 //--------------------------------------------------------------
 void galaxieApp::update(){
+	stateGalaxie->update(0.016666666);
 	//if (userActivity.alarm() == true){
 	if (WITH_ARDUINO){
 		arduino.writeByte(planetState);
@@ -60,15 +64,14 @@ void galaxieApp::update(){
 
 //--------------------------------------------------------------
 void galaxieApp::draw(){
-	if (!myZone.isFixed){
-		return;
-	}
-	ofTranslate(CENTER_X, CENTER_Y);
+	if (gInitialized)
+		ofTranslate(CENTER_X, CENTER_Y);
+	stateGalaxie->draw();
 }
 
 //--------------------------------------------------------------
-void galaxieApp::onNewMessage(string &byteReceived)
-{
+void galaxieApp::onNewMessage(string &byteReceived){
+	stateGalaxie->onNewMessage(byteReceived);
 	sendedByte = ofToInt(byteReceived);
 	cout << sendedByte << "\n";
 	//if (planetState == 1 || planetState == 2 || planetState == 3){
@@ -87,7 +90,8 @@ void galaxieApp::keyReleased(int key){
 }
 
 //--------------------------------------------------------------
-void galaxieApp::mouseMoved(int x, int y ){
+void galaxieApp::mouseMoved(int x, int y){
+	stateGalaxie->mouseMoved(x, y);
 }
 
 //--------------------------------------------------------------
@@ -96,12 +100,23 @@ void galaxieApp::mouseDragged(int x, int y, int button){
 
 //--------------------------------------------------------------
 void galaxieApp::mousePressed(int x, int y, int button){
-	if(!myZone.isFixed){
-		galaxieApp::setupI();
-		myZone.fixed();
-		CENTER_X = x;
-		CENTER_Y = y;
-		stateGalaxie.changeState("transition");
+	stateGalaxie->mousePressed(x, y, button);
+	switch (stateGalaxie->getCurrentSceneID()){
+		case 1:
+			CENTER_X = x;
+			CENTER_Y = y;
+			galaxieApp::setupI();
+			stateGalaxie->goToScene(INTERACTION);
+			break;
+		case 2:
+			//if (makeTransition.configStep() != 0)
+				stateGalaxie->goToScene(PLANET);
+			break;
+		case 3:
+			stateGalaxie->goToScene(INTERACTION);
+			break;
+		default:
+			break;
 	}
 }
 

@@ -96,9 +96,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\..\addons\ofxAnimatable\src\ofxAnimatable.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxAnimatable\src\ofxAnimatableFloat.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxAnimatable\src\ofxAnimatableOfColor.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxAnimatable\src\ofxAnimatableOfPoint.cpp" />
     <ClCompile Include="..\..\..\addons\ofxCosm\src\ofxCosmFeed.cpp" />
     <ClCompile Include="..\..\..\addons\ofxCosm\src\ofxCosmInput.cpp" />
     <ClCompile Include="..\..\..\addons\ofxCosm\src\ofxCosmOutput.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxSceneManager\src\ofxSceneManager.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxScreenCurtain\src\ofxScreenCurtain.cpp" />
     <ClCompile Include="..\..\..\addons\ofxSimpleSerial\src\ofxSimpleSerial.cpp" />
     <ClCompile Include="..\..\..\addons\ofxTimer\src\ofxTimer.cpp" />
     <ClCompile Include="..\..\..\addons\ofxXmlSettings\libs\tinyxml.cpp" />
@@ -112,10 +118,17 @@
     <ClCompile Include="src\gTransition.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\..\addons\ofxAnimatable\src\ofxAnimatable.h" />
+    <ClInclude Include="..\..\..\addons\ofxAnimatable\src\ofxAnimatableFloat.h" />
+    <ClInclude Include="..\..\..\addons\ofxAnimatable\src\ofxAnimatableOfColor.h" />
+    <ClInclude Include="..\..\..\addons\ofxAnimatable\src\ofxAnimatableOfPoint.h" />
     <ClInclude Include="..\..\..\addons\ofxCosm\src\ofxCosm.h" />
     <ClInclude Include="..\..\..\addons\ofxCosm\src\ofxCosmFeed.h" />
     <ClInclude Include="..\..\..\addons\ofxCosm\src\ofxCosmInput.h" />
     <ClInclude Include="..\..\..\addons\ofxCosm\src\ofxCosmOutput.h" />
+    <ClInclude Include="..\..\..\addons\ofxSceneManager\src\ofxScene.h" />
+    <ClInclude Include="..\..\..\addons\ofxSceneManager\src\ofxSceneManager.h" />
+    <ClInclude Include="..\..\..\addons\ofxScreenCurtain\src\ofxScreenCurtain.h" />
     <ClInclude Include="..\..\..\addons\ofxSimpleSerial\src\ofxSimpleSerial.h" />
     <ClInclude Include="..\..\..\addons\ofxStateMachine\src\ofxState.h" />
     <ClInclude Include="..\..\..\addons\ofxStateMachine\src\ofxStateMachine.h" />

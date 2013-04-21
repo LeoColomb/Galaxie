@@ -1,5 +1,5 @@
 /****
-*   ___   __   __     __   _  _ ____ ____ 
+*   ___   __   __     __   _  _ ____ ____
 *  / __) /__\ (  )   /__\ ( \/ (_  _( ___)
 * ( (_-./(__)\ )(__ /(__)\ )  ( _)(_ )__)
 *  \___(__)(__(____(__)(__(_/\_(____(____)
@@ -21,22 +21,22 @@
 #include "ofMain.h"
 #include "gConstants.h"
 
-#include "../../addons/ofxStateMachine/src/ofxStateMachine.h"
+#include "../../addons/ofxSceneManager/src/ofxScene.h"
 #include "../../addons/ofxXmlSettings/src/ofxXmlSettings.h"
 
 //========================================================================
-class gPlanet : public itg::ofxState<dataGalaxie>{
+class gPlanet : public ofxScene{
 public:
 	gPlanet();
 
 	void update(int newStep);
 	void draw();
-	void select(int selection, int rang);
+	void sceneWillAppear(ofxScene * fromScreen);
 	void interaction(int variationD);
 	void mouseMoved(int x, int y);
 	void mousePressed(int x, int y, int button);
+	void sceneDidDisappear(ofxScene * toScreen);
 	float timeTrigo(string function, float multi = 1);
-	string getName();
 
 	ofPolyline rotor, curvor;		// Basic & geometric form for interaction
 	ofxXmlSettings galaxieConf;		// Load XML settings for planet conf

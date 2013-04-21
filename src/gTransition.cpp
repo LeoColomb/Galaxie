@@ -1,10 +1,10 @@
-/****
-* GALAXIE
-* Interactive Collection of Planets
-*
-* Leo Colombaro - 2013
-* MIT License
-*****/
+//
+// GALAXIE
+// Interactive Collection of Planets
+//
+// Leo Colombaro - 2013
+// MIT License
+//
 
 #include "gTransition.h"
 
@@ -119,15 +119,16 @@ void gTransition::draw(){
 
 //--------------------------------------------------------------
 void gTransition::mousePressed(int x, int y, int button){
+	selection[configStep] = x;
 	configStep++;
 	if (configStep == 3){
-		getSharedData().selectionPlanet = ofRandom(1);
-		configStep = 0;
-		changeState("planet");
+		int result = (int)(selection[0] + selection[1] + selection[2])/100;
+		thisSelection = result;
 	}
 }
 
 //--------------------------------------------------------------
-string gTransition::getName(){
-	return "transition";
+void gTransition::sceneWillAppear(ofxScene * fromScreen){
+	thisSelection = 0;
+	configStep = 0;
 }
