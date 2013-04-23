@@ -82,10 +82,10 @@ gTransition::gTransition(){
 	planetCore[1].arc(0,0,100,100,225,270);
 	planetCore[2].arc(0,0,100,100,340,0);
 	planetCore[3].arc(0,0,100,100,0,20);
+
 	for (int i = 0; i < 4; i++){
 		planetCore[i].close();
 	}
-
 }
 
 //--------------------------------------------------------------
@@ -114,7 +114,6 @@ void gTransition::draw(){
 	for (int i = 0; i < 4; i++){
 		planetCore[i].draw();
 	}
-	
 }
 
 //--------------------------------------------------------------
@@ -123,12 +122,22 @@ void gTransition::mousePressed(int x, int y, int button){
 	configStep++;
 	if (configStep == 3){
 		int result = (int)(selection[0] + selection[1] + selection[2])/100;
-		thisSelection = result;
+		sharedData::thisSelection = result;
 	}
 }
 
 //--------------------------------------------------------------
 void gTransition::sceneWillAppear(ofxScene * fromScreen){
-	thisSelection = 0;
+	sharedData::thisSelection = 0;
 	configStep = 0;
+	for (int i = 0; i < 100; i++){
+		allParticules.push_back(particules());
+	}
+}
+
+//--------------------------------------------------------------
+void gTransition::sceneDidDisappear(ofxScene * fromScreen){
+	for(int i = 0; i < 100; i++){
+		allParticules.pop_back();
+	}
 }

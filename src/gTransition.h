@@ -49,11 +49,12 @@ public:
 	void draw();
 	void mousePressed(int x, int y, int button);
 	void sceneWillAppear(ofxScene * fromScreen);
+	void sceneDidDisappear(ofxScene * fromScreen);
 
 	int configStep;
 
 	ofPath planetCore[4];
-	particules allParticules[100];
+	vector<particules> allParticules;
 
 private:
 	int selection[3];

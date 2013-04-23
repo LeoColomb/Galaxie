@@ -32,6 +32,9 @@ enum gStates{
 	PLANET
 };
 
-int thisSelection = 0;
+class sharedData{
+public:
+	int thisSelection;
+};
 
 #endif // CONSTANTS_H_INCLUDED
