@@ -31,10 +31,11 @@ public:
 
 	void update(int newStep);
 	void draw();
+	friend void selectPlanet();
 	void sceneWillAppear(ofxScene * fromScreen);
 	void interaction(int variationD);
 	void mouseMoved(int x, int y);
-	void mousePressed(int x, int y, int button);
+	void onNewMessage(string & byteReceived);
 	void sceneDidDisappear(ofxScene * toScreen);
 	float timeTrigo(string function, float multi = 1);
 
@@ -43,6 +44,7 @@ public:
 	ofSoundPlayer soundPlay[4];		// Loadable sound: music
 	ofPath planetCore[4];			// Each planetCore represent one part/arc
 
+	int thisPlanet;
 private:
 	int proximity; // Captor sensor interpretation
 	int step;

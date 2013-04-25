@@ -32,9 +32,11 @@ enum gStates{
 	PLANET
 };
 
-class sharedData{
-public:
-	int thisSelection;
-};
+//class sharedData{
+//public:
+//	void selectPlanet(int sendSelection){ thisSelection = sendSelection; };
+//	int getPlanet(){ return thisSelection; };
+//	 int thisSelection;
+//};
 
 #endif // CONSTANTS_H_INCLUDED

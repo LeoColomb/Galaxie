@@ -70,7 +70,7 @@ void galaxieApp::draw(){
 }
 
 //--------------------------------------------------------------
-void galaxieApp::onNewMessage(string &byteReceived){
+void galaxieApp::onNewMessage(string & byteReceived){
 	stateGalaxie->onNewMessage(byteReceived);
 	sendedByte = ofToInt(byteReceived);
 	cout << sendedByte << "\n";

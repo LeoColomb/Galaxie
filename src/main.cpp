@@ -22,6 +22,6 @@
 //========================================================================
 int main(){
 	ofAppGlutWindow window;
-	ofSetupOpenGL(&window, 1280, 1024, OF_WINDOW); // can be OF_WINDOW or OF_FULLSCREEN
+	ofSetupOpenGL(&window, 1580, 1000, OF_WINDOW); // can be OF_WINDOW or OF_FULLSCREEN
 	ofRunApp(new galaxieApp());
 }

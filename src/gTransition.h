@@ -19,6 +19,7 @@
 
 #include "ofMain.h"
 #include "gConstants.h"
+#include "gPlanet.h"
 
 #include "../../addons/ofxSceneManager/src/ofxScene.h"
 
@@ -50,12 +51,14 @@ public:
 	void mousePressed(int x, int y, int button);
 	void sceneWillAppear(ofxScene * fromScreen);
 	void sceneDidDisappear(ofxScene * fromScreen);
+	void selectPlanet(gPlanet * toSelect);
 
 	int configStep;
 
 	ofPath planetCore[4];
 	vector<particules> allParticules;
 
+	int result;
 private:
 	int selection[3];
 };

@@ -62,7 +62,7 @@ void gPlanet::update(int newStep){
 //--------------------------------------------------------------
 void gPlanet::draw(){
 	galaxieConf.pushTag("galaxie");
-	galaxieConf.pushTag("planet"/*, getSharedData().selectionPlanet*/);
+	galaxieConf.pushTag("planet", thisPlanet);
 	galaxieConf.pushTag("structure");
 	if (galaxieConf.tagExists("triangles")){
 		galaxieConf.pushTag("triangles");
@@ -158,7 +158,10 @@ void gPlanet::mouseMoved(int x, int y){
 }
 
 //--------------------------------------------------------------
-void gPlanet::mousePressed(int x, int y, int button){
+void gPlanet::onNewMessage(string & byteReceived){
+	int sendedByte = ofToInt(byteReceived);
+	//if (...)
+	interaction(sendedByte);
 }
 
 //--------------------------------------------------------------

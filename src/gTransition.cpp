@@ -121,14 +121,13 @@ void gTransition::mousePressed(int x, int y, int button){
 	selection[configStep] = x;
 	configStep++;
 	if (configStep == 3){
-		int result = (int)(selection[0] + selection[1] + selection[2])/100;
-		sharedData::thisSelection = result;
+		result = (int)(selection[0] + selection[1] + selection[2])/100;
 	}
 }
 
 //--------------------------------------------------------------
 void gTransition::sceneWillAppear(ofxScene * fromScreen){
-	sharedData::thisSelection = 0;
+	//sharedData::thisSelection = 0;
 	configStep = 0;
 	for (int i = 0; i < 100; i++){
 		allParticules.push_back(particules());
@@ -140,4 +139,9 @@ void gTransition::sceneDidDisappear(ofxScene * fromScreen){
 	for(int i = 0; i < 100; i++){
 		allParticules.pop_back();
 	}
+}
+
+//--------------------------------------------------------------
+void selectPlanet(gPlanet * toSelect, int result){
+	toSelect->thisPlanet = result;
 }

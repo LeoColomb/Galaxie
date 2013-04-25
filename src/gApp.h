@@ -21,16 +21,16 @@
 #include "gConstants.h"
 
 // Include usefull addons to improve Galaxie
-#include "../../addons/ofxAnimatable/src/ofxAnimatableFloat.h"
-#include "../../addons/ofxSceneManager/src/ofxSceneManager.h"
-#include "../../addons/ofxSimpleSerial/src/ofxSimpleSerial.h"
-#include "../../addons/ofxTimer/src/ofxTimer.h"
-#include "../../addons/ofxCosm/src/ofxCosm.h"
+#include <ofxAnimatable/src/ofxAnimatableFloat.h>
+#include <ofxSceneManager/src/ofxSceneManager.h>
+#include <ofxSimpleSerial/src/ofxSimpleSerial.h>
+#include <ofxTimer/src/ofxTimer.h>
+#include <ofxCosm/src/ofxCosm.h>
 
 // Load all parts of Galaxie
 #include "gInitialisation.h"
-#include "gTransition.h"
 #include "gPlanet.h"
+#include "gTransition.h"
 
 //========================================================================
 class galaxieApp : public ofBaseApp{
