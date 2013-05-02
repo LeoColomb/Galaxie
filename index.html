@@ -1,4 +1,4 @@
-﻿<!doctype html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
@@ -60,12 +60,16 @@
                 La mutualisation de la source permet à tous les acteurs du projet de suivre en temps réel la progression du code, ainsi qu’un partage de contenu, valeur première d’Internet.
             </p>
             <h2>Ouverture</h2>
+            <p>Les possibilités sont infinies !</p>
 
             <hr />
 
             <h1>Production</h1>
             <h2>Problématiques</h2>
             <h2>Structures</h2>
+
+            <hr />
+
             <h1>Développement</h1>
             <h2>Environnement</h2>
             <p>Pour débuter le développement du projet, commençons par décrire la méthode à suivre. Préparez en premier l’environnement numérique de travail.</p>
@@ -91,9 +95,10 @@
             <p>Passons ensuite au <b>Modules openFrameworks</b>.</p>
             <ol>
                 <li>Ouvrez le fichier <code><a href="https://github.com/LeoColomb/Galaxie/blob/master/addons.make">addons.make</a></code>.</li>
-                <li>Dirigez-vous sur <a href="http://ofxaddons.com/">ofxaddons.com</a>, et télécharger chaque «&nbsp;addon&nbsp;» référencé dans <code>addons.make</code>.</li>
+                <li>Dirigez-vous sur <a href="http://ofxaddons.com/">ofxaddons.com</a>, et téléchargez chaque «&nbsp;addon&nbsp;» référencé dans <code>addons.make</code>.</li>
                 <li>Décompressez chaque téléchargement dans le dossier <code>addons</code> du répertoire d’openFrameworks.</li>
-                </ol>
+            </ol>
+            <p>Terminez l’installation en téléchargeant <a href="https://github.com/LeoColomb/Galaxie/archive/master.zip">Galaxie</a>, et en décompressant l’archive dans le dossier <code>apps/myApps</code> du répertoire d’openFrameworks.</p>
             <h3>Arduino</h3>
             <h4>Matériel requis</h4>
             <ul>
@@ -110,8 +115,17 @@
                 <li>Ouvrir le croquis lié au projet</li>
             </ol>
             <h2>Construction</h2>
+            <p>La conjstruction du projet Galaxie se déroulle en quelques étapes simples :</p>
+            <ul>
+                <li>Téléverser sur votre carte Arduino le croquis grâce à l’IDE Arduino.</li>
+                <li>Executez <code>Galaxie.sln</code> et lancez la compilation dans Visual Studio 2012.</li>
+                <li>Executer maintenant le fichier généré, soit Galaxie.exe.</li>
+                <li>Appreciez et jouez avec Galaxie.</li>
+            </ul>
+            <p><em>Dans le cas d’une utilisation d’Arduino, une configuration spatiale spécifique est requise. Editez le projet pour que l'application soit cohérente avec son environnement.</em></p>
 
             <hr />
+
             <h1>À propos</h1>
             <h2>Sites officiels</h2>
             <ul>
@@ -130,7 +144,6 @@
             <br />
             <p>Néanmoins, certains composants contiennent leurs propres licences, en particulier openFrameworks et extensions.</p>
 
-            <hr />
             <h2>Notes de Version</h2>
             <h3>Principe</h3>
             <p>Par transparence, les versions suivent un cycle défini comme le conseille <a href="http://semver.org">Semantic Versioning</a>.<br />
