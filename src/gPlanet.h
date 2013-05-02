@@ -21,28 +21,32 @@
 #include "ofMain.h"
 #include "gConstants.h"
 
-#include "../../addons/ofxSceneManager/src/ofxScene.h"
-#include "../../addons/ofxXmlSettings/src/ofxXmlSettings.h"
+#include <ofxSceneManager/src/ofxScene.h>
+#include <ofxXmlSettings/src/ofxXmlSettings.h>
+#include <ofxCosm/src/ofxCosm.h>
 
 //========================================================================
 class gPlanet : public ofxScene{
 public:
 	gPlanet();
 
+	friend void selectPlanet();
+
 	void update(int newStep);
 	void draw();
-	friend void selectPlanet();
 	void sceneWillAppear(ofxScene * fromScreen);
 	void interaction(int variationD);
 	void mouseMoved(int x, int y);
 	void onNewMessage(string & byteReceived);
-	void sceneDidDisappear(ofxScene * toScreen);
+	void sceneWillDisappear(ofxScene * toScreen);
+	void sceneDidDisappear(ofxScene * fromScreen);
 	float timeTrigo(string function, float multi = 1);
 
 	ofPolyline rotor, curvor;		// Basic & geometric form for interaction
 	ofxXmlSettings galaxieConf;		// Load XML settings for planet conf
 	ofSoundPlayer soundPlay[4];		// Loadable sound: music
 	ofPath planetCore[4];			// Each planetCore represent one part/arc
+	//ofxCosmOutput cosmTransfert;
 
 	int thisPlanet;
 private:

@@ -21,7 +21,7 @@
 #include "gConstants.h"
 #include "gPlanet.h"
 
-#include "../../addons/ofxSceneManager/src/ofxScene.h"
+#include <ofxSceneManager/src/ofxScene.h>
 
 //========================================================================
 class particules{

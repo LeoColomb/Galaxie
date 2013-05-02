@@ -20,7 +20,7 @@
 #include "ofMain.h"
 #include "gConstants.h"
 
-#include "../../addons/ofxSceneManager/src/ofxScene.h"
+#include <ofxSceneManager/src/ofxScene.h>
 
 class gInitZone : public ofxScene{
 public:
