@@ -38,7 +38,7 @@ public:
 	void interaction(int variationD);
 	void mouseMoved(int x, int y);
 	void onNewMessage(string & byteReceived);
-	void sceneWillDisappear(ofxScene * toScreen);
+//	void sceneWillDisappear(ofxScene * toScreen);
 	void sceneDidDisappear(ofxScene * fromScreen);
 	float timeTrigo(string function, float multi = 1);
 
