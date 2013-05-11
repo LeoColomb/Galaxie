@@ -13,8 +13,6 @@ gPlanet::gPlanet(){
 	step = 0;
 	galaxieConf.loadFile("planets.xml");
 
-	// Init
-
 	// Init all forms available
 	float angle = 0; // Angle from 0 to 360
 	while (angle < TWO_PI ) {

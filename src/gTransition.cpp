@@ -9,7 +9,6 @@
 #include "gTransition.h"
 
 //--------------------------------------------------------------
-// Particules initialisation
 particules::particules(){
 	timeNow = ofGetElapsedTimef();	// Get the time now
 	randomShX = ofRandomf();		// Get a random number between 0-1
@@ -19,7 +18,6 @@ particules::particules(){
 }
 
 //--------------------------------------------------------------
-// 
 void particules::reset(){
 	x = (randomShX * (ofGetElapsedTimef() - timeNow) * 50);
 	y = (randomShY * (ofGetElapsedTimef() - timeNow) * 50);
