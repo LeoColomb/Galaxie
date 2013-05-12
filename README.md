@@ -36,5 +36,5 @@ And constructed with the following guidelines:
 
 Lisence
 -------
-&copy; L&eacute;o Colombaro - Open Source Project 2013
+&copy; L&eacute;o Colombaro - Open Source Project 2013  
 MIT Lisence - See [LICENSE.md](LICENSE.md)
