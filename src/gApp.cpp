@@ -10,7 +10,7 @@
 
 //--------------------------------------------------------------
 void galaxieApp::setup(){
-	ofSetFrameRate(60);
+	ofSetFrameRate(75);
 	ofEnableAlphaBlending();
 	ofSetVerticalSync(true);
 	ofEnableSmoothing();
