@@ -34,6 +34,7 @@ And constructed with the following guidelines:
 * New additions without breaking backward compatibility bumps the minor (and resets the patch)
 * Bug fixes and misc changes bumps the patch
 
-Contributions
--------------
+Lisence
+-------
 &copy; L&eacute;o Colombaro - Open Source Project 2013
+MIT Lisence - See [LICENSE.md](LICENSE.md)
