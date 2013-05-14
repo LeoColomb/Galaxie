@@ -6,12 +6,35 @@
     <!-- Place anything custom after this. -->
   </head>
   <body>
+    <header>
+        <h1>GALAXIE</h1>
+        <p>Collection Interactive de Planètes</p>
+    </header>
 
+    <div id="banner">
+        <span id="logo"></span>
+        <a href="https://github.com/LeoColomb/Galaxie" class="button fork"><strong>Voir le code sur GitHub</strong></a>
+        <div class="downloads">
+            <span>Télécharger</span>
+            <ul>
+                <li><a href="https://github.com/LeoColomb/Galaxie/archive/master.zip" class="button">ZIP</a></li>
+                <li><a href="https://github.com/LeoColomb/Galaxie/tarball/master" class="button">TAR</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="wrapper">
+        <nav>
+            <ul></ul>
+        </nav>
+        
     <!-- Page content of course! -->
     {{ content }}
 
     <!-- JS and analytics only. -->
     {% include footer.html %}
 
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
   </body>
 </html>
