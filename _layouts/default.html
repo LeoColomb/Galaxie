@@ -1,13 +1,17 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
   <head>
     <!-- Meta, title, CSS, favicons, etc. -->
     {% include header.html %}
     <!-- Place anything custom after this. -->
   </head>
   <body>
-  
-  {{ content }}
-  
+
+    <!-- Page content of course! -->
+    {{ content }}
+
+    <!-- JS and analytics only. -->
+    {% include footer.html %}
+
   </body>
 </html>
