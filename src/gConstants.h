@@ -21,10 +21,10 @@
 #define WITH_ARDUINO	false
 #define SERIAL_PORT     "COM5"
 
-// Cosm Parameters
-#define WITH_COSM	false
-#define COSM_API_KEY	"XXXX-YYYY"
-#define COSM_FEED	"ZZZZ"
+// Xively Parameters
+#define WITH_XIVELY	false
+#define XIVELY_API_KEY	"XXXX-YYYY"
+#define XIVELY_FEED	"ZZZZ"
 
 enum gStates{ 
 	INIT = 1,

@@ -23,7 +23,7 @@
 
 #include <ofxSceneManager/src/ofxScene.h>
 #include <ofxXmlSettings/src/ofxXmlSettings.h>
-#include <ofxCosm/src/ofxCosm.h>
+#include <ofxXively/src/ofxXively.h>
 
 //========================================================================
 class gPlanet : public ofxScene{
@@ -46,7 +46,7 @@ public:
 	ofxXmlSettings galaxieConf;		// Load XML settings for planet conf
 	ofSoundPlayer soundPlay[4];		// Loadable sound: music
 	ofPath planetCore[4];			// Each planetCore represent one part/arc
-	//ofxCosmOutput cosmTransfert;
+	//ofxXivelyOutput xivelyTransfert;
 
 	int thisPlanet;
 private:

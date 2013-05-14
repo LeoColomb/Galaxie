@@ -7,15 +7,6 @@
     <ClCompile Include="src\main.cpp">
       <Filter>src</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxCosm\src\ofxCosmFeed.cpp">
-      <Filter>addons\ofxCosm</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxCosm\src\ofxCosmInput.cpp">
-      <Filter>addons\ofxCosm</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxCosm\src\ofxCosmOutput.cpp">
-      <Filter>addons\ofxCosm</Filter>
-    </ClCompile>
     <ClCompile Include="..\..\..\addons\ofxSimpleSerial\src\ofxSimpleSerial.cpp">
       <Filter>addons\ofxSimpleSerial</Filter>
     </ClCompile>
@@ -64,6 +55,15 @@
     <ClCompile Include="..\..\..\addons\ofxSceneManager\src\ofxSceneManager.cpp">
       <Filter>addons\ofxSceneManager</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxXively\src\ofxXivelyFeed.cpp">
+      <Filter>addons\ofxXively</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxXively\src\ofxXivelyInput.cpp">
+      <Filter>addons\ofxXively</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxXively\src\ofxXivelyOutput.cpp">
+      <Filter>addons\ofxXively</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -71,9 +71,6 @@
     </Filter>
     <Filter Include="addons">
       <UniqueIdentifier>{9205b989-fe71-420a-bdd5-21d099d5e5f6}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="addons\ofxCosm">
-      <UniqueIdentifier>{38224298-4fd4-40ab-851d-0b8e74b1e818}</UniqueIdentifier>
     </Filter>
     <Filter Include="addons\ofxSimpleSerial">
       <UniqueIdentifier>{7583e9f2-e60d-4f0b-987f-9c0cc29aa581}</UniqueIdentifier>
@@ -99,20 +96,11 @@
     <Filter Include="addons\ofxSceneManager">
       <UniqueIdentifier>{faf6c3e9-bfa1-4467-920e-57cbd1d79e3d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="addons\ofxXively">
+      <UniqueIdentifier>{38224298-4fd4-40ab-851d-0b8e74b1e818}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\..\addons\ofxCosm\src\ofxCosm.h">
-      <Filter>addons\ofxCosm</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxCosm\src\ofxCosmFeed.h">
-      <Filter>addons\ofxCosm</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxCosm\src\ofxCosmInput.h">
-      <Filter>addons\ofxCosm</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxCosm\src\ofxCosmOutput.h">
-      <Filter>addons\ofxCosm</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\addons\ofxSimpleSerial\src\ofxSimpleSerial.h">
       <Filter>addons\ofxSimpleSerial</Filter>
     </ClInclude>
@@ -181,6 +169,18 @@
     </ClInclude>
     <ClInclude Include="..\..\..\addons\ofxSceneManager\src\ofxSceneManager.h">
       <Filter>addons\ofxSceneManager</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxXively\src\ofxXively.h">
+      <Filter>addons\ofxXively</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxXively\src\ofxXivelyFeed.h">
+      <Filter>addons\ofxXively</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxXively\src\ofxXivelyInput.h">
+      <Filter>addons\ofxXively</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxXively\src\ofxXivelyOutput.h">
+      <Filter>addons\ofxXively</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

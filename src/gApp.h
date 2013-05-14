@@ -25,7 +25,7 @@
 #include <ofxSceneManager/src/ofxSceneManager.h>
 #include <ofxSimpleSerial/src/ofxSimpleSerial.h>
 #include <ofxTimer/src/ofxTimer.h>
-#include <ofxCosm/src/ofxCosm.h>
+#include <ofxXively/src/ofxXively.h>
 
 // Load all parts of Galaxie
 #include "gInitialisation.h"
