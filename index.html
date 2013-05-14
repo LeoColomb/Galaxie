@@ -40,6 +40,9 @@ layout: default
             <h2>Structures</h2>
             <h3>Eléments</h3>
             <h3>Détails d’une fonction</h3>
+            {% for post in site.posts %}
+                {{ post.excerpt }}
+            {% endfor %}
 
             <hr />
 
