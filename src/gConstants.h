@@ -22,9 +22,9 @@
 #define SERIAL_PORT     "COM5"
 
 // Xively Parameters
-#define WITH_XIVELY	false
-#define XIVELY_API_KEY	"XXXX-YYYY"
-#define XIVELY_FEED	"ZZZZ"
+#define WITH_XIVELY		false
+#define XIVELY_API_KEY	"ASdIxEjsiUFxwfNVxByvJo7oQhySAKw3WE01K2VGcDBiQT0g"
+#define XIVELY_FEED 	126791
 
 enum gStates{ 
 	INIT = 1,
