@@ -46,7 +46,7 @@ public:
 	ofxXmlSettings galaxieConf;		// Load XML settings for planet conf
 	ofSoundPlayer soundPlay[4];		// Loadable sound: music
 	ofPath planetCore[4];			// Each planetCore represent one part/arc
-	//ofxXivelyOutput xivelyTransfert;
+	ofxXivelyInput* xivelyTransfert;
 
 	int thisPlanet;
 private:

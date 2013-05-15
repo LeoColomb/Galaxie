@@ -13,6 +13,13 @@ gPlanet::gPlanet(){
 	step = 0;
 	galaxieConf.loadFile("planets.xml");
 
+	xivelyTransfert = new ofxXivelyInput(true);
+	xivelyTransfert->setApiKey(XIVELY_API_KEY);
+	xivelyTransfert->setFeedId(XIVELY_FEED);
+	xivelyTransfert->setVerbose(true);
+	xivelyTransfert->setMinInterval(5);
+	xivelyTransfert->input(OFX_XIVELY_EEML, true);    /// forcing update = ignoring min interval
+
 	// Init all forms available
 	float angle = 0; // Angle from 0 to 360
 	while (angle < TWO_PI ) {
@@ -55,6 +62,8 @@ void gPlanet::update(int newStep){
 	soundPlay[newStep].play();
 	soundPlay[newStep].setPosition(playTime);
 	step = newStep;
+	xivelyTransfert->setValue(1, ofRandom(0,100));
+	xivelyTransfert->input();
 }
 
 //--------------------------------------------------------------

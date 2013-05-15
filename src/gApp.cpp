@@ -45,7 +45,7 @@ void galaxieApp::setupI(){
 			}
 			ofSleepMillis(400);
 		}
-		arduino.startContinuesRead();
+		arduino.startContinuousRead();
 		ofAddListener(arduino.NEW_MESSAGE, this, &galaxieApp::onNewMessage);
 	}
 	userActivity.setup(20000, false);
