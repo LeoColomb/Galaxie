@@ -7,3 +7,8 @@ pygments: true
 
 # Permalinks
 permalink: pretty
+
+# Variables
+title: Galaxie
+description: Collection Interactive de Planètes
+author: Léo Colombaro
