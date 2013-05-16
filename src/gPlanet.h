@@ -40,7 +40,7 @@ public:
 	void onNewMessage(string & byteReceived);
 //	void sceneWillDisappear(ofxScene * toScreen);
 	void sceneDidDisappear(ofxScene * fromScreen);
-	float timeTrigo(string function, float multi = 1);
+	float timeTrigo(string function, float multi = 1, int piTimes = 0);
 
 	ofPolyline rotor, curvor;		// Basic & geometric form for interaction
 	ofxXmlSettings galaxieConf;		// Load XML settings for planet conf
