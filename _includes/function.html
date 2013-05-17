@@ -5,7 +5,7 @@ void galaxieApp::onNewMessage(std::string & byteReceived) {
 	cout << sendedByte << "\n";
 }
 {% endhighlight %}
-<p>Dans cette fonction, l'application receptionne le message <code>serial</code> transmis par Arduino. Il correspond à la distance calculée.
+<p>Dans <a href="https://github.com/LeoColomb/Galaxie/blob/master/src/gApp.cpp#L73">cette fonction</a>, l'application receptionne le message <code>serial</code> transmis par Arduino. Il correspond à la distance calculée.
 	Lors d'un nouveau message, la fonction <code>galaxieApp::onNewMessage(...)</code> est donc appelée.</p>
 {% highlight cpp %}
 stateGalaxie->onNewMessage(byteReceived);
