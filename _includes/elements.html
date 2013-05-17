@@ -1,0 +1,89 @@
+{% highlight cpp %}
+class galaxieApp {
+
+	// Fonctions & Meéthodes
+	void setup();
+	void setupI();
+	void update();
+	void draw();
+	void keyPressed(int key);
+	void keyReleased(int key);
+	void mouseMoved(int x, int y);
+	void mouseDragged(int x, int y, int button);
+	void mousePressed(int x, int y, int button);
+	void mouseReleased(int x, int y, int button);
+	void windowResized(int w, int h);
+	void dragEvent(ofDragInfo dragInfo);
+	void gotMessage(ofMessage msg);
+	void onNewMessage(string & byteReceived);
+
+	// Variables
+	float CENTER_X, CENTER_Y;
+	int planetState;
+	bool gInitialized;
+	string byteReceived;
+	int sendedByte;
+}
+{% endhighlight %}
+
+{% highlight cpp %}
+class gInitZone {
+
+	// Fonctions & Méthodes
+	gInitZone();
+	void update(int xM, int yM);
+	void draw();
+	void mouseMoved(int x, int y);
+	void mousePressed(int x, int y, int button);
+
+	// Variables
+	float x, y;
+	bool isFixed;
+};
+{% endhighlight %}
+
+{% highlight cpp %}
+class gPlanet {
+
+	// Fonction Friend
+	friend void selectPlanet();
+
+	// Fonctions & Méthodes
+	gPlanet();
+	friend void selectPlanet();
+	void update(int newStep);
+	void draw();
+	void sceneWillAppear(ofxScene * fromScreen);
+	void interaction(int variationD);
+	void mouseMoved(int x, int y);
+	void onNewMessage(string & byteReceived);
+	void sceneDidDisappear(ofxScene * fromScreen);
+	float timeTrigo(string function, float multi = 1, int piTimes = 0);
+
+	// Variables
+	int thisPlanet;
+	// Variables privées
+	int proximity; // Captor sensor interpretation
+	int step;
+};
+{% endhighlight %}
+
+{% highlight cpp %}
+class gTransition {
+
+	// Fonctions & Méthodes
+	gTransition();
+	void update();
+	void draw();
+	void mousePressed(int x, int y, int button);
+	void sceneWillAppear(ofxScene * fromScreen);
+	void sceneDidDisappear(ofxScene * fromScreen);
+	void selectPlanet(gPlanet * toSelect);
+
+	// Variables
+	int configStep;
+	int result;
+	// Variables privées
+	int selection[3];
+};
+{% endhighlight %}
