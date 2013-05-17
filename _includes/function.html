@@ -1,10 +1,8 @@
 {% highlight cpp linenos %}
-class galaxieApp {
-	void galaxieApp::onNewMessage(std::string & byteReceived){
-		stateGalaxie->onNewMessage(byteReceived);
-		sendedByte = ofToInt(byteReceived);
-		cout << sendedByte << "\n";
-	}
+void galaxieApp::onNewMessage(std::string & byteReceived) {
+	stateGalaxie->onNewMessage(byteReceived);
+	sendedByte = ofToInt(byteReceived);
+	cout << sendedByte << "\n";
 }
 {% endhighlight %}
 <p>Dans cette fonction, l'application receptionne le message <code>serial</code> transmis par Arduino. Il correspond à la distance calculée.
