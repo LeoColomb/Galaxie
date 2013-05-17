@@ -5,17 +5,17 @@ void galaxieApp::onNewMessage(string & byteReceived){
 	cout << sendedByte << "\n";
 }
 {% endhighlight %}
-<p>Dans cette fonction, l'application receptionne le message <code>serial</code> transmis par Arduino. Il correspond à la distance calculée.
-	Lors d'un nouveau message, la fonction <code>galaxieApp::onNewMessage(...)</code> est donc appelée.</p>
+<p>Dans cette fonction, l'application receptionne le message <code>serial</code> transmis par Arduino. Il correspond Ã  la distance calculÃ©e.
+	Lors d'un nouveau message, la fonction <code>galaxieApp::onNewMessage(...)</code> est donc appelÃ©e.</p>
 {% highlight cpp %}
 	stateGalaxie->onNewMessage(byteReceived);
 {% endhighlight %}
-<p>Ici, nous globalisons cette fonction, pour permettre à l'application d'interagir aux nouveaux messages quelque que soit sont <em>état</em>.</p>
+<p>Ici, nous globalisons cette fonction, pour permettre Ã  l'application d'interagir aux nouveaux messages quelque que soit sont <em>Ã©tat</em>.</p>
 {% highlight cpp %}
 	sendedByte = ofToInt(byteReceived);
 {% endhighlight %}
-<p>Le message transmis est de type <code>std::string</code>. Par la fonction <code>ofToInt(...)</code> la chaine de caractères est transposée en nombre entier <code>int</code>.</p>
+<p>Le message transmis est de type <code>std::string</code>. Par la fonction <code>ofToInt(...)</code> la chaine de caractÃ¨res est transposÃ©e en nombre entier <code>int</code>.</p>
 {% highlight cpp %}
 	cout << sendedByte << "\n";
 {% endhighlight %}
-<p>Enfin, le chiffre intercépté est affiché dans la fenetre d'invite aux commandes. Cela permet de déboguer, mais aussi de voir et comprendre les variations de distances.</p>
+<p>Enfin, le chiffre intercÃ©ptÃ© est affichÃ© dans la fenetre d'invite aux commandes. Cela permet de dÃ©boguer, mais aussi de voir et comprendre les variations de distances.</p>
