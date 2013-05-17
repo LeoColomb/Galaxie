@@ -1,7 +1,8 @@
+ofxAnimatableFloat
 ofxNetwork
-ofxXmlSettings
-ofxCosm
+ofxSceneManager
 ofxSimpleSerial
 ofxTextSuite
 ofxTimer
-ofxTiming
+ofxXively
+ofxXmlSettings
