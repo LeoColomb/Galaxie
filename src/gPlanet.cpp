@@ -56,6 +56,12 @@ gPlanet::gPlanet(){
 	for (int i = 0; i < 4; i++){
 		planetCore[i].close();
 	}
+
+	int value=300;
+	for (int i = 0; i < 5; i++) {
+		valuesRang[i] = value;
+		value -= 300 / 4;
+	}
 }
 
 //--------------------------------------------------------------
@@ -86,7 +92,7 @@ void gPlanet::draw(){
 	galaxieConf.pushTag("galaxie");
 	galaxieConf.pushTag("planet", thisPlanet);
 	galaxieConf.pushTag("structure");
-	if (galaxieConf.tagExists("triangle") && (galaxieConf.getAttribute("triangle", "step", 0) >= step)){
+	if (galaxieConf.tagExists("triangle") && (galaxieConf.getAttribute("triangle", "step", 0) <= step)){
 		galaxieConf.pushTag("triangle");
 		ofPushMatrix();
 		ofSetHexColor(galaxieConf.getValue("color", 0));
@@ -100,14 +106,14 @@ void gPlanet::draw(){
 		ofPopMatrix();
 		galaxieConf.popTag();
 	}
-	if (galaxieConf.tagExists("rotor") && galaxieConf.getAttribute("rotor", "step", 0) >= step){
+	if (galaxieConf.tagExists("rotor") && galaxieConf.getAttribute("rotor", "step", 0) <= step){
 		ofPushMatrix();
 		ofSetColor(galaxieConf.getValue("rotor:r", 0),galaxieConf.getValue("rotor:g", 0),galaxieConf.getValue("rotor:b", 0));
 		ofRotate(ofGetElapsedTimef()*90);
 		rotor.draw();
 		ofPopMatrix();
 	}
-	if (galaxieConf.tagExists("curvor") && galaxieConf.getAttribute("curvor", "step", 0) >= step){
+	if (galaxieConf.tagExists("curvor") && galaxieConf.getAttribute("curvor", "step", 0) <= step){
 		if (galaxieConf.getAttribute("curvor", "step", 0) - 1 == step){
 			ofPushMatrix();
 			ofSetColor(galaxieConf.getValue("curvor:r", 0),galaxieConf.getValue("curvor:g", 0),galaxieConf.getValue("curvor:b", 0));
@@ -144,6 +150,7 @@ void gPlanet::sceneWillAppear(ofxScene * fromScreen){
 	userActivityStart = ofGetElapsedTimeMillis();
 	bSnapshot = false;
 	step = -1;
+	countChange = 0;
 	galaxieConf.pushTag("galaxie");
 	//	int testddd = getSharedData().selectionPlanet;
 	galaxieConf.pushTag("planet"/*, testddd*/);
@@ -167,25 +174,42 @@ float gPlanet::timeTrigo(string function, float multi, int piTimes){
 
 //--------------------------------------------------------------
 void gPlanet::interaction(int varianceD){
-	if (WITH_ARDUINO)
-		proximity = (int)((varianceD * 4));
-	else
-		proximity = (int)((varianceD * 4) / ofGetWidth());
-	if (step != proximity){
-		update(proximity);
+	if (step != varianceD){
+		update(varianceD);
 	}
 }
 
 //--------------------------------------------------------------
 void gPlanet::mouseMoved(int x, int y){
-	interaction(x);
+	interaction((int)((x * 4) / ofGetWidth()));
 }
 
 //--------------------------------------------------------------
 void gPlanet::onNewMessage(string & byteReceived){
 	int sendedByte = ofToInt(byteReceived);
-	//if (...)
-	interaction(sendedByte);
+	if (ofInRange(sendedByte, valuesRang[step + 1], valuesRang[step]))
+		return;
+	else if (sendedByte < valuesRang[step + 1]) {
+		if (countChange > 0)
+			countChange = 0;
+		countChange--;
+		if (countChange <= -3) {
+			interaction(step + 1);
+		} else {
+			return;
+		}
+	}
+	else if (sendedByte > valuesRang[step]) {
+		if (countChange < 0)
+			countChange = 0;
+		countChange++;
+		if (countChange >= 3) {
+			interaction(step - 1);
+		} else {
+			return;
+		}
+		countChange = 0;
+	}
 }
 
 //--------------------------------------------------------------

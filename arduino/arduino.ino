@@ -34,6 +34,7 @@ int DEBUG = 0;
 
 // incoming serial byte
 int inByte = 0;
+int temp = 0;
 
 void setup()
 {
@@ -44,7 +45,8 @@ void setup()
   pinMode(ledMidiIn, OUTPUT);
 
   // Launch MIDI, by default listening to channel 1, Start serial port at *31250* bps
-  MIDI.begin();
+  //MIDI.begin();
+  Serial.begin(9600);
 
   // Initialize the SRF08 Sonar
   MySonar.connect();  
@@ -58,7 +60,10 @@ void loop()
   // If we get a valid byte, read analog ins
   if (Serial.available()) {
     // Get incoming byte
-    inByte = Serial.read();
+    temp = Serial.read();
+    if (temp >= 0) {
+      inByte = temp;
+    }
 
     // Allow Debug
     if (DEBUG) {
@@ -68,7 +73,7 @@ void loop()
 
     // Analyse the request
     switch (inByte) {
-    case 1:
+    case 0:
       digitalWrite(LED1, LOW);
       digitalWrite(LED2, LOW);
       digitalWrite(LED3, LOW);
@@ -76,21 +81,21 @@ void loop()
       getMidi();
       break;
 
-    case 2:
+    case 1:
       // Show step 1 is OK
       digitalWrite(LED1, HIGH);
       // Get note
       getMidi();
       break;
 
-    case 3:
+    case 2:
       // Show step 2 is OK
       digitalWrite(LED2, HIGH);
       // Get note
       getMidi();
       break;
 
-    case 4:
+    case 3:
       // Show all parameters as OK
       digitalWrite(LED1, HIGH);
       digitalWrite(LED2, HIGH);
@@ -136,4 +141,3 @@ void getMidi () {
   }
   /*****/
 }
-

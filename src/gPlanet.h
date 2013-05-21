@@ -54,6 +54,8 @@ public:
 
 	long userActivityStart;
 	int thisPlanet;
+	int valuesRang[5];
+	int countChange;
 
 private:
 	int proximity; // Captor sensor interpretation

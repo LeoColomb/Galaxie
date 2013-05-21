@@ -18,8 +18,8 @@
 #define CONSTANTS_H_INCLUDED
 
 // Arduino Configuration
-#define WITH_ARDUINO	false
-#define SERIAL_PORT     "COM5"
+#define WITH_ARDUINO	true
+#define SERIAL_PORT     "COM3"
 
 // Xively Parameters
 #define WITH_XIVELY		false

@@ -30,7 +30,7 @@ void galaxieApp::setup(){
 	stateGalaxie->setCurtainStayTime(0.0);
 	stateGalaxie->setCurtainRiseTime(1.0);
 
-	configControls = 0;
+	planetState = 0;
 }
 
 //--------------------------------------------------------------
@@ -39,7 +39,7 @@ void galaxieApp::setupI(){
 	if (WITH_ARDUINO){
 		arduino.enumerateDevices();
 		int i = 0;
-		while (!arduino.setup(SERIAL_PORT, 31250)){
+		while (!arduino.setup(SERIAL_PORT, 9600)){
 			i++;
 			if (i == 5){
 				printf("Are you sure you have an Arduino connected?");
@@ -55,12 +55,7 @@ void galaxieApp::setupI(){
 //--------------------------------------------------------------
 void galaxieApp::update(){
 	stateGalaxie->update(0.016666666);
-	//if (userActivity.alarm() == true){
-	if (WITH_ARDUINO){
-		arduino.writeByte(planetState);
-	}
-	//userActivity.resetAlarm();
-	//}
+	arduino.writeByte(planetState);
 }
 
 //--------------------------------------------------------------
@@ -72,7 +67,7 @@ void galaxieApp::draw(){
 
 //--------------------------------------------------------------
 void galaxieApp::onNewMessage(string & byteReceived){
-	if (stateGalaxie->getCurrentSceneID() == 2) {
+	if (stateGalaxie->getCurrentSceneID() == 3) {
 		stateGalaxie->onNewMessage(byteReceived);
 		sendedByte = ofToInt(byteReceived);
 		cout << sendedByte << "\n";
@@ -84,14 +79,20 @@ void galaxieApp::keyPressed(int key){
 	if (key == ' ') {
 		if (stateGalaxie->getCurrentSceneID() == 3) {
 			stateGalaxie->goToScene(INTERACTION);
+			planetState = 0;
 		}
 	} else {
 		stateGalaxie->keyPressed(key);
-		configControls++;
-		if (configControls >= 3) {
+		planetState++;
+		if (planetState >= 3) {
 			stateGalaxie->goToScene(PLANET);
-			configControls = 0;
 		}
+	}
+	if (!WITH_ARDUINO){
+		arduino.writeByte(planetState);
+	}
+	if (planetState >= 3) {
+		planetState = 0;
 	}
 }
 
@@ -101,7 +102,8 @@ void galaxieApp::keyReleased(int key){
 
 //--------------------------------------------------------------
 void galaxieApp::mouseMoved(int x, int y){
-	stateGalaxie->mouseMoved(x, y);
+	if (!WITH_ARDUINO)
+		stateGalaxie->mouseMoved(x, y);
 }
 
 //--------------------------------------------------------------
@@ -119,17 +121,19 @@ void galaxieApp::mousePressed(int x, int y, int button){
 		stateGalaxie->goToScene(INTERACTION);
 		break;
 	case 2:
-		configControls++;
-		if (configControls >= 3) {
+		planetState++;
+		if (planetState >= 3) {
 			stateGalaxie->goToScene(PLANET);
-			configControls = 0;
 		}
 		break;
 	case 3:
+		planetState = 0;
 		stateGalaxie->goToScene(INTERACTION);
 		break;
 	default:
 		break;
+	}
+	if (!WITH_ARDUINO){
 	}
 }
 
