@@ -55,7 +55,9 @@ void galaxieApp::setupI(){
 //--------------------------------------------------------------
 void galaxieApp::update(){
 	stateGalaxie->update(0.016666666);
-	arduino.writeByte(planetState);
+	if (WITH_ARDUINO && arduino.isInitialized()){
+		arduino.writeByte(planetState);
+	}
 }
 
 //--------------------------------------------------------------
@@ -70,7 +72,7 @@ void galaxieApp::onNewMessage(string & byteReceived){
 	if (stateGalaxie->getCurrentSceneID() == 3) {
 		stateGalaxie->onNewMessage(byteReceived);
 		sendedByte = ofToInt(byteReceived);
-		cout << sendedByte << "\n";
+		cout << "[Arduino] " << sendedByte << "\n";
 	}
 }
 
@@ -83,16 +85,12 @@ void galaxieApp::keyPressed(int key){
 		}
 	} else {
 		stateGalaxie->keyPressed(key);
-		planetState++;
-		if (planetState >= 3) {
-			stateGalaxie->goToScene(PLANET);
+		if (stateGalaxie->getCurrentSceneID() != 3) {
+			planetState++;
+			if (planetState >= 3 && stateGalaxie->getCurrentSceneID() != 3) {
+				stateGalaxie->goToScene(PLANET);
+			}
 		}
-	}
-	if (!WITH_ARDUINO){
-		arduino.writeByte(planetState);
-	}
-	if (planetState >= 3) {
-		planetState = 0;
 	}
 }
 
@@ -102,7 +100,7 @@ void galaxieApp::keyReleased(int key){
 
 //--------------------------------------------------------------
 void galaxieApp::mouseMoved(int x, int y){
-	if (!WITH_ARDUINO)
+	if (!(WITH_ARDUINO && gInitialized))
 		stateGalaxie->mouseMoved(x, y);
 }
 
@@ -132,8 +130,6 @@ void galaxieApp::mousePressed(int x, int y, int button){
 		break;
 	default:
 		break;
-	}
-	if (!WITH_ARDUINO){
 	}
 }
 

@@ -16,7 +16,7 @@ gPlanet::gPlanet(){
 	xivelyTransfert = new ofxXivelyInput(true);
 	xivelyTransfert->setApiKey(XIVELY_API_KEY);
 	xivelyTransfert->setFeedId(XIVELY_FEED);
-	xivelyTransfert->setVerbose(true);
+	xivelyTransfert->setVerbose(false);
 	xivelyTransfert->setMinInterval(5);
 	xivelyTransfert->input(OFX_XIVELY_EEML, true);    /// forcing update = ignoring min interval
 
