@@ -48,6 +48,7 @@ public:
 
 	void update();
 	void draw();
+	void keyPressed(int key);
 	void mousePressed(int x, int y, int button);
 	void sceneWillAppear(ofxScene * fromScreen);
 	void sceneDidDisappear(ofxScene * fromScreen);

@@ -115,11 +115,20 @@ void gTransition::draw(){
 }
 
 //--------------------------------------------------------------
-void gTransition::mousePressed(int x, int y, int button){
-	selection[configStep] = x;
+void gTransition::keyPressed(int key){
+	selection[configStep] = key / 50;
 	configStep++;
 	if (configStep == 3){
-		result = (int)(selection[0] + selection[1] + selection[2])/100;
+		result = (int)(selection[0] + selection[1] + selection[2]);
+	}
+}
+
+//--------------------------------------------------------------
+void gTransition::mousePressed(int x, int y, int button){
+	selection[configStep] = x / (ofGetWidth() / 3);
+	configStep++;
+	if (configStep == 3){
+		result = (int)(selection[0] + selection[1] + selection[2]);
 	}
 }
 

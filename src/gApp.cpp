@@ -25,10 +25,12 @@ void galaxieApp::setup(){
 	stateGalaxie->addScene(new gInitZone(), INIT);
 	stateGalaxie->addScene(new gTransition(), INTERACTION);
 	stateGalaxie->addScene(new gPlanet(), PLANET);
-	
+
 	stateGalaxie->setCurtainDropTime(1.0);
 	stateGalaxie->setCurtainStayTime(0.0);
 	stateGalaxie->setCurtainRiseTime(1.0);
+
+	configControls = 0;
 }
 
 //--------------------------------------------------------------
@@ -70,18 +72,27 @@ void galaxieApp::draw(){
 
 //--------------------------------------------------------------
 void galaxieApp::onNewMessage(string & byteReceived){
-	stateGalaxie->onNewMessage(byteReceived);
-	sendedByte = ofToInt(byteReceived);
-	cout << sendedByte << "\n";
-	//if (planetState == 1 || planetState == 2 || planetState == 3){
-	//	planet.select(sendedByte, galaxieState);
-	//} else if (planetState == 4){
-	//	planet.interaction(sendedByte);
-	//}
+	if (stateGalaxie->getCurrentSceneID() == 2) {
+		stateGalaxie->onNewMessage(byteReceived);
+		sendedByte = ofToInt(byteReceived);
+		cout << sendedByte << "\n";
+	}
 }
 
 //--------------------------------------------------------------
 void galaxieApp::keyPressed(int key){
+	if (key == ' ') {
+		if (stateGalaxie->getCurrentSceneID() == 3) {
+			stateGalaxie->goToScene(INTERACTION);
+		}
+	} else {
+		stateGalaxie->keyPressed(key);
+		configControls++;
+		if (configControls >= 3) {
+			stateGalaxie->goToScene(PLANET);
+			configControls = 0;
+		}
+	}
 }
 
 //--------------------------------------------------------------
@@ -101,21 +112,24 @@ void galaxieApp::mouseDragged(int x, int y, int button){
 void galaxieApp::mousePressed(int x, int y, int button){
 	stateGalaxie->mousePressed(x, y, button);
 	switch (stateGalaxie->getCurrentSceneID()){
-		case 1:
-			CENTER_X = x;
-			CENTER_Y = y;
-			galaxieApp::setupI();
-			stateGalaxie->goToScene(INTERACTION);
-			break;
-		case 2:
-			//if (makeTransition.configStep() != 0)
-				stateGalaxie->goToScene(PLANET);
-			break;
-		case 3:
-			stateGalaxie->goToScene(INTERACTION);
-			break;
-		default:
-			break;
+	case 1:
+		CENTER_X = x;
+		CENTER_Y = y;
+		galaxieApp::setupI();
+		stateGalaxie->goToScene(INTERACTION);
+		break;
+	case 2:
+		configControls++;
+		if (configControls >= 3) {
+			stateGalaxie->goToScene(PLANET);
+			configControls = 0;
+		}
+		break;
+	case 3:
+		stateGalaxie->goToScene(INTERACTION);
+		break;
+	default:
+		break;
 	}
 }
 
