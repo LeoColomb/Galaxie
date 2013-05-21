@@ -49,9 +49,12 @@ public:
 	ofxXivelyInput* xivelyTransfert;
 
 	int thisPlanet;
+
 private:
 	int proximity; // Captor sensor interpretation
 	int step;
+	ofImage img;
+	bool bSnapshot;		
 };
 
 #endif // PLANET_H_INCLUDED

@@ -59,6 +59,15 @@ void gPlanet::update(int newStep){
 		soundPlay[step].stop();
 	} else
 		playTime = 0.0;
+
+	if (newStep == 3 && !bSnapshot){
+		img.grabScreen(0, 0, ofGetWidth(), ofGetHeight());
+		string fileName = "snapshot_" + ofToString(ofRandom(1000)) + ".png";
+		img.saveImage(fileName);
+		ofLogNotice() << "Snapshot: " << fileName << endl;
+		bSnapshot = true;
+	}
+
 	soundPlay[newStep].play();
 	soundPlay[newStep].setPosition(playTime);
 	step = newStep;
@@ -88,7 +97,7 @@ void gPlanet::draw(){
 					equilateral[i].x = (200) * cos(angle);
 					equilateral[i].y = (200) * sin(angle);
 					angle += TWO_PI/3;
-					ofLogNotice() << equilateral[i].x;
+					//ofLogNotice() << equilateral[i].x;
 				}
 				for(int i = 0; i < 4; i++){
 					ofTriangle(equilateral[1], equilateral[2], equilateral[3]);
@@ -141,9 +150,10 @@ void gPlanet::draw(){
 
 //--------------------------------------------------------------
 void gPlanet::sceneWillAppear(ofxScene * fromScreen){
+	bSnapshot = false;
 	step = -1;
 	galaxieConf.pushTag("galaxie");
-//	int testddd = getSharedData().selectionPlanet;
+	//	int testddd = getSharedData().selectionPlanet;
 	galaxieConf.pushTag("planet"/*, testddd*/);
 	for (int i = 0; i < 4; i++){
 		soundPlay[i].loadSound("sounds/" + galaxieConf.getValue("sound", "") + "-" + ofToString(i + 1) + ".wav");
