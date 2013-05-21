@@ -20,8 +20,15 @@ gPlanet::gPlanet(){
 	xivelyTransfert->setMinInterval(5);
 	xivelyTransfert->input(OFX_XIVELY_EEML, true);    /// forcing update = ignoring min interval
 
+	float angle = HALF_PI; // Angle from 0 to 360
+	for(int i = 0; i < 3; i++){
+		equilateral[i].x = (400) * cos(angle);
+		equilateral[i].y = (400) * sin(angle);
+		angle += TWO_PI/3;
+	}
+
 	// Init all forms available
-	float angle = 0; // Angle from 0 to 360
+	angle = 0; // Angle from 0 to 360
 	while (angle < TWO_PI ) {
 		rotor.lineTo(200*cos(angle), 200*sin(angle));
 		rotor.lineTo(150*cos(angle+(TWO_PI / 30)), 150*sin(angle+(TWO_PI / 30)));
@@ -75,47 +82,33 @@ void gPlanet::update(int newStep){
 
 //--------------------------------------------------------------
 void gPlanet::draw(){
+	ofNoFill();
 	galaxieConf.pushTag("galaxie");
 	galaxieConf.pushTag("planet", thisPlanet);
 	galaxieConf.pushTag("structure");
-	if (galaxieConf.tagExists("triangles")){
-		galaxieConf.pushTag("triangles");
-		for (int i = 0; i < galaxieConf.getNumTags("triangle"); i++)
-		{
-			galaxieConf.pushTag("triangle", i);
-			ofPushMatrix();
-			ofSetHexColor(galaxieConf.getValue("color", 0));
-			if (galaxieConf.tagExists("rotative"))
-				ofRotate(sinf(ofGetElapsedTimef())*180);
-			ofNoFill();
-			if (galaxieConf.tagExists("alternative")){
-				ofPoint equilateral[3];
-				float angle = HALF_PI; // Angle from 0 to 360
-				for(int i = 0; i < 3; i++){
-					equilateral[i].x = (200) * cos(angle);
-					equilateral[i].y = (200) * sin(angle);
-					angle += TWO_PI/3;
-					//ofLogNotice() << equilateral[i].x;
-				}
-				for(int i = 0; i < 4; i++){
-					ofTriangle(equilateral[0], equilateral[1], equilateral[2]);
-				}
-			} else
-				ofTriangle(0,-400,-(600/sinf(PI/3))*cosf(PI/3),200,(600/sinf(PI/3)*cosf(PI/3)),200);
-			ofPopMatrix();
-			galaxieConf.popTag();
+	if (galaxieConf.tagExists("triangle") && (galaxieConf.getAttribute("triangle", "step", 0) >= step)){
+		galaxieConf.pushTag("triangle");
+		ofPushMatrix();
+		ofSetHexColor(galaxieConf.getValue("color", 0));
+		for (int j = 0; j < 4; j++){
+			for(int k = 0; k < 3; k++){
+				equilateral[k].x += 20 * timeTrigo("cos", 2, j);
+				equilateral[k].y += 20 * timeTrigo("sin", 2, j);
+			}
+			ofTriangle(equilateral[0], equilateral[1], equilateral[2]);
 		}
+		ofPopMatrix();
 		galaxieConf.popTag();
 	}
-	if (!galaxieConf.tagExists("rotor")){
+	if (galaxieConf.tagExists("rotor") && galaxieConf.getAttribute("rotor", "step", 0) >= step){
 		ofPushMatrix();
 		ofSetColor(galaxieConf.getValue("rotor:r", 0),galaxieConf.getValue("rotor:g", 0),galaxieConf.getValue("rotor:b", 0));
 		ofRotate(ofGetElapsedTimef()*90);
 		rotor.draw();
 		ofPopMatrix();
 	}
-	if (!galaxieConf.tagExists("curvor")){
-		if (galaxieConf.getAttribute("curvor", "step", 0)-1 == step){
+	if (galaxieConf.tagExists("curvor") && galaxieConf.getAttribute("curvor", "step", 0) >= step){
+		if (galaxieConf.getAttribute("curvor", "step", 0) - 1 == step){
 			ofPushMatrix();
 			ofSetColor(galaxieConf.getValue("curvor:r", 0),galaxieConf.getValue("curvor:g", 0),galaxieConf.getValue("curvor:b", 0));
 			ofRotate(ofGetElapsedTimef()*20);

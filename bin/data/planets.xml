@@ -6,17 +6,11 @@
       <part1>35</part1>
     </colors>
     <structure>
-      <triangles>
-        <triangle step="1">
-          <color>0099ff</color>
-          <alternative />
-        </triangle>
-        <triangle step="2">
-          <distance></distance>
-          <color>0099ff</color>
-          <rotative />
-        </triangle>
-      </triangles>
+      <triangle step="2">
+        <distance></distance>
+        <color>0099ff</color>
+        <rotative />
+      </triangle>
       <rotor step="3">
         <color>0020ff</color>
       </rotor>

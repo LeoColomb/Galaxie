@@ -45,6 +45,7 @@ public:
 	float timeTrigo(string function, float multi = 1, int piTimes = 0);
 
 	ofPolyline rotor, curvor;		// Basic & geometric form for interaction
+	ofPoint equilateral[3];
 	ofxXmlSettings galaxieConf;		// Load XML settings for planet conf
 	ofSoundPlayer soundPlay[4];		// Loadable sound: music
 	ofPath planetCore[4];			// Each planetCore represent one part/arc
