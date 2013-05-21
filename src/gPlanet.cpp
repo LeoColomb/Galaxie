@@ -71,8 +71,6 @@ void gPlanet::update(int newStep){
 	soundPlay[newStep].play();
 	soundPlay[newStep].setPosition(playTime);
 	step = newStep;
-	xivelyTransfert->setValue(1, ofRandom(0,100));
-	xivelyTransfert->input();
 }
 
 //--------------------------------------------------------------
@@ -150,6 +148,7 @@ void gPlanet::draw(){
 
 //--------------------------------------------------------------
 void gPlanet::sceneWillAppear(ofxScene * fromScreen){
+	userActivityStart = ofGetElapsedTimeMillis();
 	bSnapshot = false;
 	step = -1;
 	galaxieConf.pushTag("galaxie");
@@ -201,4 +200,6 @@ void gPlanet::sceneDidDisappear(ofxScene * toScreen){
 	for (int i = 0; i < 4; i++){
 		soundPlay[i].unloadSound();
 	}
+	xivelyTransfert->setValue(1, ofGetElapsedTimeMillis() - userActivityStart);
+	xivelyTransfert->input();
 }

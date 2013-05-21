@@ -24,6 +24,8 @@
 #include <ofxSceneManager/src/ofxScene.h>
 #include <ofxXmlSettings/src/ofxXmlSettings.h>
 #include <ofxXively/src/ofxXively.h>
+#include <ofxTiming/src/ofxTiming.h>
+#include <ofxTimer/src/ofxTimer.h>
 
 //========================================================================
 class gPlanet : public ofxScene{
@@ -47,7 +49,9 @@ public:
 	ofSoundPlayer soundPlay[4];		// Loadable sound: music
 	ofPath planetCore[4];			// Each planetCore represent one part/arc
 	ofxXivelyInput* xivelyTransfert;
+	FadeTimer globalFade;
 
+	long userActivityStart;
 	int thisPlanet;
 
 private:
