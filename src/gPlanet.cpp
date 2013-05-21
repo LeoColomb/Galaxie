@@ -90,7 +90,7 @@ void gPlanet::draw(){
 			ofNoFill();
 			if (galaxieConf.tagExists("alternative")){
 				ofPoint equilateral[3];
-				float angle = 0; // Angle from 0 to 360
+				float angle = HALF_PI; // Angle from 0 to 360
 				for(int i = 0; i < 3; i++){
 					equilateral[i].x = (200) * cos(angle);
 					equilateral[i].y = (200) * sin(angle);
@@ -98,7 +98,7 @@ void gPlanet::draw(){
 					//ofLogNotice() << equilateral[i].x;
 				}
 				for(int i = 0; i < 4; i++){
-					ofTriangle(equilateral[1], equilateral[2], equilateral[3]);
+					ofTriangle(equilateral[0], equilateral[1], equilateral[2]);
 				}
 			} else
 				ofTriangle(0,-400,-(600/sinf(PI/3))*cosf(PI/3),200,(600/sinf(PI/3)*cosf(PI/3)),200);
