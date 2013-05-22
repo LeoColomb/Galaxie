@@ -64,6 +64,7 @@ void galaxieApp::update(){
 void galaxieApp::draw(){
 	if (gInitialized)
 		ofTranslate(CENTER_X, CENTER_Y);
+	ofBackgroundGradient(ofColor::grey, ofColor::black, OF_GRADIENT_CIRCULAR);
 	stateGalaxie->draw();
 }
 
