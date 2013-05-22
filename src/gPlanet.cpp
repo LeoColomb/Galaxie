@@ -37,13 +37,13 @@ gPlanet::gPlanet(){
 	rotor.close();
 	angle = 0;
 	while (angle <= TWO_PI+(TWO_PI / 12) ) {
-		curvor.curveTo(200*cos(angle), 200*sin(angle));
-		curvor.curveTo(150*cos(angle+(TWO_PI / 28)), 150*sin(angle+(TWO_PI / 28)));
+		curvor.curveTo(300*cos(angle), 300*sin(angle));
+		curvor.curveTo(250*cos(angle+(TWO_PI / 28)), 250*sin(angle+(TWO_PI / 28)));
 		angle += TWO_PI / 14;
 	}
 	angle = 0;
 	while (angle <= TWO_PI+(TWO_PI / 12) ) {
-		rayon.curveTo(200*cos(angle), 200*sin(angle));
+		rayon.curveTo(300*cos(angle), 300*sin(angle));
 		rayon.curveTo(150*cos(angle+(TWO_PI / 28))*10, 150*sin(angle+(TWO_PI / 28))*10);
 		angle += TWO_PI / 14;
 	}
@@ -159,13 +159,6 @@ void gPlanet::sceneWillAppear(ofxScene * fromScreen){
 	bSnapshot = false;
 	step = -1;
 	countChange = 0;
-	galaxieConf.pushTag("galaxie");
-	//	int testddd = getSharedData().selectionPlanet;
-	galaxieConf.pushTag("planet"/*, testddd*/);
-	for (int i = 0; i < 4; i++){
-		soundPlay[i].loadSound("sounds/" + galaxieConf.getValue("sound", "") + "-" + ofToString(i + 1) + ".wav");
-		soundPlay[i].setLoop(true);
-	}
 }
 
 //--------------------------------------------------------------
@@ -207,16 +200,16 @@ void gPlanet::onNewMessage(string & byteReceived){
 		if (countChange < 0)
 			countChange = 0;
 		countChange++;
-		if (countChange >= 4)
+		if (countChange >= 5)
 			interaction(step + 1);
 	}
 	else if (sendedByte > valuesRang[step]) {
 		if (countChange > 0)
 			countChange = 0;
 		countChange--;
-		if (countChange <= -4) {
+		if (countChange <= -5) {
 			if (step > 0)
-			interaction(step - 1);
+				interaction(step - 1);
 		}
 	}
 }
@@ -230,4 +223,15 @@ void gPlanet::sceneDidDisappear(ofxScene * toScreen){
 	xivelyTransfert->input();
 	galaxieConf.popTag();
 	galaxieConf.popTag();
+}
+
+//--------------------------------------------------------------
+void gPlanet::shareData(int data){
+	galaxieConf.pushTag("galaxie");
+	galaxieConf.pushTag("planet", ofClamp(data, 0, galaxieConf.getNumTags("planet")-1));
+	for (int i = 0; i < 4; i++){
+		soundPlay[i].loadSound("sounds/" + galaxieConf.getValue("sound", "") + "-" + ofToString(i + 1) + ".wav");
+		soundPlay[i].setLoop(true);
+	}
+
 }

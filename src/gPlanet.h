@@ -53,17 +53,15 @@ class gPlanet : public ofxScene{
 public:
 	gPlanet();
 
-	friend void selectPlanet();
-
 	void update(int newStep);
 	void draw();
 	void sceneWillAppear(ofxScene * fromScreen);
 	void interaction(int variationD);
 	void mouseMoved(int x, int y);
 	void onNewMessage(string & byteReceived);
-	//	void sceneWillDisappear(ofxScene * toScreen);
 	void sceneDidDisappear(ofxScene * fromScreen);
 	float timeTrigo(string function, float multi = 1, int piTimes = 0);
+	void shareData(int data);
 
 	ofPolyline rotor, curvor, rayon;// Basic & geometric form for interaction
 	ofPoint equilateral[3];
@@ -75,7 +73,6 @@ public:
 	snapshot makeScreenshot;
 
 	long userActivityStart;
-	int thisPlanet;
 	int valuesRang[5];
 	int countChange;
 

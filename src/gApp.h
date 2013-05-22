@@ -60,4 +60,8 @@ public:
 	string byteReceived;
 	int sendedByte;
 	int countChange;
+
+private:
+	int selection[3];
+	bool bSetup;
 };

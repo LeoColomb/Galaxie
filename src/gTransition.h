@@ -19,7 +19,6 @@
 
 #include "ofMain.h"
 #include "gConstants.h"
-#include "gPlanet.h"
 
 #include <ofxSceneManager/src/ofxScene.h>
 
@@ -48,20 +47,13 @@ public:
 
 	void update();
 	void draw();
-	void keyPressed(int key);
-	void mousePressed(int x, int y, int button);
 	void sceneWillAppear(ofxScene * fromScreen);
 	void sceneDidDisappear(ofxScene * fromScreen);
-	void selectPlanet(gPlanet * toSelect);
 
 	int configStep;
 
 	ofPath planetCore[4];
 	vector<particules> allParticules;
-
-	int result;
-private:
-	int selection[3];
 };
 
 #endif // TRANSITIONS_H_INCLUDED

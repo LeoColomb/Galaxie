@@ -2,7 +2,8 @@
   <planet>
     <name>AX657J0OG5DD466</name>
     <colors>
-      <fondamentale>2980b9</fondamentale>
+      <fondamentale>bdc3c7</fondamentale>
+      <part>204</part>
       <part>0</part>
     </colors>
     <structure>
@@ -15,14 +16,8 @@
       </element>
       <element>
         <type>1</type>
-        <step>0</step>
-        <color>2ecc71</color>
-      </element>
-      <element>
-        <type>2</type>
         <step>1</step>
-        <color>16a085</color>
-        <rotation>30</rotation>
+        <color>2ecc71</color>
       </element>
       <element>
         <type>3</type>
@@ -32,5 +27,63 @@
       </element>
     </structure>
     <sound>Day of the Weird Beginning</sound>
+  </planet>
+  <planet>
+    <name>OUD6546DSR5FD5G4FD5</name>
+    <colors>
+      <fondamentale>bdc3c7</fondamentale>
+      <part>204</part>
+      <part>0</part>
+    </colors>
+    <structure>
+      <element>
+        <type>1</type>
+        <step>2</step>
+        <distance></distance>
+        <color>e74c3c</color>
+        <rotation>20</rotation>
+      </element>
+      <element>
+        <type>2</type>
+        <step>1</step>
+        <color>2ecc71</color>
+      </element>
+      <element>
+        <type>3</type>
+        <step>3</step>
+        <color>8e44ad</color>
+        <rotation>-5</rotation>
+      </element>
+    </structure>
+    <sound>The Mess and the Magic</sound>
+  </planet>
+  <planet>
+    <name>OUD6546DSR5FD5G4FD5</name>
+    <colors>
+      <fondamentale>bdc3c7</fondamentale>
+      <part>204</part>
+      <part>0</part>
+    </colors>
+    <structure>
+      <element>
+        <type>1</type>
+        <step>2</step>
+        <distance></distance>
+        <color>e74c3c</color>
+        <rotation>20</rotation>
+      </element>
+      <element>
+        <type>2</type>
+        <step>1</step>
+        <color>2ecc71</color>
+      </element>
+      <element>
+        <type>3</type>
+        <step>3</step>
+        <color>8e44ad</color>
+        <rotation>-5</rotation>
+      </element>
+    </structure>
+    <sound>Flutes</sound>
   </planet>
 </galaxie>

@@ -19,7 +19,7 @@ void galaxieApp::setup(){
 	ofSetCircleResolution(100);
 	ofFill();
 
-	gInitialized = false;
+	gInitialized = bSetup = false;
 
 	stateGalaxie = ofxSceneManager::instance();
 	stateGalaxie->addScene(new gInitZone(), INIT);
@@ -55,6 +55,10 @@ void galaxieApp::setupI(){
 
 //--------------------------------------------------------------
 void galaxieApp::update(){
+	if (stateGalaxie->getCurrentSceneID() == 3 && !bSetup) {
+		stateGalaxie->shareData((int)(selection[0] + selection[1] + selection[2]));
+		bSetup = true;
+	}
 	stateGalaxie->update(0.016666666);
 	if (WITH_ARDUINO && arduino.isInitialized()){
 		arduino.writeByte(planetState);
@@ -65,7 +69,7 @@ void galaxieApp::update(){
 void galaxieApp::draw(){
 	if (gInitialized)
 		ofTranslate(CENTER_X, CENTER_Y);
-	ofBackgroundGradient(ofColor::grey, ofColor::black, OF_GRADIENT_CIRCULAR);
+	//ofBackgroundGradient(ofColor::dimGrey, ofColor::black, OF_GRADIENT_CIRCULAR);
 	stateGalaxie->draw();
 }
 
@@ -94,12 +98,14 @@ void galaxieApp::keyPressed(int key){
 		if (stateGalaxie->getCurrentSceneID() == 3) {
 			stateGalaxie->goToScene(INTERACTION);
 			planetState = 0;
+			bSetup = false;
 		}
 	} else {
 		stateGalaxie->keyPressed(key);
 		if (stateGalaxie->getCurrentSceneID() != 3) {
+			selection[planetState] = key / 50;
 			planetState++;
-			if (planetState >= 3 && stateGalaxie->getCurrentSceneID() != 3) {
+			if (planetState >= 3) {
 				stateGalaxie->goToScene(PLANET);
 			}
 		}
@@ -131,13 +137,15 @@ void galaxieApp::mousePressed(int x, int y, int button){
 		stateGalaxie->goToScene(INTERACTION);
 		break;
 	case 2:
+		selection[planetState] = x / (ofGetWidth() / 3);
 		planetState++;
-		if (planetState >= 3) {
+		if (planetState >= 3){
 			stateGalaxie->goToScene(PLANET);
 		}
 		break;
 	case 3:
 		planetState = 0;
+		bSetup = false;
 		stateGalaxie->goToScene(INTERACTION);
 		break;
 	default:
