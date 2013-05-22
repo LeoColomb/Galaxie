@@ -20,13 +20,14 @@
 // Arduino Configuration
 #define WITH_ARDUINO	true
 #define SERIAL_PORT     "COM3"
+#define SENSOR_MAX		200
 
 // Xively Parameters
 #define WITH_XIVELY		false
 #define XIVELY_API_KEY	"ASdIxEjsiUFxwfNVxByvJo7oQhySAKw3WE01K2VGcDBiQT0g"
 #define XIVELY_FEED 	126791
 
-enum gStates{ 
+enum gStates{
 	INIT = 1,
 	INTERACTION,
 	PLANET

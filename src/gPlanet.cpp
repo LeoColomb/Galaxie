@@ -63,10 +63,10 @@ gPlanet::gPlanet(){
 		planetCore[i].close();
 	}
 
-	int value=300;
+	int value = SENSOR_MAX;
 	for (int i = 0; i < 5; i++) {
 		valuesRang[i] = value;
-		value -= 300 / 4;
+		value -= SENSOR_MAX / 4;
 	}
 }
 
@@ -204,18 +204,20 @@ void gPlanet::onNewMessage(string & byteReceived){
 		countChange = 0;
 		return;
 	} else if (sendedByte < valuesRang[step + 1]) {
-		if (countChange > 0)
-			countChange = 0;
-		countChange--;
-		if (countChange <= -4)
-			interaction(step + 1);
-	}
-	else if (sendedByte > valuesRang[step]) {
 		if (countChange < 0)
 			countChange = 0;
 		countChange++;
 		if (countChange >= 4)
+			interaction(step + 1);
+	}
+	else if (sendedByte > valuesRang[step]) {
+		if (countChange > 0)
+			countChange = 0;
+		countChange--;
+		if (countChange <= -4) {
+			if (step > 0)
 			interaction(step - 1);
+		}
 	}
 }
 

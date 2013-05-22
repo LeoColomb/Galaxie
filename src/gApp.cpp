@@ -31,6 +31,7 @@ void galaxieApp::setup(){
 	stateGalaxie->setCurtainRiseTime(1.0);
 
 	planetState = 0;
+	countChange = -1;
 }
 
 //--------------------------------------------------------------
@@ -71,10 +72,20 @@ void galaxieApp::draw(){
 //--------------------------------------------------------------
 void galaxieApp::onNewMessage(string & byteReceived){
 	if (stateGalaxie->getCurrentSceneID() == 3) {
-		stateGalaxie->onNewMessage(byteReceived);
 		sendedByte = ofToInt(byteReceived);
 		cout << "[Arduino] " << sendedByte << "\n";
+		if (sendedByte < SENSOR_MAX) {
+			countChange = 0;
+		} else {
+			if (countChange >= 0)
+				countChange++;
+			if (countChange > 20) {
+				stateGalaxie->goToScene(INTERACTION);
+				countChange = -1;
+			}
+		}
 	}
+	stateGalaxie->onNewMessage(byteReceived);
 }
 
 //--------------------------------------------------------------

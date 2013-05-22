@@ -59,4 +59,5 @@ public:
 	void onNewMessage(string & byteReceived);
 	string byteReceived;
 	int sendedByte;
+	int countChange;
 };
