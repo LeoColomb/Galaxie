@@ -29,7 +29,7 @@
 
 //========================================================================
 class snapshot : public ofThread{
-	public:
+public:
 	void threadedFunction() {
 		lock();
 		unlock();

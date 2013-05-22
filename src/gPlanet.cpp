@@ -166,12 +166,12 @@ float gPlanet::timeTrigo(string function, float multi, int piTimes){
 	if (function == "cos")
 		if (multi >= 0)
 			return cosf((ofGetElapsedTimef() * multi) + piTimes * HALF_PI);
-		else 
+		else
 			return cosf((ofGetElapsedTimef() / -multi) + piTimes * HALF_PI);
 	else if (function == "sin")
 		if (multi >= 0)
 			return sinf((ofGetElapsedTimef() * multi) + piTimes * HALF_PI);
-		else 
+		else
 			return sinf((ofGetElapsedTimef() / -multi) + piTimes * HALF_PI);
 	else
 		return 0;
@@ -233,5 +233,4 @@ void gPlanet::shareData(int data){
 		soundPlay[i].loadSound("sounds/" + galaxieConf.getValue("sound", "") + "-" + ofToString(i + 1) + ".wav");
 		soundPlay[i].setLoop(true);
 	}
-
 }
