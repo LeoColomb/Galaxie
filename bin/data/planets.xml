@@ -2,27 +2,33 @@
   <planet>
     <name>AX657J0OG5DD466</name>
     <colors>
-      <fondamentale>34495e</fondamentale>
-      <part1>35</part1>
+      <fondamentale>2980b9</fondamentale>
+      <part>0</part>
     </colors>
     <structure>
       <element>
         <type>0</type>
-        <step>3</step>
+        <step>2</step>
         <distance></distance>
         <color>e74c3c</color>
         <rotation>20</rotation>
       </element>
       <element>
         <type>1</type>
-        <step>2</step>
+        <step>0</step>
         <color>2ecc71</color>
       </element>
       <element>
         <type>2</type>
         <step>1</step>
         <color>16a085</color>
-        <rotation>50</rotation>
+        <rotation>30</rotation>
+      </element>
+      <element>
+        <type>3</type>
+        <step>3</step>
+        <color>8e44ad</color>
+        <rotation>-5</rotation>
       </element>
     </structure>
     <sound>Day of the Weird Beginning</sound>

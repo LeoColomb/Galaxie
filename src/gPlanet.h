@@ -28,15 +28,24 @@
 #include <ofxTimer/src/ofxTimer.h>
 
 //========================================================================
-class screenshot : public ofThread{
-	ofImage img;
-
-	void screenshot::threadedFunction() {
-		img.grabScreen(0, 0, ofGetWidth(), ofGetHeight());
-		string fileName = "snapshot_" + ofToString(ofRandom(1000)) + ".png";
-		img.saveImage(fileName);
+class snapshot : public ofThread{
+	public:
+	void threadedFunction() {
+		lock();
+		unlock();
+		fileName = "Snapshot_" + ofToString(ofGetHours()) + "_" + ofToString(ofGetMinutes()) + ".png";
+		screen.saveImage(fileName);
 		ofLogNotice() << "Snapshot: " << fileName << endl;
-	};
+	}
+	void start(){
+		startThread(true, false); // blocking, verbose
+	}
+	void stop(){
+		stopThread();
+	}
+
+	ofImage screen;
+	string fileName;
 };
 
 //========================================================================
@@ -52,18 +61,18 @@ public:
 	void interaction(int variationD);
 	void mouseMoved(int x, int y);
 	void onNewMessage(string & byteReceived);
-//	void sceneWillDisappear(ofxScene * toScreen);
+	//	void sceneWillDisappear(ofxScene * toScreen);
 	void sceneDidDisappear(ofxScene * fromScreen);
 	float timeTrigo(string function, float multi = 1, int piTimes = 0);
 
-	ofPolyline rotor, curvor;		// Basic & geometric form for interaction
+	ofPolyline rotor, curvor, rayon;// Basic & geometric form for interaction
 	ofPoint equilateral[3];
 	ofxXmlSettings galaxieConf;		// Load XML settings for planet conf
 	ofSoundPlayer soundPlay[4];		// Loadable sound: music
 	ofPath planetCore[4];			// Each planetCore represent one part/arc
 	ofxXivelyInput* xivelyTransfert;
 	FadeTimer globalFade;
-	screenshot makeScreenshot;
+	snapshot makeScreenshot;
 
 	long userActivityStart;
 	int thisPlanet;
@@ -73,7 +82,7 @@ public:
 private:
 	int proximity; // Captor sensor interpretation
 	int step;
-	bool bSnapshot;		
+	bool bSnapshot;
 };
 
 #endif // PLANET_H_INCLUDED

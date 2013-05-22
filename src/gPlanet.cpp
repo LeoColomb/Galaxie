@@ -41,6 +41,12 @@ gPlanet::gPlanet(){
 		curvor.curveTo(150*cos(angle+(TWO_PI / 28)), 150*sin(angle+(TWO_PI / 28)));
 		angle += TWO_PI / 14;
 	}
+	angle = 0;
+	while (angle <= TWO_PI+(TWO_PI / 12) ) {
+		rayon.curveTo(200*cos(angle), 200*sin(angle));
+		rayon.curveTo(150*cos(angle+(TWO_PI / 28))*10, 150*sin(angle+(TWO_PI / 28))*10);
+		angle += TWO_PI / 14;
+	}
 
 	// Init parts of central zone: planet core
 	for (int i = 0; i < 4; i++){
@@ -74,9 +80,12 @@ void gPlanet::update(int newStep){
 		playTime = 0.0;
 
 	if (newStep == 2 && step == 3 && !bSnapshot){
-		makeScreenshot.startThread();
+		makeScreenshot.start();
+		makeScreenshot.lock();
+		makeScreenshot.screen.grabScreen(0, 0, ofGetWidth(), ofGetHeight());
+		makeScreenshot.unlock();
 		bSnapshot = true;
-		makeScreenshot.stopThread();
+		makeScreenshot.stop();
 	}
 
 	soundPlay[newStep].play();
@@ -93,6 +102,7 @@ void gPlanet::draw(){
 		if (galaxieConf.getValue("step", 0) <= step) {
 			ofSetHexColor(ofHexToInt(galaxieConf.getValue("color", "")));
 			ofPushMatrix();
+			ofTranslate(0, 0, sinf(ofGetElapsedTimef()));
 			ofRotate(ofGetElapsedTimef() * galaxieConf.getValue("rotation", 0));
 			switch (galaxieConf.getValue("type", 0)) {
 			case 0: // Triangle
@@ -109,6 +119,9 @@ void gPlanet::draw(){
 				break;
 			case 2: // Curvor
 				curvor.draw();
+				break;
+			case 3: // Rayon
+				rayon.draw();
 				break;
 			default:
 				break;
@@ -127,7 +140,7 @@ void gPlanet::draw(){
 	ofCircle(0,0,100);
 
 	ofColor alternColor(ofColor::fromHsb((timeTrigo("sin")/8) * 128 + 128, 255, 255));
-	ofColor alternBaW(ofColor::fromHsb(galaxieConf.getValue("part1", 0), 0, (timeTrigo("sin")/2) * 128 + 128));
+	ofColor alternBaW(ofColor::fromHsb(galaxieConf.getValue("part", 0), 78, (timeTrigo("sin")/2) * 110 + 100));
 	galaxieConf.popTag();
 
 	planetCore[0].setColor(alternBaW);
@@ -158,9 +171,15 @@ void gPlanet::sceneWillAppear(ofxScene * fromScreen){
 //--------------------------------------------------------------
 float gPlanet::timeTrigo(string function, float multi, int piTimes){
 	if (function == "cos")
-		return cosf((ofGetElapsedTimef() * multi) + piTimes * HALF_PI);
+		if (multi >= 0)
+			return cosf((ofGetElapsedTimef() * multi) + piTimes * HALF_PI);
+		else 
+			return cosf((ofGetElapsedTimef() / -multi) + piTimes * HALF_PI);
 	else if (function == "sin")
-		return sinf((ofGetElapsedTimef() * multi) + piTimes * HALF_PI);
+		if (multi >= 0)
+			return sinf((ofGetElapsedTimef() * multi) + piTimes * HALF_PI);
+		else 
+			return sinf((ofGetElapsedTimef() / -multi) + piTimes * HALF_PI);
 	else
 		return 0;
 }
@@ -170,6 +189,7 @@ void gPlanet::interaction(int varianceD){
 	if (step != varianceD){
 		update(varianceD);
 	}
+	countChange = 0;
 }
 
 //--------------------------------------------------------------
@@ -180,28 +200,22 @@ void gPlanet::mouseMoved(int x, int y){
 //--------------------------------------------------------------
 void gPlanet::onNewMessage(string & byteReceived){
 	int sendedByte = ofToInt(byteReceived);
-	if (ofInRange(sendedByte, valuesRang[step + 1], valuesRang[step]))
+	if (ofInRange(sendedByte, valuesRang[step + 1], valuesRang[step])) {
+		countChange = 0;
 		return;
-	else if (sendedByte < valuesRang[step + 1]) {
+	} else if (sendedByte < valuesRang[step + 1]) {
 		if (countChange > 0)
 			countChange = 0;
 		countChange--;
-		if (countChange <= -3) {
+		if (countChange <= -4)
 			interaction(step + 1);
-		} else {
-			return;
-		}
 	}
 	else if (sendedByte > valuesRang[step]) {
 		if (countChange < 0)
 			countChange = 0;
 		countChange++;
-		if (countChange >= 3) {
+		if (countChange >= 4)
 			interaction(step - 1);
-		} else {
-			return;
-		}
-		countChange = 0;
 	}
 }
 
