@@ -74,11 +74,9 @@ void gPlanet::update(int newStep){
 		playTime = 0.0;
 
 	if (newStep == 2 && step == 3 && !bSnapshot){
-		img.grabScreen(0, 0, ofGetWidth(), ofGetHeight());
-		string fileName = "snapshot_" + ofToString(ofRandom(1000)) + ".png";
-		img.saveImage(fileName);
-		ofLogNotice() << "Snapshot: " << fileName << endl;
+		makeScreenshot.startThread();
 		bSnapshot = true;
+		makeScreenshot.stopThread();
 	}
 
 	soundPlay[newStep].play();

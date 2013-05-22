@@ -28,6 +28,18 @@
 #include <ofxTimer/src/ofxTimer.h>
 
 //========================================================================
+class screenshot : public ofThread{
+	ofImage img;
+
+	void screenshot::threadedFunction() {
+		img.grabScreen(0, 0, ofGetWidth(), ofGetHeight());
+		string fileName = "snapshot_" + ofToString(ofRandom(1000)) + ".png";
+		img.saveImage(fileName);
+		ofLogNotice() << "Snapshot: " << fileName << endl;
+	};
+};
+
+//========================================================================
 class gPlanet : public ofxScene{
 public:
 	gPlanet();
@@ -51,6 +63,7 @@ public:
 	ofPath planetCore[4];			// Each planetCore represent one part/arc
 	ofxXivelyInput* xivelyTransfert;
 	FadeTimer globalFade;
+	screenshot makeScreenshot;
 
 	long userActivityStart;
 	int thisPlanet;
@@ -60,7 +73,6 @@ public:
 private:
 	int proximity; // Captor sensor interpretation
 	int step;
-	ofImage img;
 	bool bSnapshot;		
 };
 
