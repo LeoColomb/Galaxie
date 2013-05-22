@@ -73,7 +73,7 @@ void gPlanet::update(int newStep){
 	} else
 		playTime = 0.0;
 
-	if (newStep == 3 && !bSnapshot){
+	if (newStep == 2 && step == 3 && !bSnapshot){
 		img.grabScreen(0, 0, ofGetWidth(), ofGetHeight());
 		string fileName = "snapshot_" + ofToString(ofRandom(1000)) + ".png";
 		img.saveImage(fileName);
@@ -89,50 +89,47 @@ void gPlanet::update(int newStep){
 //--------------------------------------------------------------
 void gPlanet::draw(){
 	ofNoFill();
-	galaxieConf.pushTag("galaxie");
-	galaxieConf.pushTag("planet", thisPlanet);
 	galaxieConf.pushTag("structure");
-	if (galaxieConf.tagExists("triangle") && (galaxieConf.getAttribute("triangle", "step", 0) <= step)){
-		galaxieConf.pushTag("triangle");
-		ofPushMatrix();
-		ofSetHexColor(galaxieConf.getValue("color", 0));
-		for (int j = 0; j < 4; j++){
-			for(int k = 0; k < 3; k++){
-				equilateral[k].x += 20 * timeTrigo("cos", 2, j);
-				equilateral[k].y += 20 * timeTrigo("sin", 2, j);
-			}
-			ofTriangle(equilateral[0], equilateral[1], equilateral[2]);
-		}
-		ofPopMatrix();
-		galaxieConf.popTag();
-	}
-	if (galaxieConf.tagExists("rotor") && galaxieConf.getAttribute("rotor", "step", 0) <= step){
-		ofPushMatrix();
-		ofSetColor(galaxieConf.getValue("rotor:r", 0),galaxieConf.getValue("rotor:g", 0),galaxieConf.getValue("rotor:b", 0));
-		ofRotate(ofGetElapsedTimef()*90);
-		rotor.draw();
-		ofPopMatrix();
-	}
-	if (galaxieConf.tagExists("curvor") && galaxieConf.getAttribute("curvor", "step", 0) <= step){
-		if (galaxieConf.getAttribute("curvor", "step", 0) - 1 == step){
+	for (int i = 0; i < galaxieConf.getNumTags("element"); i++) {
+		galaxieConf.pushTag("element", i);
+		if (galaxieConf.getValue("step", 0) <= step) {
+			ofSetHexColor(ofHexToInt(galaxieConf.getValue("color", "")));
 			ofPushMatrix();
-			ofSetColor(galaxieConf.getValue("curvor:r", 0),galaxieConf.getValue("curvor:g", 0),galaxieConf.getValue("curvor:b", 0));
-			ofRotate(ofGetElapsedTimef()*20);
-			curvor.draw();
+			ofRotate(ofGetElapsedTimef() * galaxieConf.getValue("rotation", 0));
+			switch (galaxieConf.getValue("type", 0)) {
+			case 0: // Triangle
+				for (int j = 0; j < 4; j++){
+					for(int k = 0; k < 3; k++){
+						equilateral[k].x += 20 * timeTrigo("cos", 2, j);
+						equilateral[k].y += 20 * timeTrigo("sin", 2, j);
+					}
+					ofTriangle(equilateral[0], equilateral[1], equilateral[2]);
+				}
+				break;
+			case 1: // Rotor
+				rotor.draw();
+				break;
+			case 2: // Curvor
+				curvor.draw();
+				break;
+			default:
+				break;
+			}
 			ofPopMatrix();
 		}
+		galaxieConf.popTag();
 	}
 	galaxieConf.popTag();
 
 	ofFill();
 
 	galaxieConf.pushTag("colors");
-	ofSetHexColor(galaxieConf.getValue("fondamentale", 0));
+	ofSetHexColor(ofHexToInt(galaxieConf.getValue("fondamentale", "")));
+
 	ofCircle(0,0,100);
+
 	ofColor alternColor(ofColor::fromHsb((timeTrigo("sin")/8) * 128 + 128, 255, 255));
 	ofColor alternBaW(ofColor::fromHsb(galaxieConf.getValue("part1", 0), 0, (timeTrigo("sin")/2) * 128 + 128));
-	galaxieConf.popTag();
-	galaxieConf.popTag();
 	galaxieConf.popTag();
 
 	planetCore[0].setColor(alternBaW);
@@ -158,8 +155,6 @@ void gPlanet::sceneWillAppear(ofxScene * fromScreen){
 		soundPlay[i].loadSound("sounds/" + galaxieConf.getValue("sound", "") + "-" + ofToString(i + 1) + ".wav");
 		soundPlay[i].setLoop(true);
 	}
-	galaxieConf.popTag();
-	galaxieConf.popTag();
 }
 
 //--------------------------------------------------------------
@@ -219,4 +214,6 @@ void gPlanet::sceneDidDisappear(ofxScene * toScreen){
 	}
 	xivelyTransfert->setValue(1, ofGetElapsedTimeMillis() - userActivityStart);
 	xivelyTransfert->input();
+	galaxieConf.popTag();
+	galaxieConf.popTag();
 }
