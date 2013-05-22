@@ -98,14 +98,14 @@ void galaxieApp::keyPressed(int key){
 		if (stateGalaxie->getCurrentSceneID() == 3) {
 			stateGalaxie->goToScene(INTERACTION);
 			planetState = 0;
-			bSetup = false;
 		}
 	} else {
 		stateGalaxie->keyPressed(key);
 		if (stateGalaxie->getCurrentSceneID() != 3) {
-			selection[planetState] = key / 50;
+			selection[planetState] = (key - 70) / 3;
 			planetState++;
 			if (planetState >= 3) {
+				bSetup = false;
 				stateGalaxie->goToScene(PLANET);
 			}
 		}
@@ -137,15 +137,15 @@ void galaxieApp::mousePressed(int x, int y, int button){
 		stateGalaxie->goToScene(INTERACTION);
 		break;
 	case 2:
-		selection[planetState] = x / (ofGetWidth() / 3);
+		selection[planetState] = (ofGetWidth() / x) * 3;
 		planetState++;
 		if (planetState >= 3){
+			bSetup = false;
 			stateGalaxie->goToScene(PLANET);
 		}
 		break;
 	case 3:
 		planetState = 0;
-		bSetup = false;
 		stateGalaxie->goToScene(INTERACTION);
 		break;
 	default:

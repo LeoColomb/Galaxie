@@ -62,6 +62,6 @@ public:
 	int countChange;
 
 private:
-	int selection[3];
+	float selection[3];
 	bool bSetup;
 };

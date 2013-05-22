@@ -58,7 +58,7 @@
     <sound>The Mess and the Magic</sound>
   </planet>
   <planet>
-    <name>OUD6546DSR5FD5G4FD5</name>
+    <name>JSFH21H15F121HJFS</name>
     <colors>
       <fondamentale>bdc3c7</fondamentale>
       <part>204</part>
@@ -75,15 +75,73 @@
       <element>
         <type>2</type>
         <step>1</step>
-        <color>2ecc71</color>
+        <color>d35400</color>
       </element>
       <element>
-        <type>3</type>
+        <type>0</type>
         <step>3</step>
-        <color>8e44ad</color>
-        <rotation>-5</rotation>
+        <color>f1c40f</color>
+        <rotation>12</rotation>
       </element>
     </structure>
     <sound>Flutes</sound>
+  </planet>
+  <planet>
+    <name>D21GH12DG154GH</name>
+    <colors>
+      <fondamentale>bdc3c7</fondamentale>
+      <part>204</part>
+      <part>0</part>
+    </colors>
+    <structure>
+      <element>
+        <type>1</type>
+        <step>2</step>
+        <distance></distance>
+        <color>95a5a6</color>
+        <rotation>20</rotation>
+      </element>
+      <element>
+        <type>2</type>
+        <step>1</step>
+        <color>34495e</color>
+      </element>
+      <element>
+        <type>0</type>
+        <step>3</step>
+        <color>95a5a6</color>
+        <rotation>12</rotation>
+      </element>
+    </structure>
+    <sound>Song of Night</sound>
+  </planet>
+  <planet>
+    <name>CBN68T46GH135TH4846</name>
+    <colors>
+      <fondamentale>bdc3c7</fondamentale>
+      <part>204</part>
+      <part>0</part>
+    </colors>
+    <structure>
+      <element>
+        <type>1</type>
+        <step>2</step>
+        <distance></distance>
+        <color>16a085</color>
+        <rotation>20</rotation>
+      </element>
+      <element>
+        <type>2</type>
+        <step>1</step>
+        <color>2980b9</color>
+      </element>
+      <element>
+        <type>0</type>
+        <step>3</step>
+        <color>2c3e50</color>
+        <rotation>12</rotation>
+      </element>
+    </structure>
+    <sound>Loqux Past</sound>
   </planet>
 </galaxie>
