@@ -193,6 +193,9 @@ void gPlanet::mouseMoved(int x, int y){
 //--------------------------------------------------------------
 void gPlanet::onNewMessage(string & byteReceived){
 	int sendedByte = ofToInt(byteReceived);
+			if (sendedByte == 0)
+			sendedByte = SENSOR_MAX + 100;
+
 	if (ofInRange(sendedByte, valuesRang[step + 1], valuesRang[step])) {
 		countChange = 0;
 		return;

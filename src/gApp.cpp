@@ -75,9 +75,11 @@ void galaxieApp::draw(){
 
 //--------------------------------------------------------------
 void galaxieApp::onNewMessage(string & byteReceived){
-	if (stateGalaxie->getCurrentSceneID() == 3) {
 		sendedByte = ofToInt(byteReceived);
 		cout << "[Arduino] " << sendedByte << "\n";
+		if (sendedByte == 0)
+			sendedByte = SENSOR_MAX + 100;
+	if (stateGalaxie->getCurrentSceneID() == 3) {
 		if (sendedByte < SENSOR_MAX) {
 			countChange = 0;
 		} else {
