@@ -98,7 +98,7 @@ void galaxieApp::onNewMessage(string & byteReceived){
 void galaxieApp::keyPressed(int key){
 	switch(key) {
 	case 'f':
-		if (stateGalaxie->getCurrentSceneID() != 2) {
+		if (stateGalaxie->getCurrentSceneID() == 1) {
 			ofToggleFullscreen();
 		}
 		break;
