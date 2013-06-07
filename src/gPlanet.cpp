@@ -231,7 +231,7 @@ void gPlanet::sceneDidDisappear(ofxScene * toScreen){
 //--------------------------------------------------------------
 void gPlanet::shareData(int data){
 	galaxieConf.pushTag("galaxie");
-	galaxieConf.pushTag("planet", ofClamp(data / galaxieConf.getNumTags("planet"), 0, galaxieConf.getNumTags("planet")-1));
+	galaxieConf.pushTag("planet", ofRandom(galaxieConf.getNumTags("planet")));
 	for (int i = 0; i < 4; i++){
 		soundPlay[i].loadSound("sounds/" + galaxieConf.getValue("sound", "") + "-" + ofToString(i + 1) + ".wav");
 		soundPlay[i].setLoop(true);
