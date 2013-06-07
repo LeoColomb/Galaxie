@@ -96,12 +96,19 @@ void galaxieApp::onNewMessage(string & byteReceived){
 
 //--------------------------------------------------------------
 void galaxieApp::keyPressed(int key){
-	if (key == ' ') {
+	switch(key) {
+	case 'f':
+		if (stateGalaxie->getCurrentSceneID() != 2) {
+			ofToggleFullscreen();
+		}
+		break;
+	case ' ':
 		if (stateGalaxie->getCurrentSceneID() == 3) {
 			stateGalaxie->goToScene(INTERACTION);
 			planetState = 0;
 		}
-	} else {
+		break;
+	default:
 		stateGalaxie->keyPressed(key);
 		if (stateGalaxie->getCurrentSceneID() != 3) {
 			selection[planetState] = (key - 70) / 3;
@@ -111,6 +118,7 @@ void galaxieApp::keyPressed(int key){
 				stateGalaxie->goToScene(PLANET);
 			}
 		}
+		break;
 	}
 }
 
