@@ -20,6 +20,7 @@
 
 #include "ofMain.h"
 #include "gConstants.h"
+#include "gParticule.h"
 
 #include <ofxSceneManager/src/ofxScene.h>
 #include <ofxXmlSettings/src/ofxXmlSettings.h>
@@ -68,6 +69,7 @@ public:
 	ofxXmlSettings galaxieConf;		// Load XML settings for planet conf
 	ofSoundPlayer soundPlay[4];		// Loadable sound: music
 	ofPath planetCore[4];			// Each planetCore represent one part/arc
+	vector<particules> allParticules;
 	ofxXivelyInput* xivelyTransfert;
 	FadeTimer globalFade;
 	snapshot makeScreenshot;

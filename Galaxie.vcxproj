@@ -112,6 +112,7 @@
     <ClCompile Include="..\..\..\addons\ofxXmlSettings\libs\tinyxml\src\tinyxmlparser.cpp" />
     <ClCompile Include="..\..\..\addons\ofxXmlSettings\src\ofxXmlSettings.cpp" />
     <ClCompile Include="src\gInitialisation.cpp" />
+    <ClCompile Include="src\gParticule.cpp" />
     <ClCompile Include="src\main.cpp" />
     <ClCompile Include="src\gPlanet.cpp" />
     <ClCompile Include="src\gApp.cpp" />
@@ -142,6 +143,7 @@
     <ClInclude Include="..\..\..\addons\ofxXmlSettings\src\ofxXmlSettings.h" />
     <ClInclude Include="src\gConstants.h" />
     <ClInclude Include="src\gInitialisation.h" />
+    <ClInclude Include="src\gParticule.h" />
     <ClInclude Include="src\gPlanet.h" />
     <ClInclude Include="src\gApp.h" />
     <ClInclude Include="src\gTransition.h" />

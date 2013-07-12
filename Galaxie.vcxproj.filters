@@ -64,6 +64,9 @@
     <ClCompile Include="..\..\..\addons\ofxXmlSettings\libs\tinyxml\src\tinyxmlparser.cpp">
       <Filter>addons\ofxXmlSettings</Filter>
     </ClCompile>
+    <ClCompile Include="src\gParticule.cpp">
+      <Filter>src</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="src">
@@ -181,6 +184,9 @@
     </ClInclude>
     <ClInclude Include="..\..\..\addons\ofxXmlSettings\libs\tinyxml\src\tinyxml.h">
       <Filter>addons\ofxXmlSettings</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gParticule.h">
+      <Filter>src</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

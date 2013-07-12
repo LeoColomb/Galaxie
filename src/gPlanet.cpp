@@ -68,6 +68,10 @@ gPlanet::gPlanet(){
 		valuesRang[i] = value;
 		value -= SENSOR_MAX / 4;
 	}
+
+	for (int i = 0; i < 5; i++){
+		allParticules.push_back(particules());
+	}
 }
 
 //--------------------------------------------------------------
@@ -122,6 +126,11 @@ void gPlanet::draw(){
 				break;
 			case 3: // Rayon
 				rayon.draw();
+				break;
+			case 4: // Particules
+				for(int i = 0; i < allParticules.size(); i++){
+					allParticules[i].draw();
+				}
 				break;
 			default:
 				break;
@@ -226,6 +235,9 @@ void gPlanet::sceneDidDisappear(ofxScene * toScreen){
 	xivelyTransfert->input();
 	galaxieConf.popTag();
 	galaxieConf.popTag();
+	for (int i = 0; i < allParticules.size(); i++){
+		allParticules.pop_back();
+	}
 }
 
 //--------------------------------------------------------------
