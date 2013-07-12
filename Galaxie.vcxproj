@@ -107,9 +107,9 @@
     <ClCompile Include="..\..\..\addons\ofxXively\src\ofxXivelyFeed.cpp" />
     <ClCompile Include="..\..\..\addons\ofxXively\src\ofxXivelyInput.cpp" />
     <ClCompile Include="..\..\..\addons\ofxXively\src\ofxXivelyOutput.cpp" />
-    <ClCompile Include="..\..\..\addons\ofxXmlSettings\libs\tinyxml.cpp" />
-    <ClCompile Include="..\..\..\addons\ofxXmlSettings\libs\tinyxmlerror.cpp" />
-    <ClCompile Include="..\..\..\addons\ofxXmlSettings\libs\tinyxmlparser.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxXmlSettings\libs\tinyxml\src\tinyxml.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxXmlSettings\libs\tinyxml\src\tinyxmlerror.cpp" />
+    <ClCompile Include="..\..\..\addons\ofxXmlSettings\libs\tinyxml\src\tinyxmlparser.cpp" />
     <ClCompile Include="..\..\..\addons\ofxXmlSettings\src\ofxXmlSettings.cpp" />
     <ClCompile Include="src\gInitialisation.cpp" />
     <ClCompile Include="src\main.cpp" />
@@ -138,7 +138,7 @@
     <ClInclude Include="..\..\..\addons\ofxXively\src\ofxXivelyFeed.h" />
     <ClInclude Include="..\..\..\addons\ofxXively\src\ofxXivelyInput.h" />
     <ClInclude Include="..\..\..\addons\ofxXively\src\ofxXivelyOutput.h" />
-    <ClInclude Include="..\..\..\addons\ofxXmlSettings\libs\tinyxml.h" />
+    <ClInclude Include="..\..\..\addons\ofxXmlSettings\libs\tinyxml\src\tinyxml.h" />
     <ClInclude Include="..\..\..\addons\ofxXmlSettings\src\ofxXmlSettings.h" />
     <ClInclude Include="src\gConstants.h" />
     <ClInclude Include="src\gInitialisation.h" />

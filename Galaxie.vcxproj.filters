@@ -16,15 +16,6 @@
     <ClCompile Include="..\..\..\addons\ofxXmlSettings\src\ofxXmlSettings.cpp">
       <Filter>addons\ofxXmlSettings</Filter>
     </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxXmlSettings\libs\tinyxml.cpp">
-      <Filter>addons\ofxXmlSettings</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxXmlSettings\libs\tinyxmlerror.cpp">
-      <Filter>addons\ofxXmlSettings</Filter>
-    </ClCompile>
-    <ClCompile Include="..\..\..\addons\ofxXmlSettings\libs\tinyxmlparser.cpp">
-      <Filter>addons\ofxXmlSettings</Filter>
-    </ClCompile>
     <ClCompile Include="src\gInitialisation.cpp">
       <Filter>src</Filter>
     </ClCompile>
@@ -63,6 +54,15 @@
     </ClCompile>
     <ClCompile Include="..\..\..\addons\ofxXively\src\ofxXivelyOutput.cpp">
       <Filter>addons\ofxXively</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxXmlSettings\libs\tinyxml\src\tinyxml.cpp">
+      <Filter>addons\ofxXmlSettings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxXmlSettings\libs\tinyxml\src\tinyxmlerror.cpp">
+      <Filter>addons\ofxXmlSettings</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\..\addons\ofxXmlSettings\libs\tinyxml\src\tinyxmlparser.cpp">
+      <Filter>addons\ofxXmlSettings</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -125,9 +125,6 @@
     <ClInclude Include="..\..\..\addons\ofxXmlSettings\src\ofxXmlSettings.h">
       <Filter>addons\ofxXmlSettings</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\..\addons\ofxXmlSettings\libs\tinyxml.h">
-      <Filter>addons\ofxXmlSettings</Filter>
-    </ClInclude>
     <ClInclude Include="..\..\..\addons\ofxStateMachine\src\ofxState.h">
       <Filter>addons\ofxStateMachine</Filter>
     </ClInclude>
@@ -181,6 +178,9 @@
     </ClInclude>
     <ClInclude Include="..\..\..\addons\ofxXively\src\ofxXivelyOutput.h">
       <Filter>addons\ofxXively</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\..\addons\ofxXmlSettings\libs\tinyxml\src\tinyxml.h">
+      <Filter>addons\ofxXmlSettings</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
